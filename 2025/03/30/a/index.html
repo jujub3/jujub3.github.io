@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/test/" style="color: #03a9f4">
+                <a href="/tags/test/" style="color: #ffa2c4">
                     test
                 </a>
             </span>
@@ -193,25 +193,6 @@ for n in hexs:
         swapped = hex(((n &lt;&lt; 8) | (n &gt;&gt; 8)) &amp; 0xFFFF)
         result += swapped[2:].zfill(4)
 print(bytes.fromhex(result).decode())
-</code></pre>
-<pre><code>    let codes = document.querySelectorAll(&quot;pre&quot;);
-    for (let i of codes) &#123;
-        let code = i.textContent;
-        let rawLanguage = [...i.classList, ...i.firstChild.classList][0] || &quot;plaintext&quot;;
-        let language = rawLanguage.replace(&#39;language-&#39;, &#39;&#39;);
-        let highlighted;
-        try &#123;
-            highlighted = hljs.highlight(code, &#123; language &#125;).value;
-        &#125; catch &#123;
-            highlighted = code;
-        &#125;
-        i.innerHTML = `
-        &lt;div class=&quot;code-content hljs&quot;&gt;$&#123;highlighted&#125;&lt;/div&gt;
-        &lt;div class=&quot;language&quot;&gt;$&#123;language&#125;&lt;/div&gt; 
-        &lt;div class=&quot;copycode&quot;&gt;
-            &lt;i class=&quot;fa-solid fa-copy fa-fw&quot;&gt;&lt;/i&gt;
-            &lt;i class=&quot;fa-solid fa-check fa-fw&quot;&gt;&lt;/i&gt;
-        &lt;/div&gt;
 </code></pre>
 
     </div>
