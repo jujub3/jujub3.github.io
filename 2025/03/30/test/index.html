@@ -1,17 +1,17 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>test | Hexo</title>
-    <meta name="author" content="John Doe" />
+    <title>test | welcome to my blog</title>
+    <meta name="author" content="jujub3" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="icon" href="/images/head.jpg" />
     <link rel="preconnect" href="https://s4.zstatic.net" />
 <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
 <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -63,7 +63,7 @@
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
         <a class="title" href="/">
-            <span>HEXO</span>
+            <span>WELCOME TO MY BLOG</span>
         </a>
         
         <a href="/">
@@ -95,7 +95,7 @@
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;HEXO</span>
+            <span>&emsp;WELCOME TO MY BLOG</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/test/" style="color: #00a596">
+                <a href="/tags/test/" style="color: #ff7d73">
                     test
                 </a>
             </span>
@@ -186,7 +186,7 @@
     
     <div class="content" v-pre>
         <p>fa</p>
-<pre><code class="language-dump">octs = [(&quot;0o&quot; + n) for n in  dump.split(&quot; &quot;) if n]
+<pre><code class="language-javascript">octs = [(&quot;0o&quot; + n) for n in  dump.split(&quot; &quot;) if n]
 hexs = [int(n, 8) for n in octs]
 result = &quot;&quot;
 for n in hexs:
@@ -210,11 +210,11 @@ print(bytes.fromhex(result).decode())
     <div id="footer-wrap">
         <div>
             &copy;
-            2022 - 2025 Hexo
+            2022 - 2025 welcome to my blog
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
-            &commat;John Doe
+            &commat;jujub3
         </div>
         <div>
             Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
