@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>jujub3</title>
+    <title>a | jujub3</title>
     <meta name="author" content="jujub3" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -42,7 +42,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -152,40 +154,11 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/a2.jpg"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>jujub3</h1>
-                <h3>go big or go home</h3>
-                <h5></h5>
-            </div>
-        </span>
+            <div class="article">
+    <div>
+        <h1>a</h1>
     </div>
-</div>
-<div
-    id="home-posts-wrap"
-    ref="homePostsWrap"
-    true
->
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2025/03/30/a/">
-        <h2 class="post-title">a</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -194,11 +167,25 @@
         </span>
         
         
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
             
-            <pre><code class="language-python">octs = [(&quot;0o&quot; + n) for n in  dump.split(&quot; &quot;) if n]
+            
+            <span class="tag">
+                
+                <a href="/tags/test/" style="color: #03a9f4">
+                    test
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <pre><code class="language-python">octs = [(&quot;0o&quot; + n) for n in  dump.split(&quot; &quot;) if n]
 hexs = [int(n, 8) for n in octs]
 result = &quot;&quot;
 for n in hexs:
@@ -227,122 +214,17 @@ print(bytes.fromhex(result).decode())
         &lt;/div&gt;
 </code></pre>
 
-            
-        </div>
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/test/" style="color: #ff7d73">test</a>
-        </span>
-        
-    </div>
-    <a href="/2025/03/30/a/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2025/03/30/test/">
-        <h2 class="post-title">test</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2025/3/30
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>fa</p>
-<pre><code class="language-python">octs = [(&quot;0o&quot; + n) for n in  dump.split(&quot; &quot;) if n]
-hexs = [int(n, 8) for n in octs]
-result = &quot;&quot;
-for n in hexs:
-    if (len(hex(n)) &gt; 4):
-        swapped = hex(((n &lt;&lt; 8) | (n &gt;&gt; 8)) &amp; 0xFFFF)
-        result += swapped[2:].zfill(4)
-print(bytes.fromhex(result).decode())
-</code></pre>
-<p>fds</p>
-<pre><code class="language-python">octs = [(&quot;0o&quot; + n) for n in  dump.split(&quot; &quot;) if n]
-hexs = [int(n, 8) for n in octs]
-result = &quot;&quot;
-for n in hexs:
-    if (len(hex(n)) &gt; 4):
-        swapped = hex(((n &lt;&lt; 8) | (n &gt;&gt; 8)) &amp; 0xFFFF)
-        result += swapped[2:].zfill(4)
-print(bytes.fromhex(result).decode())
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/test/" style="color: #00bcd4">test</a>
-        </span>
-        
-    </div>
-    <a href="/2025/03/30/test/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
-    
-    <span class="current">1</span>
     
     
     
     
-</div>
-
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
     </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/head.jpg" alt="avatar" />
-        </div>
-        <div class="name">jujub3</div>
-        <div class="description">
-            <p>Description<br>想陪她看海的话，那就先为她刷遍题海吧</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://jujub3.github.io">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
+    
+    
     
 </div>
 
@@ -374,6 +256,29 @@ print(bytes.fromhex(result).decode())
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="jujub3/jujub3.github.io"
+    data-repo-id="R_kgDOOQ-ONw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOOQ-ON84ComAd"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>
