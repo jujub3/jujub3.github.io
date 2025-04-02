@@ -167,10 +167,59 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/THM/" style="color: #ff7d73">
+                    THM
+                </a>
+            </span>
+            
+        </span>
+        
     </div>
     
     <div class="content" v-pre>
-        <p>​	</p>
+        <p>信息搜集，在contact里面找到了这个网站的框架： Silverpeas  ，还有一个用户的名字： scr1ptkiddy  </p>
+<span id="more"></span>
+
+<img src="../Platter/1.png" alt="1" style="zoom:75%;" />
+
+<p>访问：<a target="_blank" rel="noopener" href="http://10.10.168.133:8080/silverpeas%EF%BC%8C%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%99%BB%E5%BD%95%E6%A1%86%E3%80%82">http://10.10.168.133:8080/silverpeas，出现一个登录框。</a></p>
+<p><img src="/../Platter/4.png" alt="4"></p>
+<p>拿着这个项目框架去cve上面搜，会发现一个：Silverpeas CRM - 身份验证绕过</p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/ChrisPritchard/4b6d5c70d9329ef116266a6c238dcb2d">https://gist.github.com/ChrisPritchard/4b6d5c70d9329ef116266a6c238dcb2d</a></p>
+<p>而通过信息搜集发现，这个框架的默认账号密码：SilverAdmin&#x2F;SilverAdmin</p>
+<p>然后按照上面cve操作：最后成功进入后台</p>
+<p><img src="/../Platter/2.png" alt="2"></p>
+<p><img src="/../Platter/3.png" alt="3"></p>
+<p>最后发现有三个用户：</p>
+<pre><code>Manager
+scr1ptkiddy
+Administrateur 
+</code></pre>
+<p>按照上面提到的cve，一个一个的试。最后在Manger发现一个ssh的连接</p>
+<p><img src="/../Platter/9.png" alt="9"></p>
+<pre><code>Username: tim
+
+Password: cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol
+</code></pre>
+<p>然后通过ssh进行连接，拿到第一个flag，并且通过id查看tim的用户信息</p>
+<p><img src="/../Platter/11.png" alt="11"></p>
+<p>发现他是adm组的组员，adm组通常 用于让用户访问系统日志文件  ，例如&#x2F;var&#x2F;log 目录下的日志</p>
+<p>这里还发现了一个用户：tyler</p>
+<p><img src="/../Platter/6.png" alt="6"></p>
+<p>在日志中查询包含 tyler 的文件内容：grep -iR tyler  </p>
+<p><img src="/../Platter/5.png" alt="5"></p>
+<p>发现passwd：_Zd_zx7N823&#x2F;</p>
+<p>然后通过ssh连接上去，发现允许tyler执行任何命令，直接拿root权限，获取flag</p>
+<p><img src="/../Platter/7.png" alt="7"></p>
+<p><img src="/../Platter/8.png" alt="8"></p>
 
     </div>
     
