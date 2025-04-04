@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>Platter | jujub3</title>
+    <title>Tags: 玄机 | jujub3</title>
     <meta name="author" content="jujub3" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,10 +37,6 @@
 
 
 <script src="/js/lib/preview.js"></script>
-
-
-
-
 
 
 
@@ -154,83 +150,65 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>Platter</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2025/4/1
+            <div id="archives">
+    
+    <div class="categories-tags">
+        
+        
+        
+        <span>
+            <a href="/tags/THM/" style="background: #00a596">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                THM
+            </a>
         </span>
         
         
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            
-            <span class="tag">
+        
+        <span>
+            <a href="/tags/%E7%8E%84%E6%9C%BA/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                玄机
+            </a>
+        </span>
+        
+        
+        
+        
+    </div>
+    
+    <div class="timeline">
+        <div class="timeline-tail"></div>
+        <div class="timeline-content">
+            <div class="item-time">2025/4/4</div>
+            <a href="/2025/04/04/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/">
+                <h3>应急响应-webshell查杀</h3>
+            </a>
+            <div class="info">
                 
-                <a href="/tags/THM/" style="color: #ffa2c4">
-                    THM
-                </a>
-            </span>
-            
-        </span>
-        
+                
+                <span class="tags">
+                    <span class="icon">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </span>
+                    
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #ff7d73">
+                            玄机
+                        </a>
+                    </span>
+                    
+                </span>
+                
+            </div>
+        </div>
     </div>
-    
-    <div class="content" v-pre>
-        <p>信息搜集，在contact里面找到了这个网站的框架： Silverpeas  ，还有一个用户的名字： scr1ptkiddy  </p>
-<span id="more"></span>
-
-<p><img src="/../Platter/1.png" alt="1"></p>
-<p>访问：<a target="_blank" rel="noopener" href="http://10.10.168.133:8080/silverpeas%EF%BC%8C%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%99%BB%E5%BD%95%E6%A1%86%E3%80%82">http://10.10.168.133:8080/silverpeas，出现一个登录框。</a></p>
-<p><img src="/../Platter/4.png" alt="4"></p>
-<p>拿着这个项目框架去cve上面搜，会发现一个：Silverpeas CRM - 身份验证绕过</p>
-<p><a target="_blank" rel="noopener" href="https://gist.github.com/ChrisPritchard/4b6d5c70d9329ef116266a6c238dcb2d">https://gist.github.com/ChrisPritchard/4b6d5c70d9329ef116266a6c238dcb2d</a></p>
-<p>而通过信息搜集发现，这个框架的默认账号密码：SilverAdmin&#x2F;SilverAdmin</p>
-<p>然后按照上面cve操作：最后成功进入后台</p>
-<p><img src="/../Platter/2.png" alt="2"></p>
-<p><img src="/../Platter/3.png" alt="3"></p>
-<p>最后发现有三个用户：</p>
-<pre><code>Manager
-scr1ptkiddy
-Administrateur 
-</code></pre>
-<p>按照上面提到的cve，一个一个的试。最后在Manger发现一个ssh的连接</p>
-<p><img src="/../Platter/9.png" alt="9"></p>
-<pre><code>Username: tim
-
-Password: cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol
-</code></pre>
-<p>然后通过ssh进行连接，拿到第一个flag，并且通过id查看tim的用户信息</p>
-<p><img src="/../Platter/11.png" alt="11"></p>
-<p>发现他是adm组的组员，adm组通常 用于让用户访问系统日志文件  ，例如&#x2F;var&#x2F;log 目录下的日志</p>
-<p>这里还发现了一个用户：tyler</p>
-<p><img src="/../Platter/6.png" alt="6"></p>
-<p>在日志中查询包含 tyler 的文件内容：grep -iR tyler  </p>
-<p><img src="/../Platter/5.png" alt="5"></p>
-<p>发现passwd：_Zd_zx7N823&#x2F;</p>
-<p>然后通过ssh连接上去，发现允许tyler执行任何命令，直接拿root权限，获取flag</p>
-<p><img src="/../Platter/7.png" alt="7"></p>
-<p><img src="/../Platter/8.png" alt="8"></p>
-
-    </div>
-    
-    
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
-    </div>
-    
-    
-    
     
 </div>
 
@@ -262,29 +240,6 @@ Password: cm0nt!md0ntf0rg3tth!spa$$w0rdagainlol
         
     </div>
     <script src="/js/main.js"></script>
-    
-    
-<script
-    src="https://giscus.app/client.js"
-    data-repo="jujub3/jujub3.github.io"
-    data-repo-id="R_kgDOOQ-ONw"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOOQ-ON84ComAd"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin
-    async
-></script>
-
-
-
-
-
     
 </body>
 </html>
