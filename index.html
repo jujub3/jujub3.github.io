@@ -199,64 +199,6 @@
         <div class="content" v-pre>
             
             <p>应急响应章节</p>
-<!--mov-->
-
-<h3 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h3><p>前置知识：</p>
-<pre><code class="language-plain">netstat
-
-全称 Network Statistics（网络统计），用于显示网络连接、路由表、接口统计等信息。
-
--a
-
-显示 所有活动连接 和 监听的端口（包括 TCP 和 UDP 协议）。
-
--n
-
-以 数字形式 显示地址和端口号（不解析为主机名或服务名称，加快显示速度）。
-
--o
-
-显示每个连接关联的 进程 ID（PID），方便定位是哪个程序占用了端口。
-</code></pre>
-<p>黑客webshell里面的flag flag{xxxxx-xxxx-xxxx-xxxx-xxxx}</p>
-<p>首先定位web服务器，查看网络发现开放了80端口， 显示所有的网络连接及其关联的进程 ID（PID）  </p>
-<p>netstat -ano</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743752725630-a8bbd770-0a6d-4666-8643-288c0eb972ef.png" alt="img"></p>
-<p>netstat -anp | grep 80						查找当前系统上所有涉及端口80的网络连接</p>
-<p>查看端口对应应用知道了使用的是 web服务器 apache</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743752807159-a87d3e24-3d85-49ba-ba3b-261a234a858d.png" alt="img"></p>
-<p>进入根目录，发现一个shell.php，代码中没有特别的内容。</p>
-<p>然后使用find命令进行查找：看是否包含了恶意函数。</p>
-<pre><code class="language-plain">find ./ -type f -name &quot;.php&quot; | xargs grep &quot;eval(&quot;
-
-find ./ -type f -name &quot;.php&quot; | xargs grep &quot;assert(&quot;
-</code></pre>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743754297474-1b6d1300-0b51-41cd-81f9-34ae47238020.png" alt="img"></p>
-<p>发现了三个文件，一个一个的看。最后在include&#x2F;gz.php中发现了flag</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743754355190-00c810f6-f0e9-4d7c-9cf6-32a95138af91.png" alt="img"></p>
-<h3 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h3><p>黑客使用的什么工具的shell github地址的md5 flag{md5}</p>
-<p>常用的webshell连接工具主要有以下几款：</p>
-<p>caidao，Antsword，Behinder，Godzila  可以通过下面这个文章查看他们的shell特点。对比以下发现16位key。像是Behinder，但是名字是：gz.php，所以就直接指向了Godzila</p>
-<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/324622.html">https://www.freebuf.com/articles/web/324622.html</a></p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743754745713-2b444a44-eb26-4be1-9b2c-5033acdbcf84.png" alt="img"><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743754757365-396eff9d-9f63-49c7-ae53-7dc5af38844a.png" alt="img"></p>
-<p>得到flag：flag{39392de3218c333f794befef07ac9257}</p>
-<h3 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h3><p>黑客隐藏shell的完整路径的md5 flag{md5} 注 : &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;xxx.xxx</p>
-<p>在linux中，文件如果以  .  开头通过ls就不会显示，需要 ls -a 才会显示。之前使用find .&#x2F; -type f -name “*.php”|xargs grep “eval(“</p>
-<p>发现了一个   .Mysqli.php，这个是以 . 开头的，所以断定就是hacker隐藏的shell</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743755525562-83f80198-4272-4684-b20f-abd1fb12ecff.png" alt="img"></p>
-<p>所以路径为：&#x2F;var&#x2F;www&#x2F;html&#x2F;include&#x2F;Db&#x2F;.Mysqli.php</p>
-<p>然后进行md5加密：echo -n “&#x2F;var&#x2F;www&#x2F;html&#x2F;include&#x2F;Db&#x2F;.Mysqli.php”|md5sum</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743755860815-1f17d527-bc1f-4b0e-b472-918b08262569.png" alt="img"></p>
-<h3 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h3><p>黑客免杀马完整路径 md5 flag{md5}</p>
-<p>免杀马：</p>
-<p>是指经过特殊处理和混淆（如加密），使其能够避开杀毒软件和安全检测工具识别的恶意软件或后门程序</p>
-<p>查看apache日志：&#x2F;var&#x2F;log&#x2F;apache2&#x2F;access.log</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743756381211-3cbdb187-35d9-4f18-934e-ac8e976c8d02.png" alt="img"></p>
-<p>查看文件，可以看到经过了base64和异或操作，常见的免杀操作</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80/1743756550699-f7dacb21-ae66-409f-a687-53aaa4ded8c4.png" alt="img"></p>
-<p>路径：&#x2F;var&#x2F;www&#x2F;html&#x2F;wap&#x2F;top.php</p>
-<p>flag{eeff2eabfd9b7a6d26fc1a53d3f7d1de}</p>
-
             
         </div>
     </div>
@@ -310,7 +252,7 @@ find ./ -type f -name &quot;.php&quot; | xargs grep &quot;assert(&quot;
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #ffa2c4">THM</a>
+            <a href="/tags/THM/" style="color: #ff7d73">THM</a>
         </span>
         
     </div>
@@ -388,7 +330,7 @@ find ./ -type f -name &quot;.php&quot; | xargs grep &quot;assert(&quot;
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #ffa2c4">THM</a>
+            <a href="/tags/THM/" style="color: #00a596">THM</a>
         </span>
         
     </div>
@@ -428,7 +370,7 @@ find ./ -type f -name &quot;.php&quot; | xargs grep &quot;assert(&quot;
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #03a9f4">THM</a>
+            <a href="/tags/THM/" style="color: #00a596">THM</a>
         </span>
         
     </div>
@@ -467,7 +409,7 @@ find ./ -type f -name &quot;.php&quot; | xargs grep &quot;assert(&quot;
         
         <span class="tag">
             
-            <a href="/tags/THM/" style="color: #03a9f4">THM</a>
+            <a href="/tags/THM/" style="color: #ffa2c4">THM</a>
         </span>
         
     </div>
