@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #00bcd4">
+                <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #00a596">
                     玄机
                 </a>
             </span>
@@ -203,7 +203,7 @@
 <p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/1743762469373-d7abf89b-a3b7-4583-b33b-b4ed129f29fb.png" alt="img"></p>
 <p>发现有三个ip，得到flag：flag{192.168.200.2,192.168.200.31,192.168.200.32}</p>
 <h3 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h3><p>ssh爆破成功登陆的IP是多少，如果有多个使用”,”分割</p>
-<p>爆破成功会出现Accepted标识。所以顺着以上思路：cat auth.log.1 | grep -a “Accept”</p>
+<p>爆破成功会出现Accepted标识。所以顺着以上思路：cat auth.log.1 | grep -a &quot;Accept&quot;</p>
 <p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/1743762836247-a85a59da-fe46-4516-8055-58ec35ef2450.png" alt="img"></p>
 <p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/1743762915724-bf2f1218-2a64-4e77-8e45-88825ca5657a.png" alt="img"></p>
 <p>flag:flag{192.168.200.2}</p>
@@ -223,7 +223,7 @@
 <h3 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h3><p>黑客登陆主机后新建了一个后门用户，用户名是多少</p>
 <p>在linux中新建用户&#x2F;用户组会在日志中留下<code>new user/new group</code>的痕迹</p>
 <p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/1743763995177-1c940b96-0845-4bbe-a0ee-49aa23e10be6.png" alt="img"></p>
-<p>命令：cat auth.log.1 | grep -a “new user”</p>
+<p>命令：cat auth.log.1 | grep -a &quot;new user&quot;</p>
 <p>得到flag：flag{test2}</p>
 
     </div>
