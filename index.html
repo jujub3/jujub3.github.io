@@ -198,36 +198,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p>s</p>
-<h3 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h3><p>1.web目录存在木马，请找到木马的密码提交</p>
-<p>直接去网站目录：&#x2F;var&#x2F;www&#x2F;html</p>
-<p>得到密码1</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/1743931397075-90d2f6b7-a4a6-4716-a183-0c5206fb8af6.png" alt="img"></p>
-<p>flag{1}</p>
-<h3 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h3><p>2.服务器疑似存在不死马，请找到不死马的密码提交</p>
-<p>首先查找木马具有的特征。</p>
-<pre><code>find ./ -type f -name &quot;*.php&quot; | xargs grep &quot;eval(&quot;
-</code></pre>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/1743931539424-fd0b1332-ab56-4b19-bbd1-abd1a10513c5.png" alt="img"></p>
-<p>一个找到三个，最后锁定index.php。因为有个file_put_contents函数，还故意修改时间戳。很可疑</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/1743930266173-9bd2d633-b9cd-4bea-a733-320204ed7897.png" alt="img"></p>
-<p>得到密码为：hello</p>
-<h3 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h3><p>3.不死马是通过哪个文件生成的，请提交文件名</p>
-<p>有了flag2的基础，可以得到，不死马是通过index.php生成的。</p>
-<p>flag{index.php}</p>
-<h3 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h3><p>4.黑客留下了木马文件，请找出黑客的服务器ip提交</p>
-<p>首先查看日志，看有没有进行暴力破解的痕迹。日志位置：&#x2F;var&#x2F;log&#x2F;auth.log.1，最后都没有发现。</p>
-<pre><code class="language-plain">grep &quot;shell.php&quot; /var/log/auth.log.1
-cat auth.log.1 |grep &quot;Accepted password&quot;
-</code></pre>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/1743932591549-8b7f884c-0ec6-4218-8902-406ec02c578b.png" alt="img"></p>
-<p>这个时候回到网站根目录，运行 shell(1).elf，这个时候，没有任何回显。现在启动新的一个ssh连接，输入命令：</p>
-<p>netstat -antlp | more</p>
-<p>这个时候会发现一个ip。10.11.55.21</p>
-<p><img src="/../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/1743932847571-68b13b6d-607a-4371-b677-527f1e511f8d.png" alt="img"></p>
-<p>得到flag：flag{10.11.55.21}</p>
-<h3 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h3><p>由flag4可以得到端口：3333</p>
-
+            <p>通过ssh连接靶机</p>
             
         </div>
     </div>
@@ -241,7 +212,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #00a596">玄机</a>
+            <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #03a9f4">玄机</a>
         </span>
         
     </div>
@@ -319,7 +290,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #03a9f4">DC</a>
+            <a href="/tags/DC/" style="color: #ffa2c4">DC</a>
         </span>
         
     </div>
@@ -358,7 +329,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #00a596">DC</a>
+            <a href="/tags/DC/" style="color: #ffa2c4">DC</a>
         </span>
         
     </div>
@@ -397,7 +368,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #00a596">DC</a>
+            <a href="/tags/DC/" style="color: #ffa2c4">DC</a>
         </span>
         
     </div>
@@ -436,7 +407,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #ff7d73">DC</a>
+            <a href="/tags/DC/" style="color: #00bcd4">DC</a>
         </span>
         
     </div>
@@ -475,7 +446,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #00a596">DC</a>
+            <a href="/tags/DC/" style="color: #ff7d73">DC</a>
         </span>
         
     </div>
@@ -514,7 +485,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #ff7d73">DC</a>
+            <a href="/tags/DC/" style="color: #00a596">DC</a>
         </span>
         
     </div>
@@ -553,7 +524,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #03a9f4">DC</a>
+            <a href="/tags/DC/" style="color: #00bcd4">DC</a>
         </span>
         
     </div>
@@ -592,7 +563,7 @@ cat auth.log.1 |grep &quot;Accepted password&quot;
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #ff7d73">DC</a>
+            <a href="/tags/DC/" style="color: #03a9f4">DC</a>
         </span>
         
     </div>
