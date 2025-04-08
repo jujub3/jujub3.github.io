@@ -198,40 +198,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h3 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h3><p>1.黑客第一次写入的shell flag{关键字符串} </p>
-<p>首先连接吧</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743992450456-9c8ac73b-c90a-4251-8aed-82c27c045ff5.png" alt="img"></p>
-<p>直接进入根目录，然后查找flag</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743992547295-5bd171de-25aa-4c34-82d3-680232556d53.png" alt="img"></p>
-<p>flag{ccfda79e-7aa1-4275-bc26-a6189eb9a20b}</p>
-<h3 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h3><p>2.黑客反弹shell的ip flag{ip}</p>
-<p>查看mysql日志文件，发现一个比较可疑的地方：尝试执行 &#x2F;tmp&#x2F;1.sh这个脚本。</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743992932236-2fa0e347-853a-413f-88f4-edf31e6ff101.png" alt="img"></p>
-<p>然后跟着这个思路追溯到  &#x2F;tmp&#x2F;1.sh这个目录下。发现反弹shell的命令。</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743993020384-7216a45c-77c6-456b-9309-ae7cacf1acb9.png" alt="img"></p>
-<p>得到flag2：flag{192.168.100.13}</p>
-<h3 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h3><p>3.黑客提权文件的完整路径 md5 flag{md5} 注 &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;xxx.xx</p>
-<p>要提权，hacker肯定先知道了账号密码，可以猜想web目录下有页面泄露了，mysql的账号密码。</p>
-<p>find  &#x2F;var&#x2F;www&#x2F;html | xargs grep “root”</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743993183409-d093ae73-546a-4b25-9f03-6bc450fbe7db.png" alt="img"></p>
-<p>发现了密码：334cc35b3c704593</p>
-<p>然后mysql进行连接。mysql -uroot -p334cc35b3c704593</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743993622112-b9134e11-33ff-4427-95cb-93554e4d37fa.png" alt="img"></p>
-<p>然后查询mysql数据库中的所全局系统变量，里面包含secure的变量及当前值。</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743994205795-e7668f8c-6271-4d8a-b549-2136d7d9d8d2.png" alt="img"></p>
-<p>secure_file_priv为空，具有写入权限，一般进行了提权，一定会在&#x2F;usr&#x2F;lib&#x2F;mysql&#x2F;plugin&#x2F;目录下留下痕迹</p>
-<p>来到这个目录：这个目录是mysql存放用户自定义函数的，出现了一个udf.so文件，肯定是有人写入了一个自定义函数到库中</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743994503466-97a13c02-5643-4d89-9047-968e6fd3433c.png" alt="img"></p>
-<p>得到flag：flag{b1818bde4e310f3d23f1005185b973e7}</p>
-<h3 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h3><p>黑客获取的权限 flag{whoami后的值}</p>
-<p>既然hacker进行了提权，在库中写入了自定义函数，我们去数据库中查询一下</p>
-<p>select * from mysql.func;</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743994676607-a13f3f34-04be-4667-9e5f-35b69ee141ef.png" alt="img"></p>
-<p>sys_eval这个表会查询到新增函数，使用新增的这个函数执行系统命令。</p>
-<p>select sys_eval(“whoami”);	</p>
-<p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-mysql%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1743994785180-3646a0cb-46a8-456c-b807-5bc7583c4c00.png" alt="img"></p>
-<p>flag{mysql}</p>
-
+            <p>a终于来到了第二章了</p>
             
         </div>
     </div>
@@ -245,7 +212,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #ffa2c4">玄机</a>
+            <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #03a9f4">玄机</a>
         </span>
         
     </div>
@@ -284,7 +251,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #ffa2c4">玄机</a>
+            <a href="/tags/%E7%8E%84%E6%9C%BA/" style="color: #00bcd4">玄机</a>
         </span>
         
     </div>
@@ -362,7 +329,7 @@
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #00a596">DC</a>
+            <a href="/tags/DC/" style="color: #ffa2c4">DC</a>
         </span>
         
     </div>
@@ -401,7 +368,7 @@
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #00bcd4">DC</a>
+            <a href="/tags/DC/" style="color: #00a596">DC</a>
         </span>
         
     </div>
@@ -440,7 +407,7 @@
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #ffa2c4">DC</a>
+            <a href="/tags/DC/" style="color: #ff7d73">DC</a>
         </span>
         
     </div>
@@ -479,7 +446,7 @@
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #03a9f4">DC</a>
+            <a href="/tags/DC/" style="color: #ffa2c4">DC</a>
         </span>
         
     </div>
@@ -518,7 +485,7 @@
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #00bcd4">DC</a>
+            <a href="/tags/DC/" style="color: #00a596">DC</a>
         </span>
         
     </div>
@@ -557,7 +524,7 @@
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #ff7d73">DC</a>
+            <a href="/tags/DC/" style="color: #00bcd4">DC</a>
         </span>
         
     </div>
@@ -596,7 +563,7 @@
         
         <span class="tag">
             
-            <a href="/tags/DC/" style="color: #ff7d73">DC</a>
+            <a href="/tags/DC/" style="color: #00a596">DC</a>
         </span>
         
     </div>
