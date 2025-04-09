@@ -1,191 +1,194 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang=zh>
 <head>
-    <meta charset="utf-8" />
-    <title>dc-5 | jujub3</title>
-    <meta name="author" content="jujub3" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <link rel="icon" href="/images/head.jpg" />
-    <link rel="preconnect" href="https://s4.zstatic.net" />
-<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-<link rel="preconnect" href="https://fonts.googleapis.cn" />
-<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
-<link
-    rel="stylesheet"
-    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
-/>
-<script> const mixins = {}; </script>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="信息搜集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dc-5">
+<meta property="og:url" content="http://example.com/2025/04/04/dc-5/index.html">
+<meta property="og:site_name" content="jujub3">
+<meta property="og:description" content="信息搜集">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/dc-5/1735268343044-d652fac4-e2ee-47af-b0ae-3975c9639bae.png">
+<meta property="og:image" content="http://example.com/dc-5/1735268456242-4b36a510-0bd5-488b-99ac-7fc0b6163a8f.png">
+<meta property="og:image" content="http://example.com/dc-5/1735268595732-1f858e41-6c0a-488f-b547-c577d20410c6.png">
+<meta property="og:image" content="http://example.com/dc-5/1735270423053-80ee5359-190c-4272-9e3f-c19a2e63bf92.png">
+<meta property="og:image" content="http://example.com/dc-5/1735270442766-61648d45-595f-44aa-b39d-4d93ac95f959.png">
+<meta property="og:image" content="http://example.com/dc-5/1735270476844-22c9c97e-2f8b-4b4b-8dca-b7a0c46b6b0c.png">
+<meta property="og:image" content="http://example.com/dc-5/1735270532681-5571cf7c-e6e0-4132-b5cf-de747340c0f0.png">
+<meta property="og:image" content="http://example.com/dc-5/1735270630672-a9ecc99d-5fb8-493a-937b-df3cbac5ed8b.png">
+<meta property="og:image" content="http://example.com/dc-5/1735270727635-bd4c1e37-dc31-4782-9e94-a05028cce892.png">
+<meta property="og:image" content="http://example.com/dc-5/1735271114688-5a8d29d8-178c-442c-8c6c-1ab4bf6874ff.png">
+<meta property="og:image" content="http://example.com/dc-5/1735271529204-24ce7bd2-bb09-4a1f-a0c4-720c8da3b4ce.png">
+<meta property="og:image" content="http://example.com/dc-5/1735271619113-8d1646ca-1148-41fd-8d35-c1a4fbd2292c.png">
+<meta property="og:image" content="http://example.com/dc-5/1735272718817-444b16ee-5fd9-43fb-b24c-a62b6bd51cee.png">
+<meta property="og:image" content="http://example.com/dc-5/1735272735760-759bb5e4-bca6-44bd-8df0-f7da8c68c790.png">
+<meta property="og:image" content="http://example.com/dc-5/1735272753836-2de3600d-7fc0-412c-b40f-b58fac8a0ea0.png">
+<meta property="og:image" content="http://example.com/dc-5/1735273426372-53ef184f-b429-450c-974a-fcf89d07a75b.png">
+<meta property="og:image" content="http://example.com/dc-5/1735274106775-d12014aa-33c1-4362-b8de-ea81eaf1aef4.png">
+<meta property="og:image" content="http://example.com/dc-5/1735275622475-aecd7f23-e490-41a3-bc8b-ad16255e00a0.png">
+<meta property="og:image" content="http://example.com/dc-5/1735274593309-0e9b3995-fa03-4584-aa63-37f0ffc3844c.png">
+<meta property="og:image" content="http://example.com/dc-5/1735274677326-ace58fa6-7b23-4b32-ab0e-8a7bdd190bd9.png">
+<meta property="og:image" content="http://example.com/dc-5/1735274949149-e3b99c81-c29e-4742-b1cf-495dce16d871.png">
+<meta property="og:image" content="http://example.com/dc-5/1735275018851-11cd403f-9f12-405c-b021-779ef7c29e1d.png">
+<meta property="og:image" content="http://example.com/dc-5/1735275400963-fda4fec7-5cf0-4c38-9c5b-353fa7908cef.png">
+<meta property="og:image" content="http://example.com/dc-5/1735275426704-228763e6-52c2-4f18-83ff-0ed2ad4aeead.png">
+<meta property="og:image" content="http://example.com/dc-5/1735278285459-f925775a-ed06-4ce4-85e0-1fadee9bea94.png">
+<meta property="og:image" content="http://example.com/dc-5/1735278241483-2be062be-e804-4911-8b4f-b41664f7d21f.png">
+<meta property="og:image" content="http://example.com/dc-5/1735278354586-ff2d0637-42c2-4497-a5f7-60ae2538549f.png">
+<meta property="article:published_time" content="2025-04-04T09:39:11.000Z">
+<meta property="article:modified_time" content="2025-04-04T09:41:25.641Z">
+<meta property="article:author" content="jujub3">
+<meta property="article:tag" content="DC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/dc-5/1735268343044-d652fac4-e2ee-47af-b0ae-3975c9639bae.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/head.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/head.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>dc-5</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
-<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+    <!-- Umami Analytics -->
 
 
-<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
-
-
-<script src="/js/lib/preview.js"></script>
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
 <meta name="generator" content="Hexo 7.3.0"></head>
-<body>
-    <div id="layout">
-        <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
-                </div>
-            </div>
-        </transition>
-        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>JUJUB3</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags/THM">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;JUJUB3</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                    </div>
-                </a>
-                
-                <a href="/tags/THM">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
 
-        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>dc-5</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2025/4/4
-        </span>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2025/04/04/dc-6/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            
-            <span class="tag">
-                
-                <a href="/tags/DC/" style="color: #00a596">
-                    DC
-                </a>
-            </span>
-            
-        </span>
+        <li><a class="icon" aria-label="下一篇" href="/2025/04/04/dc-4/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/04/dc-5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/04/dc-5/&text=dc-5"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/04/dc-5/&is_video=false&description=dc-5"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=dc-5&body=Check out this article: http://example.com/2025/04/04/dc-5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/04/dc-5/&name=dc-5&description=&lt;h2 id=&#34;信息搜集&#34;&gt;&lt;a href=&#34;#信息搜集&#34; class=&#34;headerlink&#34; title=&#34;信息搜集&#34;&gt;&lt;/a&gt;信息搜集&lt;/h2&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/04/dc-5/&t=dc-5"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
     
-    <div class="content" v-pre>
-        <h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><span id="more"></span>
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">信息搜集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.</span> <span class="toc-text">文件包含漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%9C%A8%E9%A9%AC"><span class="toc-number">3.</span> <span class="toc-text">插入木马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%BC%B9shell"><span class="toc-number">4.</span> <span class="toc-text">反弹shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#suid%E6%8F%90%E6%9D%83"><span class="toc-number">5.</span> <span class="toc-text">suid提权</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E5%86%99%E5%85%A5libhax-c%E6%96%87%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">将第一部分写入libhax.c文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E5%86%99%E5%85%A5rootshell-c%E5%B9%B6%E7%BC%96%E8%AF%91"><span class="toc-number">5.2.</span> <span class="toc-text">将第二部分写入rootshell.c并编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%E5%86%99%E5%85%A5dc5-sh%E6%96%87%E4%BB%B6"><span class="toc-number">5.3.</span> <span class="toc-text">将第三部分写入dc5.sh文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E6%8B%BFroot"><span class="toc-number">6.</span> <span class="toc-text">上传脚本文件拿root</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        dc-5
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">jujub3</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-04T09:39:11.000Z" class="dt-published" itemprop="datePublished">2025-04-04</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/DC/" rel="tag">DC</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><span id="more"></span>
 
 <p><img src="/../dc-5/1735268343044-d652fac4-e2ee-47af-b0ae-3975c9639bae.png" alt="img"></p>
 <p>mac地址：00:0C:29:DA:9E:39</p>
@@ -248,71 +251,143 @@
 <p><img src="/../dc-5/1735278354586-ff2d0637-42c2-4497-a5f7-60ae2538549f.png" alt="img"></p>
 <p>同样也可以用kali开启python服务，或者apach服务来上传脚本文件。</p>
 
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
     </div>
+
     
     
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">信息搜集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.</span> <span class="toc-text">文件包含漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%9C%A8%E9%A9%AC"><span class="toc-number">3.</span> <span class="toc-text">插入木马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%BC%B9shell"><span class="toc-number">4.</span> <span class="toc-text">反弹shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#suid%E6%8F%90%E6%9D%83"><span class="toc-number">5.</span> <span class="toc-text">suid提权</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E5%86%99%E5%85%A5libhax-c%E6%96%87%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">将第一部分写入libhax.c文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E5%86%99%E5%85%A5rootshell-c%E5%B9%B6%E7%BC%96%E8%AF%91"><span class="toc-number">5.2.</span> <span class="toc-text">将第二部分写入rootshell.c并编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86%E5%86%99%E5%85%A5dc5-sh%E6%96%87%E4%BB%B6"><span class="toc-number">5.3.</span> <span class="toc-text">将第三部分写入dc5.sh文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E6%8B%BFroot"><span class="toc-number">6.</span> <span class="toc-text">上传脚本文件拿root</span></a></li></ol>
+      </div>
     
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/04/dc-5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/04/dc-5/&text=dc-5"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/04/dc-5/&is_video=false&description=dc-5"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=dc-5&body=Check out this article: http://example.com/2025/04/04/dc-5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/04/dc-5/&title=dc-5"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/04/dc-5/&name=dc-5&description=&lt;h2 id=&#34;信息搜集&#34;&gt;&lt;a href=&#34;#信息搜集&#34; class=&#34;headerlink&#34; title=&#34;信息搜集&#34;&gt;&lt;/a&gt;信息搜集&lt;/h2&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/04/dc-5/&t=dc-5"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
     </div>
-    
-    
-    
-    
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
 </div>
 
-            <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2025 jujub3
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;jujub3
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
         
-    </div>
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    jujub3
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
 </footer>
 
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-        </transition>
-        
     </div>
-    <script src="/js/main.js"></script>
-    
-    
-<script
-    src="https://giscus.app/client.js"
-    data-repo="jujub3/jujub3.github.io"
-    data-repo-id="R_kgDOOQ-ONw"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOOQ-ON84ComAd"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin
-    async
-></script>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 
 
 
 
+<!-- clipboard -->
 
-    
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
 </body>
 </html>
