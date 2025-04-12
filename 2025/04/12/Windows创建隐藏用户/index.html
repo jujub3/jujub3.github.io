@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="方法一：用户名后面加上$ 符号前提条件：在攻击过程中getshell，拿到目标服务器的administrator权限。 net user hack$ admin &#x2F;add					添加hack$这个用户 net localgroup administrators hack$ &#x2F;add		将hack$用户添加进管理员组  注意： 此时虽然使用命令行无法看到 wxiaoge$ 隐藏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows创建隐藏用户">
+<meta property="og:url" content="http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/index.html">
+<meta property="og:site_name" content="juju">
+<meta property="og:description" content="方法一：用户名后面加上$ 符号前提条件：在攻击过程中getshell，拿到目标服务器的administrator权限。 net user hack$ admin &#x2F;add					添加hack$这个用户 net localgroup administrators hack$ &#x2F;add		将hack$用户添加进管理员组  注意： 此时虽然使用命令行无法看到 wxiaoge$ 隐藏">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428078219-b20a29d7-7e72-4b30-a2e2-ea062374cd41.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428220589-6b8c07a5-a0bc-4b30-8b8a-8c808ff2bdb4.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428318390-fac5a50f-e5b7-4f40-a3bb-e819de92513a.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428616793-541dddef-9c28-4c2e-a035-8bf6ec933752.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428652044-06b19e8b-427e-4a3c-9001-9f05ca440428.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428710429-d0e2fd74-0ac6-4914-8712-d94036bd000e.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428779166-40fec072-0d9e-4c32-b22a-3f5ecd9fece6.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744429217006-55d8fc1c-7e27-4865-a748-87a96ae40d96.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744430357333-707b5713-dc22-4634-ac9d-d6dfdaa832d2.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744430500327-27d02c2d-f05c-4cee-bdb0-3d715aff1cba.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435535605-5d13373b-6f62-4193-bb3c-79100c660eac.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435639186-02442af6-f578-4b05-9b5b-c893d6c37cc1.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435596123-3d1d3ed8-0bc3-4e19-b5e9-30260c7c525c.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435739806-43b51b97-f15d-428a-ba46-a5ebf4d5d57e.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435785388-84f8dae8-b42b-475d-8eb9-12b159e15cde.png">
+<meta property="og:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435433485-f4447670-c719-4cc0-b89e-6500ee5e7a84.png">
+<meta property="article:published_time" content="2025-04-12T05:33:53.000Z">
+<meta property="article:modified_time" content="2025-04-12T05:34:43.638Z">
+<meta property="article:author" content="juju">
+<meta property="article:tag" content="内网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428078219-b20a29d7-7e72-4b30-a2e2-ea062374cd41.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/head.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/head.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>Windows创建隐藏用户</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/04/10/laravel%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B05-4/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&text=Windows创建隐藏用户"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&is_video=false&description=Windows创建隐藏用户"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows创建隐藏用户&body=Check out this article: http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&name=Windows创建隐藏用户&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&t=Windows创建隐藏用户"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%94%A8%E6%88%B7%E5%90%8D%E5%90%8E%E9%9D%A2%E5%8A%A0%E4%B8%8A-%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.</span> <span class="toc-text">方法一：用户名后面加上$ 符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BF%AE%E6%94%B9%E6%B3%A8%E5%86%8C%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">方法二：修改注册表</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Windows创建隐藏用户
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">juju</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-12T05:33:53.000Z" class="dt-published" itemprop="datePublished">2025-04-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E5%86%85%E7%BD%91/" rel="tag">内网</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h4 id="方法一：用户名后面加上-符号"><a href="#方法一：用户名后面加上-符号" class="headerlink" title="方法一：用户名后面加上$ 符号"></a>方法一：用户名后面加上$ 符号</h4><p>前提条件：在攻击过程中getshell，拿到目标服务器的administrator权限。</p>
+<p>net user hack$ admin &#x2F;add					添加hack$这个用户</p>
+<p>net localgroup administrators hack$ &#x2F;add		将hack$用户添加进管理员组</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428078219-b20a29d7-7e72-4b30-a2e2-ea062374cd41.png" alt="img"></p>
+<p>注意：</p>
+<p>此时虽然使用命令行无法看到 wxiaoge$ 隐藏用户，但是采用其它方法仍旧可以发现wxiaoge$ 隐藏用户，为了更好的隐藏新建的账户，还需要进行修改注册表文件操作</p>
+<p>net user 无法看到添加的用户，但是：wmic useraccount get Name 		可以看到</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428220589-6b8c07a5-a0bc-4b30-8b8a-8c808ff2bdb4.png" alt="img"></p>
+<p>同时控制面板也可以看到：</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428318390-fac5a50f-e5b7-4f40-a3bb-e819de92513a.png" alt="img"></p>
+<p>打开管理工具（控制面板改成小图标）：</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428616793-541dddef-9c28-4c2e-a035-8bf6ec933752.png" alt="img"></p>
+<p>也可以使用win+x</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428652044-06b19e8b-427e-4a3c-9001-9f05ca440428.png" alt="img"></p>
+<p>然后找到计算机管理。</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428710429-d0e2fd74-0ac6-4914-8712-d94036bd000e.png" alt="img"></p>
+<p>找到本地用户和组。<img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744428779166-40fec072-0d9e-4c32-b22a-3f5ecd9fece6.png" alt="img"></p>
+<p>net user看不到的原因：</p>
+<p>该账户是在创建或者加入家庭组的时候自动创建的，用来实现家庭组的功能。</p>
+<p>该账户并不是实质上的用户账户，所以无法通过netuser显示。</p>
+<h4 id="方法二：修改注册表"><a href="#方法二：修改注册表" class="headerlink" title="方法二：修改注册表"></a>方法二：修改注册表</h4><p>前提：需要创建一个带有 $ 符号的用户</p>
+<p>win+r  然后输入：regedit 打开注册表，路径为：HKEY_LOCAL_MARCHINE\SAM\SAM</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744429217006-55d8fc1c-7e27-4865-a748-87a96ae40d96.png" alt="img"></p>
+<p>然后右键点击权限：修改成如下选项。</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744430357333-707b5713-dc22-4634-ac9d-d6dfdaa832d2.png" alt="img"></p>
+<p>然后确定，重新打开注册表就能看到SAM的内容。</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744430500327-27d02c2d-f05c-4cee-bdb0-3d715aff1cba.png" alt="img"></p>
+<p>此时我们要导出</p>
+<ol>
+<li>user下的administrator的隐藏文件，即 1F4</li>
+<li>user&#x2F;name 下test$账户的文件</li>
+<li>user下的 test$ 账户的隐藏文件，在name下看到对应的是 3ED</li>
+</ol>
+<p>右键导出即可。</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435535605-5d13373b-6f62-4193-bb3c-79100c660eac.png" alt="img"></p>
+<p>最后导出这三个文件：</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435639186-02442af6-f578-4b05-9b5b-c893d6c37cc1.png" alt="img"></p>
+<p>导出之后，用记事本打开这两个文件，把administrator注册表文件中的F值赋值到test$ 账户的隐藏文件中去。</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435596123-3d1d3ed8-0bc3-4e19-b5e9-30260c7c525c.png" alt="img"></p>
+<p>替换之后，然后保存，删除  hack$ 用户： net user test$ &#x2F;del</p>
+<p>然后双击运行两个test的reg文件：<img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435739806-43b51b97-f15d-428a-ba46-a5ebf4d5d57e.png" alt="img"></p>
+<p>最后的结果：控制面板看不到test$ ，net user 也是。</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435785388-84f8dae8-b42b-475d-8eb9-12b159e15cde.png" alt="img"></p>
+<p>只有注册表跟 net user test$ 可以看到创建的 test$用户</p>
+<p><img src="/../image/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/1744435433485-f4447670-c719-4cc0-b89e-6500ee5e7a84.png" alt="img"></p>
+
+  </div>
+</article>
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments" class="blog-post-comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            visitor: true,
+            appId: '0cD8XYS5aRoaPXBQ2dkwSoOI-gzGzoHsz',
+            appKey: 'UD7mUoaxqx0jyMaDNVNDgTpN',
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+            avatar: 'robohash'
+        })
+    </script>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%94%A8%E6%88%B7%E5%90%8D%E5%90%8E%E9%9D%A2%E5%8A%A0%E4%B8%8A-%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.</span> <span class="toc-text">方法一：用户名后面加上$ 符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BF%AE%E6%94%B9%E6%B3%A8%E5%86%8C%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">方法二：修改注册表</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&text=Windows创建隐藏用户"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&is_video=false&description=Windows创建隐藏用户"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows创建隐藏用户&body=Check out this article: http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&title=Windows创建隐藏用户"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&name=Windows创建隐藏用户&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/12/Windows%E5%88%9B%E5%BB%BA%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7/&t=Windows创建隐藏用户"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    juju
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
